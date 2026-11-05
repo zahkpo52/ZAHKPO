@@ -11,7 +11,7 @@ import { organizationSchema, websiteSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 import WhatsAppIcon from "@/components/marketing/whatsApp-icon";
 
-const googleTagId = "G-T681GEMG96";
+const googleTagId = "G-2E5MF17EDZ";
 const isProduction = true;
 
 const inter = Inter({
