@@ -1,0 +1,111 @@
+{
+  "primary": [
+    { "label": "About", "route": "/about" },
+    { "label": "Services", "route": "/services", "type": "mega" },
+    { "label": "Specialties", "route": "/specialties", "type": "dropdown" },
+    { "label": "Resources", "type": "dropdown" },
+    { "label": "Life at SAS", "route": "/life-at-sas" },
+    { "label": "Contact", "route": "/contact" }
+  ],
+  "megaMenu": {
+    "Services": {
+      "groups": [
+        {
+          "label": "Accounting",
+          "items": [
+            { "label": "Year-End Accounts", "route": "/services/year-end-accounts" },
+            { "label": "Management Accounts", "route": "/services/management-accounts" },
+            { "label": "Bookkeeping", "route": "/services/bookkeeping" },
+            { "label": "Payroll", "route": "/services/payroll" },
+            { "label": "CIS Returns", "route": "/services/cis-returns" },
+            { "label": "iXBRL Tagging", "route": "/services/ixbrl-tagging" }
+          ]
+        },
+        {
+          "label": "Tax",
+          "items": [
+            { "label": "VAT Returns", "route": "/services/vat-returns" },
+            { "label": "Personal Tax", "route": "/services/personal-tax" },
+            { "label": "Corporation Tax", "route": "/services/corporation-tax" }
+          ]
+        },
+        {
+          "label": "Company Secretarial",
+          "items": [
+            { "label": "Business Setup", "route": "/services/business-setup" },
+            { "label": "Tax Registrations", "route": "/services/tax-registrations" },
+            { "label": "Corporate Due Diligence", "route": "/services/corporate-due-diligence" }
+          ]
+        }
+      ]
+    },
+    "Specialties": [
+      { "label": "Cloud Accounting", "route": "/specialties/cloud-accounting" },
+      { "label": "Making Tax Digital", "route": "/specialties/mtd" },
+      { "label": "AI Accounting", "route": "/specialties/ai-accounting" },
+      { "label": "Marketing Services", "route": "/specialties/marketing-services" }
+    ],
+    "Resources": [
+      { "label": "Blog", "route": "/blog" },
+      { "label": "FAQ", "route": "/faq" }
+    ]
+  },
+  "footer": {
+    "columns": [
+      {
+        "title": "Services",
+        "links": [
+          { "label": "Year-End Accounts", "route": "/services/year-end-accounts" },
+          { "label": "Management Accounts", "route": "/services/management-accounts" },
+          { "label": "Bookkeeping", "route": "/services/bookkeeping" },
+          { "label": "Payroll", "route": "/services/payroll" },
+          { "label": "VAT Returns", "route": "/services/vat-returns" },
+          { "label": "Corporation Tax", "route": "/services/corporation-tax" }
+        ]
+      },
+      {
+        "title": "Specialties",
+        "links": [
+          { "label": "Cloud Accounting", "route": "/specialties/cloud-accounting" },
+          { "label": "Making Tax Digital", "route": "/specialties/mtd" },
+          { "label": "AI Accounting", "route": "/specialties/ai-accounting" },
+          { "label": "Marketing Services", "route": "/specialties/marketing-services" }
+        ]
+      },
+      {
+        "title": "Company",
+        "links": [
+          { "label": "About", "route": "/about" },
+          { "label": "Life at SAS", "route": "/life-at-sas" },
+          { "label": "Blog", "route": "/blog" },
+          { "label": "FAQ", "route": "/faq" },
+          { "label": "Contact", "route": "/contact" }
+        ]
+      },
+      {
+        "title": "Legal",
+        "links": [
+          { "label": "Privacy Policy", "route": "/privacy" }
+        ]
+      }
+    ]
+  },
+  "social": [
+    { "platform": "LinkedIn", "url": "https://www.linkedin.com/company/sas-kpo/" },
+    { "platform": "Facebook", "url": "https://www.facebook.com/p/SAS-KPO-Services-61556891825789/" },
+    { "platform": "Instagram", "url": "https://www.instagram.com/saskposervices/" },
+    { "platform": "X", "url": "https://x.com/kpo_sas" }
+  ],
+  "contact": {
+    "phone": "+44 204 615 6780",
+    "phoneHref": "+442046156780",
+    "email": "sales@saskpo.co.uk",
+    "careersEmail": "hr@saskpo.co.uk",
+    "ukOffice": "71–75 Shelton Street, Covent Garden, London, WC2H 9JQ, United Kingdom",
+    "indiaOffices": [
+      "Ahmedabad — 1021 Gala Empire, Thaltej, Gujarat 380054",
+      "Jamnagar — Pancheshwar Tower, Gujarat 361001",
+      "Mandsaur — Madhya Pradesh 458001"
+    ]
+  }
+}
