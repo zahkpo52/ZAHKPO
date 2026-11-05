@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
@@ -10,7 +11,7 @@ import { organizationSchema, websiteSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 import WhatsAppIcon from "@/components/marketing/whatsApp-icon";
 
-const googleTagId = "G-RYMKW1WBQC";
+const googleTagId = "G-T681GEMG96";
 const isProduction = true;
 
 const inter = Inter({
@@ -65,7 +66,7 @@ export const viewport: Viewport = {
   themeColor: "#051a37",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} dark`}>
       <head>
