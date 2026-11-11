@@ -22,10 +22,12 @@ import { OfferingCard } from "@/components/marketing/offering-card";
 import { CTASection } from "@/components/marketing/cta-section";
 import { IconTile } from "@/components/marketing/icon-tile";
 import { Icon } from "@/components/layout/social-links";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, faqSchema } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/json-ld";
+import { FaqAccordion } from "@/components/marketing/faq-section";
 import { servicesBySlug } from "@/content/services";
 import { securityFeatures } from "@/content/about";
-import { challenges } from "@/content/home";
+import { challenges, homeFaqs } from "@/content/home";
 import { founders } from "@/content/team";
 import { clientTestimonials } from "@/content/testimonials";
 import { deliveryMetrics, deliveryStandards } from "@/content/stats";
@@ -77,11 +79,17 @@ const standardIcons = [ShieldCheck, UserCheck, ClipboardCheck, Cloud];
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={[faqSchema(homeFaqs)]} />
       <HomeHero />
 
       <section className="border-b border-border bg-background py-12">
         <Container>
           <LogoCloud label="Platforms we work in" />
+          <p className="mt-8 text-center">
+            <Link href="/software" className="text-sm font-medium text-primary hover:underline">
+              How we work in each platform →
+            </Link>
+          </p>
         </Container>
       </section>
 
@@ -384,6 +392,30 @@ export default function HomePage() {
           </Container>
         </Section>
       ) : null}
+
+      <Section className="border-t border-border bg-surface">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+            <Reveal>
+              <SectionHeading
+                align="left"
+                eyebrow="FAQ"
+                title="Questions UK firms ask us"
+                description="The things practices usually want to know before they outsource. Can't see yours? Ask us on a discovery call."
+              />
+              <Button asChild variant="secondary" className="mt-8">
+                <Link href="/faq">
+                  All FAQs
+                  <ArrowRight className="size-4" aria-hidden="true" />
+                </Link>
+              </Button>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <FaqAccordion items={homeFaqs} idPrefix="home" />
+            </Reveal>
+          </div>
+        </Container>
+      </Section>
 
       <CTASection />
     </>

@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { absoluteUrl } from "@/lib/seo";
 import { services } from "@/content/services";
+import { softwarePages } from "@/content/software";
 import { posts } from "@/content/blog";
 import { lastModifiedFor } from "@/content/page-dates";
 
@@ -18,6 +19,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/careers",
     "/contact",
     "/privacy",
+    "/software",
+    "/how-we-work",
+    "/security",
   ];
 
   const staticEntries: MetadataRoute.Sitemap = staticPaths.map((path) => ({
@@ -44,5 +48,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...serviceEntries, ...blogEntries];
+  const softwareEntries: MetadataRoute.Sitemap = softwarePages.map((s) => {
+    const path = `/software/${s.slug}`;
+    return {
+      url: absoluteUrl(path),
+      lastModified: lastModifiedFor(path),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    };
+  });
+
+  return [...staticEntries, ...serviceEntries, ...softwareEntries, ...blogEntries];
 }
