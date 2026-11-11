@@ -29,7 +29,7 @@ const quality = [
   { icon: BadgeCheck, title: "Founder-led review", text: "Our founders, including a Chartered Accountant, review the work on every engagement." },
   { icon: ListChecks, title: "Service checklists", text: "A short checklist for each service must be complete before work goes to review." },
   { icon: FileCheck2, title: "Documented SOPs", text: "Standard procedures mean the same standard on every job, whoever prepares it." },
-  { icon: MessageSquareText, title: "Feedback acted on", text: "Your review points go back to the preparer and reviewer, so the same issue is not repeated." },
+  { icon: MessageSquareText, title: "Review points in ZAH Nexus", text: "Your UK team raises review points in ZAH Nexus; we answer and close each one, and lessons carry into the next period." },
   { icon: ClipboardCheck, title: "One query list", text: "Questions come back to you in one clear list, not scattered emails." },
 ];
 

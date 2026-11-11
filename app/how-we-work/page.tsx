@@ -131,8 +131,8 @@ export default function HowWeWorkPage() {
             <SectionHeading
               align="left"
               eyebrow="ZAH Nexus"
-              title="Every job tracked in one workflow"
-              description="We run every job through ZAH Nexus, our in-house workflow platform. Each job has a status, an owner, a service checklist and a deadline, so nothing depends on memory or email threads."
+              title="One workspace for your UK team and ours"
+              description="We run every job through ZAH Nexus, our in-house workflow platform. Each job has a status, an owner, a service checklist and a deadline - and your UK team logs in to see progress, review the work and raise review points in the same place."
             />
           </Reveal>
           <Stagger className="grid gap-4 sm:grid-cols-2">
@@ -141,6 +141,8 @@ export default function HowWeWorkPage() {
               [ListChecks, "Service checklists", "Each service has a checklist completed before review."],
               [CalendarCheck, "Deadlines", "VAT quarters, year-ends and 31 January planned in advance."],
               [KeyRound, "Clear ownership", "A named preparer and reviewer on every job."],
+              [Users, "UK team login", "Your team logs in to track jobs and review the work."],
+              [ClipboardList, "Review points", "Your queries are answered and closed against the job."],
             ].map(([I, t, d]) => {
               const Icon = I as typeof Workflow;
               return (
