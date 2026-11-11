@@ -5,6 +5,7 @@ import { ServiceDetail, type RelatedItem } from "@/components/marketing/service-
 import { JsonLd } from "@/components/seo/json-ld";
 import { buildMetadata, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo";
 import { getService, services, servicesBySlug } from "@/content/services";
+import { posts } from "@/content/blog";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -40,6 +41,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     })
     .filter((x): x is RelatedItem => x !== null);
 
+  const reading = posts
+    .filter((p) => p.meta.related?.includes(`/services/${slug}`))
+    .slice(0, 3)
+    .map((p) => ({ href: `/blog/${p.meta.slug}`, title: p.meta.title, description: p.meta.description }));
+
   const crumbs = [
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
@@ -59,7 +65,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           ...(service.faqs?.length ? [faqSchema(service.faqs)] : []),
         ]}
       />
-      <ServiceDetail offering={service} crumbs={crumbs} related={related} />
+      <ServiceDetail offering={service} crumbs={crumbs} related={related} reading={reading} />
     </>
   );
 }
