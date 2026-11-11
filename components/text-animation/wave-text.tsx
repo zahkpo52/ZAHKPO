@@ -1,57 +1,22 @@
-"use client"
-
-import { TextAnimate } from "@/components/ui/text-animate"
-
-export function WaveTextAnimation({content}: {content: string}) {
-    return (
-        <TextAnimate
-            variants={{
-                hidden: {
-                    opacity: 0,
-                    y: 30,
-                    rotate: 45,
-                    scale: 0.5,
-                },
-                show: (i) => ({
-                    opacity: 1,
-                    y: 0,
-                    rotate: 0,
-                    scale: 1,
-                    transition: {
-                        delay: i * 0.1,
-                        duration: 0.4,
-                        y: {
-                            type: "spring",
-                            damping: 12,
-                            stiffness: 200,
-                            mass: 0.8,
-                        },
-                        rotate: {
-                            type: "spring",
-                            damping: 8,
-                            stiffness: 150,
-                        },
-                        scale: {
-                            type: "spring",
-                            damping: 10,
-                            stiffness: 300,
-                        },
-                    },
-                }),
-                exit: (i) => ({
-                    opacity: 0,
-                    y: 30,
-                    rotate: 45,
-                    scale: 0.5,
-                    transition: {
-                        delay: i * 0.1,
-                        duration: 0.6,
-                    },
-                }),
-            }}
-            by="character"
+/**
+ * "Think Outsourcing. Think ZAH." letter-by-letter entrance, done in CSS
+ * (`.wave-char` in globals.css) so the hero needs no animation library.
+ * Screen readers get the plain sentence; the split letters are hidden from them.
+ */
+export function WaveTextAnimation({ content }: { content: string }) {
+  return (
+    <span>
+      <span className="sr-only">{content}</span>
+      {Array.from(content).map((ch, i) => (
+        <span
+          key={i}
+          aria-hidden="true"
+          className="wave-char"
+          style={{ animationDelay: `${i * 0.06}s` }}
         >
-            {content}
-        </TextAnimate>
-    )
+          {ch === " " ? "\u00a0" : ch}
+        </span>
+      ))}
+    </span>
+  );
 }

@@ -254,3 +254,46 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Scroll-reveal and hero text animations (CSS only; see components/motion). */
+.motion-reveal,
+.motion-stagger .motion-item {
+  opacity: 0;
+  transform: translateY(var(--motion-y, 18px));
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.motion-reveal.motion-fade {
+  transition-duration: 0.8s;
+}
+.motion-reveal[data-shown],
+.motion-stagger[data-shown] .motion-item {
+  opacity: 1;
+  transform: none;
+}
+
+.wave-char {
+  display: inline-block;
+  animation: wave-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes wave-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px) rotate(45deg) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-reveal,
+  .motion-stagger .motion-item,
+  .wave-char {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
