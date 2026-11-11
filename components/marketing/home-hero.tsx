@@ -34,7 +34,7 @@ export function HomeHero() {
       </div>
       <div
         aria-hidden="true"
-        className="absolute right-[-10%] top-[-20%] -z-10 size-36rem rounded-full bg-[#f8d509]/10 blur-3xl"
+        className="absolute right-[-10%] top-[-20%] -z-10 size-36rem rounded-full bg-[#e5b84a]/10 blur-3xl"
       />
 
       <Container>
@@ -42,7 +42,7 @@ export function HomeHero() {
           className="flex max-w-3xl flex-col items-start py-24 md:py-32 lg:py-36"
         >
           <span
-            className="inline-flex items-center gap-2.5 rounded-full border border-[#f8d509]/30 bg-[#f8d509]/10 px-4 py-1.5 md:text-lg sm:text-md text-xs font-bold tracking-wide text-[#f8d509] backdrop-blur"
+            className="inline-flex items-center gap-2.5 rounded-full border border-[#e5b84a]/30 bg-[#e5b84a]/10 px-4 py-1.5 md:text-lg sm:text-md text-xs font-bold tracking-wide text-[#e5b84a] backdrop-blur"
           >
             <WaveTextAnimation content="Think Outsourcing. Think ZAH." />
           </span>
@@ -51,7 +51,7 @@ export function HomeHero() {
             className="mt-6 text-balance text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl"
           >
             Trusted Outsourcing Partner for{" "}
-            <span className="bg-[linear-gradient(120deg,#f8d509,#f5a800)] bg-clip-text text-transparent">
+            <span className="bg-[linear-gradient(120deg,#e5b84a,#c99a2e)] bg-clip-text text-transparent">
               UK Accounting Firms
             </span>
           </h1>
@@ -97,7 +97,7 @@ export function HomeHero() {
                 key={signal.label}
                 className="flex items-center gap-3 bg-[#051a37]/80 px-4 py-4 sm:px-5"
               >
-                <signal.icon className="size-5 shrink-0 text-[#f8d509]" aria-hidden="true" />
+                <signal.icon className="size-5 shrink-0 text-[#e5b84a]" aria-hidden="true" />
                 <div>
                   <p className="text-base font-semibold leading-tight text-white">{signal.value}</p>
                   <p className="text-xs leading-tight text-white/60">{signal.label}</p>

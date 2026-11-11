@@ -12,7 +12,7 @@ export function Card({
       className={cn(
         "rounded-2xl border border-border bg-card text-card-foreground shadow-[var(--shadow-soft)]",
         interactive &&
-          "transition-all duration-300 ease-out-quint hover:-translate-y-1 hover:border-primary/30 hover:shadow-[var(--shadow-lg)]",
+          "transition-colors duration-300 ease-out-quint hover:border-primary/40 hover:bg-surface-2",
         className,
       )}
       {...props}

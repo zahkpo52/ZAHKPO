@@ -32,7 +32,7 @@ export const services: Service[] = [
     title: "Year-End Accounts",
     category: "Core Finance & Accounting",
     icon: ClipboardCheck,
-    summary: "Year-End Accounts (FRS 102 & UK GAAP)",
+    summary: "Statutory accounts to FRS 102 and FRS 105, reviewed and ready to file.",
     metaTitle: "Outsourced Year-End Accounts for UK Firms",
     metaDescription:
       "FRS-compliant year-end accounts prepared by qualified accountants - working papers, draft accounts, iXBRL and filing support, delivered to deadline.",
@@ -271,7 +271,7 @@ export const services: Service[] = [
     title: "VAT Returns",
     category: "Compliance",
     icon: ReceiptText,
-    summary: "VAT Returns & Compliance",
+    summary: "Quarterly VAT returns prepared and filed under Making Tax Digital.",
     metaTitle: "VAT Return Outsourcing for UK Accountants",
     metaDescription:
       "Quarterly VAT returns prepared and reviewed under Making Tax Digital for UK accountancy firms, with error checks before your sign-off.",

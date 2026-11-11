@@ -23,7 +23,7 @@ export function Eyebrow({ className, ...props }: React.HTMLAttributes<HTMLParagr
   return (
     <p
       className={cn(
-        "text-[0.8125rem] font-semibold uppercase tracking-[0.08em] text-primary",
+        "inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary before:h-px before:w-8 before:bg-primary/70",
         className,
       )}
       {...props}
@@ -52,13 +52,13 @@ export function SectionHeading({
     <div
       className={cn(
         "flex flex-col gap-4",
-        align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl",
+        align === "center" ? "mx-auto max-w-2xl items-center text-center" : "max-w-2xl",
         className,
       )}
       {...props}
     >
       {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-      <Heading className="text-balance text-3xl font-semibold tracking-tight md:text-4xl">
+      <Heading className="text-balance text-3xl font-semibold tracking-tight text-white md:text-[2.5rem] md:leading-[1.15]">
         <BrandHighlight>{title}</BrandHighlight>
       </Heading>
       {description ? (

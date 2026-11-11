@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
 import { Container } from "@/components/ui/section";
 import { Logo } from "./logo";
@@ -9,103 +9,94 @@ import { footerColumns } from "@/lib/nav";
 import { siteConfig } from "@/lib/site";
 import { CookieSettingsButton } from "@/components/consent/consent-scripts";
 
+const linkClass =
+  "inline-block py-1 text-sm text-muted-foreground transition-colors hover:text-primary";
+
 export function Footer() {
   const year = new Date().getFullYear();
-  const { contact } = siteConfig;
+  const { ukOffice, khOffice } = siteConfig.contact;
+  const whatsappHref = `https://wa.me/${ukOffice.phoneHref.replace(/[^0-9]/g, "")}`;
 
   return (
-    <footer className="border-t border-border bg-surface">
+    <footer className="border-t border-border bg-[#031833]">
       <Container className="py-16 md:py-20">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_2fr]">
+        <div className="grid gap-12 lg:grid-cols-[1.3fr_0.8fr_0.8fr_1.3fr]">
           <div className="flex flex-col gap-6">
             <Logo />
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-              The trusted outsourcing partner for UK accounting firms. Skilled people, SOP-driven
-              processes, modern technology - work delivered accurately and on time.
+              The outsourcing partner for UK accountancy firms. Skilled people, SOP-driven processes
+              and modern technology - work delivered accurately and on time.
             </p>
             <NewsletterForm />
             <SocialLinks />
           </div>
 
-          <div className="grid gap-10 sm:grid-cols-3">
-            {footerColumns.map((column) => (
-              <div key={column.title}>
-                <h2 className="text-sm font-semibold text-foreground">{column.title}</h2>
-                <ul className="mt-4 space-y-1">
-                  {column.links.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className="inline-block py-1 text-sm text-muted-foreground transition-colors hover:text-primary"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          {footerColumns.map((column) => (
+            <div key={column.title}>
+              <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-white">
+                {column.title}
+              </h2>
+              <ul className="mt-5 space-y-1.5">
+                {column.links.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className={linkClass}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-white">
+                {ukOffice.label}
+              </h2>
+              <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <MapPin className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+                  <span>{ukOffice.address.join(", ")}</span>
+                </li>
+                <li>
+                  <a href={whatsappHref} target="_blank" rel="noreferrer" className="flex items-start gap-3 transition-colors hover:text-primary">
+                    <MessageCircle className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+                    {ukOffice.phone} (WhatsApp only)
+                  </a>
+                </li>
+                <li>
+                  <a href={`mailto:${ukOffice.email}`} className="flex items-start gap-3 transition-colors hover:text-primary">
+                    <Mail className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+                    {ukOffice.email}
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-white">
+                {khOffice.label}
+              </h2>
+              <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <MapPin className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+                  <span>{khOffice.address.slice(0, 3).join(", ")}</span>
+                </li>
+                <li>
+                  <a href={`tel:${khOffice.phoneHref}`} className="flex items-start gap-3 transition-colors hover:text-primary">
+                    <Phone className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+                    {khOffice.phone}
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div className="mt-12">
-          <div className="text-sm font-semibold uppercase tracking-[0.2em] text-foreground">
-            {contact.khOffice.label}
-          </div>
-          <div className="mt-5 grid gap-6 md:grid-cols-3">
-            <a
-              href={`tel:${contact.khOffice.phoneHref}`}
-              className="flex min-h-6 items-start gap-3 py-1 text-sm text-muted-foreground transition-colors hover:text-primary"
-            >
-              <Phone className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
-              {contact.khOffice.phone}
-            </a>
-            <a
-              href={`mailto:${contact.khOffice.email}`}
-              className="flex min-h-6 items-start gap-3 py-1 text-sm text-muted-foreground transition-colors hover:text-primary"
-            >
-              <Mail className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
-              {contact.khOffice.email}
-            </a>
-            <p className="flex items-start gap-3 text-sm text-muted-foreground">
-              <MapPin className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
-              <span>{contact.khOffice.address.slice(0, 3).join(", ")}</span>
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-12">
-          <div className="text-sm font-semibold uppercase tracking-[0.2em] text-foreground mb-2">
-            {contact.ukOffice.label}
-          </div>
-          <div className="text-sm text-muted-foreground">WhatsApp only</div>
-          <div className="mt-5 grid gap-6 md:grid-cols-3">
-            <a
-              href={`tel:${contact.ukOffice.phoneHref}`}
-              className="flex min-h-6 items-start gap-3 py-1 text-sm text-muted-foreground transition-colors hover:text-primary"
-              >
-              <Phone className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
-              {contact.ukOffice.phone}
-            </a>
-            <a
-              href={`mailto:${contact.ukOffice.email}`}
-              className="flex min-h-6 items-start gap-3 py-1 text-sm text-muted-foreground transition-colors hover:text-primary"
-            >
-              <Mail className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
-              {contact.ukOffice.email}
-            </a>
-            <p className="flex items-start gap-3 text-sm text-muted-foreground">
-              <MapPin className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
-              <span>{contact.ukOffice.address.slice(0).join(", ")}</span>
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground sm:flex-row">
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground sm:flex-row">
           <p>
             © {year} {siteConfig.legalName}. All rights reserved.
           </p>
-          <div className="flex items-center gap-5">
+          <div className="flex flex-wrap items-center gap-x-5">
             <Link href="/privacy" className="inline-block py-2 transition-colors hover:text-primary">
               Privacy Policy
             </Link>

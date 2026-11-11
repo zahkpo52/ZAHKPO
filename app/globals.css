@@ -8,7 +8,7 @@
 
   /* Brand constants sampled from the ZAH KPO logo */
   --brand-navy: #031833;
-  --brand-gold: #f8d509;
+  --brand-gold: #e5b84a;
 
   --background: #051a37;
   --surface: #0a2243;
@@ -16,16 +16,16 @@
   --foreground: #e9eef7;
   --muted: #0a2243;
   --muted-foreground: #9fb1cc;
-  --border: rgba(255, 255, 255, 0.1);
+  --border: rgba(255, 255, 255, 0.09);
   --input: rgba(255, 255, 255, 0.16);
   --card: #0a2243;
   --card-foreground: #e9eef7;
-  --primary: #4f8cf0;
-  --primary-strong: #2f66cc;
-  --primary-foreground: #04122b;
-  --accent: #f8d509;
-  --accent-foreground: #1c1600;
-  --ring: #6f9cf0;
+  --primary: #e5b84a;
+  --primary-strong: #c99a2e;
+  --primary-foreground: #0b1a33;
+  --accent: #e5b84a;
+  --accent-foreground: #0b1a33;
+  --ring: #e5b84a;
   --success: #059669;
   --warning: #b45309;
   --danger: #dc2626;
