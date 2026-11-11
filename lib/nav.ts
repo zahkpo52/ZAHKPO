@@ -184,6 +184,9 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
     links: [
       { label: "About", href: "/about" },
       { label: "Why ZAH", href: "/why-zah-kpo" },
+      { label: "How we work", href: "/how-we-work" },
+      { label: "Security & quality", href: "/security" },
+      { label: "Software we use", href: "/software" },
       { label: "Careers", href: "/careers" },
       { label: "Blog", href: "/blog" },
       { label: "FAQ", href: "/faq" },
