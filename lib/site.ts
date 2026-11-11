@@ -15,7 +15,7 @@ export const siteConfig = {
     phoneAltHref: "+917999983500",
     careersEmail: "info@zahkpo.com",
     ukOffice: {
-      label: "UK Office",
+      label: "UK Correspondence Address",
       whatsappOnly: true,
       phone: "+44 784 842 6766",
       email: "info@zahkpo.com",
