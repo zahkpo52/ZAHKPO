@@ -1,18 +1,15 @@
 import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
-import Script from "next/script";
 
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { JsonLd } from "@/components/seo/json-ld";
-import { organizationSchema, websiteSchema } from "@/lib/seo";
+import { defaultOgImage, founderSchemas, organizationSchema, websiteSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 import WhatsAppIcon from "@/components/marketing/whatsApp-icon";
-
-const googleTagId = "G-2E5MF17EDZ";
-const isProduction = true;
+import { ConsentScripts } from "@/components/consent/consent-scripts";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,7 +20,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} - Accounting Outsourcing for Accountancy Firms`,
+    default: `${siteConfig.name} | Accounting Outsourcing for UK Accountancy Firms`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -38,27 +35,35 @@ export const metadata: Metadata = {
     "tax outsourcing UK",
     "white label accounting",
   ],
-  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: siteConfig.url,
+    url: "/",
     siteName: siteConfig.name,
-    title: `${siteConfig.name} - Accounting Outsourcing for Accountancy Firms`,
+    title: `${siteConfig.name} | Accounting Outsourcing for UK Accountancy Firms`,
     description: siteConfig.description,
+    images: [defaultOgImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.name,
+    title: `${siteConfig.name} | Accounting Outsourcing for UK Accountancy Firms`,
     description: siteConfig.description,
+    images: [defaultOgImage.url],
   },
   robots: {
     index: true,
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
-  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
-    ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }
+  ...(siteConfig.verification.google || siteConfig.verification.bing
+    ? {
+        verification: {
+          ...(siteConfig.verification.google ? { google: siteConfig.verification.google } : {}),
+          ...(siteConfig.verification.bing
+            ? { other: { "msvalidate.01": siteConfig.verification.bing } }
+            : {}),
+        },
+      }
     : {}),
 };
 
@@ -68,26 +73,9 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} dark`}>
-      <head>
-        {isProduction && googleTagId ? (
-          <>
-            <Script src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`} strategy="afterInteractive" />
-            <Script id="google-analytics" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${googleTagId}');
-              `}
-            </Script>
-          </>
-        ) : null}
-        <Script src="https://cdn.botpress.cloud/webchat/v3.7/inject.js" strategy="afterInteractive" />
-        <Script src="https://files.bpcontent.cloud/2026/09/09/09/20260909094715-V501IO0Q.js" strategy="afterInteractive" />
-      </head>
+    <html lang="en-GB" className={`${inter.variable} dark`}>
       <body className="flex min-h-dvh flex-col bg-background font-sans text-foreground antialiased">
-        <JsonLd data={[organizationSchema(), websiteSchema()]} />
+        <JsonLd data={[organizationSchema(), websiteSchema(), ...founderSchemas()]} />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground"
@@ -100,6 +88,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </main>
         <WhatsAppIcon />
         <Footer />
+        <ConsentScripts />
       </body>
     </html>
   );

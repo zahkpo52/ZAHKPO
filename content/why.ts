@@ -35,7 +35,7 @@ export const whyDifferentiators: Differentiator[] = [
     icon: Radar,
   },
   {
-    title: "Quality & consistency guaranteed",
+    title: "Quality & consistency",
     tagline: "Review-ready work, every time",
     description:
       "Every deliverable passes multi-level review before it reaches you. Preparer, reviewer and final quality check - so the file you open is accurate, complete and consistent with the last one.",

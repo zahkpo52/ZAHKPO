@@ -7,7 +7,11 @@ import { Icon } from "../layout/social-links";
 
 export function FounderCard({ founder }: { founder: Founder }) {
   return (
-    <Card interactive className="group flex h-full flex-col overflow-hidden p-0">
+    <Card
+      interactive
+      id={founder.name.toLowerCase().replace(/[^a-z]+/g, "-")}
+      className="group flex h-full scroll-mt-24 flex-col overflow-hidden p-0"
+    >
       <div className="relative aspect-[2/3] overflow-hidden sm:aspect-[3/3.2]">
         <Image
           src={founder.image.src}
@@ -18,8 +22,7 @@ export function FounderCard({ founder }: { founder: Founder }) {
         />
         <div
           aria-hidden="true"
-          className="absolute 
-          bottom-0 right-0 bg-gradient-to-t from-[#031833]/85 via-transparent to-transparent"
+          className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#031833]/85 via-transparent to-transparent"
         />
         {founder.linkedin ? (
           <Link
@@ -27,7 +30,7 @@ export function FounderCard({ founder }: { founder: Founder }) {
             target="_blank"
             rel="noreferrer"
             aria-label={`Visit ${founder.name}'s LinkedIn profile`}
-            className="absolute right-4 top-4 inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 p-2 text-white backdrop-blur-sm transition-colors hover:bg-primary hover:text-primary-foreground"
+            className="absolute right-4 top-4 inline-flex size-11 items-center justify-center rounded-full border border-white/20 bg-white/10 p-2 text-white backdrop-blur-sm transition-colors hover:bg-primary hover:text-primary-foreground"
           >
             <Icon platform="LinkedIn" />
           </Link>

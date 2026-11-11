@@ -33,7 +33,7 @@ export const services: Service[] = [
     category: "Core Finance & Accounting",
     icon: ClipboardCheck,
     summary: "Year-End Accounts (FRS 102 & UK GAAP)",
-    metaTitle: "Year-End Accounts Outsourcing",
+    metaTitle: "Outsourced Year-End Accounts for UK Firms",
     metaDescription:
       "FRS-compliant year-end accounts prepared by qualified accountants - working papers, draft accounts, iXBRL and filing support, delivered to deadline.",
     hero: {
@@ -76,9 +76,9 @@ export const services: Service[] = [
     category: "Core Finance & Accounting",
     icon: LineChart,
     summary: "Monthly insight, variance analysis and forecasts that drive decisions.",
-    metaTitle: "Management Accounts Outsourcing",
+    metaTitle: "Outsourced Management Accounts for Accountants",
     metaDescription:
-      "Monthly and quarterly management accounts with variance analysis, cash-flow monitoring and custom MIS - turn financial data into decisions clients can act on.",
+      "Monthly and quarterly management accounts with variance analysis, cash-flow monitoring and custom MIS, prepared for your clients by our team.",
     hero: {
       eyebrow: "Core Finance & Accounting",
       heading: "Numbers your clients can actually act on",
@@ -117,9 +117,9 @@ export const services: Service[] = [
     category: "Core Finance & Accounting",
     icon: BookOpen,
     summary: "Accurate reconciliations and ledger upkeep, ready for reporting.",
-    metaTitle: "Bookkeeping Outsourcing",
+    metaTitle: "Outsourced Bookkeeping for UK Accountants",
     metaDescription:
-      "Accurate, compliant bookkeeping for UK accounting firms - reconciliations, AP/AR, ledger upkeep, fixed asset registers and reporting. Take on more clients without adding overhead.",
+      "White label bookkeeping for UK accounting firms: bank reconciliations, AP/AR, ledgers and fixed asset registers in Xero, QuickBooks or Sage.",
     hero: {
       eyebrow: "Core Finance & Accounting",
       heading: "Clean books, every month, without the headcount",
@@ -137,7 +137,7 @@ export const services: Service[] = [
     benefits: [
       { title: "Fewer month-end surprises", description: "Issues are caught early, not at year-end.", icon: CheckCircle2 },
       { title: "Scalable capacity", description: "Flex up or down as your client base moves.", icon: Gauge },
-      { title: "Bank-grade security", description: "Encrypted handling and controlled access throughout.", icon: Lock },
+      { title: "Controlled access", description: "Encrypted file handling and role-based access to client data.", icon: Lock },
       { title: "More billable time", description: "Your team focuses on advice, not data entry.", icon: TrendingUp },
     ],
     faqs: [
@@ -152,9 +152,9 @@ export const services: Service[] = [
     category: "Compliance",
     icon: Wallet,
     summary: "Fully managed, compliant payroll - accurate and on schedule.",
-    metaTitle: "Payroll Outsourcing",
+    metaTitle: "Payroll Outsourcing for UK Accountancy Firms",
     metaDescription:
-      "Fully managed payroll - salary processing, statutory deductions, pensions and reporting - handled securely and on schedule, with a dedicated point of contact.",
+      "White label payroll for UK accountancy firms: salary processing, statutory deductions, pensions and RTI reporting, run on schedule.",
     hero: {
       eyebrow: "Compliance",
       heading: "Payroll that runs like clockwork",
@@ -193,9 +193,9 @@ export const services: Service[] = [
     category: "Compliance",
     icon: HardHat,
     summary: "Construction Industry Scheme returns, accurate and penalty-free.",
-    metaTitle: "CIS Returns Outsourcing",
+    metaTitle: "Outsourced CIS Returns for UK Accountants",
     metaDescription:
-      "Construction Industry Scheme returns made simple - monthly calculations, deduction verification and HMRC-aligned submissions that keep contractors penalty-free.",
+      "Monthly CIS returns for your contractor clients: deduction calculations, subcontractor verification and HMRC-ready submissions.",
     hero: {
       eyebrow: "Compliance",
       heading: "CIS compliance without the monthly stress",
@@ -227,7 +227,7 @@ export const services: Service[] = [
     category: "Compliance",
     icon: FileCode,
     summary: "HMRC-ready, machine-readable accounts with validated tagging.",
-    metaTitle: "iXBRL Tagging Outsourcing",
+    metaTitle: "iXBRL Tagging Service for UK Accountants",
     metaDescription:
       "Convert financial statements into HMRC-compliant, machine-readable iXBRL with automated validation and careful review - faster filing, fewer errors.",
     hero: {
@@ -257,9 +257,9 @@ export const services: Service[] = [
     category: "Compliance",
     icon: ReceiptText,
     summary: "VAT Returns & Compliance",
-    metaTitle: "VAT Returns Outsourcing",
+    metaTitle: "VAT Return Outsourcing for UK Accountants",
     metaDescription:
-      "Quarterly VAT prepared, reviewed and filed under Making Tax Digital - accurate input/output calculations, error checks and advisory support. Never miss a deadline.",
+      "Quarterly VAT returns prepared and reviewed under Making Tax Digital for UK accountancy firms, with error checks before your sign-off.",
     hero: {
       eyebrow: "Compliance",
       heading: "Quarterly VAT, prepared and filed under MTD",
@@ -298,9 +298,9 @@ export const services: Service[] = [
     category: "Compliance",
     icon: UserCheck,
     summary: "Self-Assessment without the January crunch.",
-    metaTitle: "Personal Tax Returns Outsourcing",
+    metaTitle: "Self Assessment Tax Return Outsourcing",
     metaDescription:
-      "Self-Assessment prepared and reviewed by UK & Ireland tax specialists - kill the January crunch, hit every deadline and free your team for advisory work.",
+      "Self Assessment returns prepared and reviewed for UK accountancy firms, so your team gets through January without the crunch.",
     hero: {
       eyebrow: "Compliance",
       heading: "Self-Assessment season, minus the crunch",
@@ -332,9 +332,9 @@ export const services: Service[] = [
     category: "Compliance",
     icon: Building2,
     summary: "CT600 computations, risk-checked and filed on time.",
-    metaTitle: "Corporation Tax Outsourcing",
+    metaTitle: "Corporation Tax & CT600 Outsourcing",
     metaDescription:
-      "CT600 computations and corporation tax returns prepared, risk-checked and filed on time by specialists - compliance and confidence without peak-season strain.",
+      "CT600 computations and corporation tax returns prepared and risk-checked for UK accountancy firms, ready for your review.",
     hero: {
       eyebrow: "Compliance",
       heading: "Corporation tax, computed and filed with confidence",
@@ -362,9 +362,9 @@ export const services: Service[] = [
     category: "Company Secretarial",
     icon: Rocket,
     summary: "Company formation to dissolution, fully supported.",
-    metaTitle: "Business Setup & Support",
+    metaTitle: "UK Business Setup Support for Accountants",
     metaDescription:
-      "Company formation to dissolution - registrations, statutory documentation, confirmation statements and virtual admin - one accountable partner for the whole lifecycle.",
+      "Company formation to dissolution: registrations, statutory records, confirmation statements and admin support for your clients.",
     hero: {
       eyebrow: "Company Secretarial",
       heading: "Company formation to closure, handled",
@@ -393,7 +393,7 @@ export const services: Service[] = [
     category: "Company Secretarial",
     icon: ClipboardList,
     summary: "VAT, PAYE, SA and CIS registrations - right first time.",
-    metaTitle: "Tax Registrations & Filings",
+    metaTitle: "UK Tax Registrations & Filings Support",
     metaDescription:
       "VAT, PAYE, Self-Assessment and CIS registrations, statutory filings and HMRC correspondence handled correctly first time - compliant from day one.",
     hero: {
@@ -424,7 +424,7 @@ export const services: Service[] = [
     category: "Company Secretarial",
     icon: ShieldCheck,
     summary: "Director IDV, AML/KYC and statutory support, done securely.",
-    metaTitle: "Corporate Due Diligence & Statutory Support",
+    metaTitle: "Due Diligence & Statutory Support",
     metaDescription:
       "Director ID verification, PSC checks, AML/KYC due diligence and ICO correspondence - Companies House-compliant statutory support, handled securely.",
     hero: {
@@ -454,9 +454,9 @@ export const services: Service[] = [
     category: "CFO & Advisory",
     icon: Briefcase,
     summary: "Virtual CFO support, forecasting and KPI reporting that drive decisions.",
-    metaTitle: "Virtual CFO & Advisory Services",
+    metaTitle: "Virtual CFO Support for UK Accountancy Firms",
     metaDescription:
-      "Virtual CFO support for UK firms and their clients - budgeting, cash-flow forecasting, financial modelling, KPI dashboards and business performance reviews that turn numbers into decisions.",
+      "Virtual CFO support for UK firms and their clients: budgets, cash-flow forecasts, financial models and KPI dashboards.",
     hero: {
       eyebrow: "CFO & Advisory",
       heading: "Senior financial insight, on demand",
@@ -495,9 +495,9 @@ export const services: Service[] = [
     category: "Audit Support",
     icon: FileSearch,
     summary: "Working papers, lead schedules and audit file preparation, done right.",
-    metaTitle: "Audit Support Services",
+    metaTitle: "Audit Support Outsourcing for UK Firms",
     metaDescription:
-      "Outsourced audit support for UK firms - audit working papers, lead schedules, sampling support, audit file preparation and financial statement drafting, prepared to your standards.",
+      "Outsourced audit support for UK firms: working papers, lead schedules, sampling and audit file preparation to your methodology.",
     hero: {
       eyebrow: "Audit Support",
       heading: "Audit-ready files, prepared off your desk",

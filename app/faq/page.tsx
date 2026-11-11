@@ -10,7 +10,7 @@ import { buildMetadata, breadcrumbSchema, faqSchema } from "@/lib/seo";
 import { faqCategories, faqs } from "@/content/faqs";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Frequently Asked Questions",
+  title: "Accounting Outsourcing FAQs",
   description:
     "Answers to common questions about outsourcing your accounting to ZAH KPO - security, scope, pricing model, technology and more.",
   path: "/faq",

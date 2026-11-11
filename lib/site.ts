@@ -4,29 +4,33 @@ export const siteConfig = {
   name: "ZAH KPO",
   shortName: "ZAH KPO",
   legalName: "Zah Professional Services Private Limited",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.zahkpo.com",
+  // Primary host is www.zahkpo.com. Canonicals, sitemap, robots, Open Graph and
+  // schema all derive from this value; any trailing slash is stripped.
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.zahkpo.com").replace(/\/+$/, ""),
+  logo: "/logo-mark.png",
   founded: 2025,
-  tagline: "Growth Beyond Limits",
+  tagline: "Growth Beyond Limit",
   description:
-    "ZAH KPO is a technology-driven KPO and trusted outsourcing partner for UK accounting firms - bookkeeping, year-end accounts, tax, payroll, audit support and CFO advisory, delivered accurately and on time.",
+    "ZAH KPO is the outsourcing partner for UK accountancy firms: bookkeeping, year-end accounts, VAT, payroll, tax and audit support, reviewed and on time.",
   contact: {
     phoneAlt: "+91 79999 83500",
     phoneAltHref: "+917999983500",
     careersEmail: "info@zahkpo.com",
     ukOffice: {
-      label: "Head Office",
+      label: "UK Office",
+      whatsappOnly: true,
       phone: "+44 784 842 6766",
       email: "info@zahkpo.com",
       phoneHref: "+447848426766",
       address: [
-        "5 Ruslip Road",
+        "5 Ruislip Road",
         "Greenford",
         "England",
         "UB6 9QD",
       ],
     },
     khOffice: {
-      label: "Head Office",
+      label: "India Delivery Centre",
       phone: "+91 88899 84419",
       email: "info@zahkpo.com",
       phoneHref: "+918889984419",
@@ -45,7 +49,17 @@ export const siteConfig = {
       url: founders[1].linkedin,
     },
   ] as { platform: "LinkedIn" | "Facebook" | "Instagram" | "X"; url: string }[],
+  // Company LinkedIn page URL. Leave empty until confirmed; when set it is used
+  // as the Organization's sameAs in schema (personal profiles go on each founder).
+  companyLinkedIn: process.env.NEXT_PUBLIC_COMPANY_LINKEDIN ?? "",
   markets: ["United Kingdom"],
+  // Search engine ownership tokens (content="..." value only). Paste the token
+  // from Google Search Console / Bing Webmaster Tools here, or set the env vars.
+  // Not needed if the site is verified by DNS (recommended: Cloudflare TXT record).
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? "",
+    bing: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION ?? "",
+  },
 } as const;
 
 export type SiteConfig = typeof siteConfig;

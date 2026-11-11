@@ -48,12 +48,12 @@ export function PageHero({
             {image!.mobileSrc ? (
               <>
                 <source media="(max-width: 639px)" type="image/webp" srcSet={toWebpPath(image!.mobileSrc)} />
-                <source media="(max-width: 639px)" srcSet={image!.mobileSrc} />
               </>
             ) : null}
             <source media="(min-width: 640px)" type="image/webp" srcSet={toWebpPath(image!.src)} />
+            {/* Only .webp files are deployed, so the fallback <img> must use the .webp too. */}
             <img
-              src={image!.src}
+              src={toWebpPath(image!.src)}
               alt=""
               fetchPriority="high"
               decoding="async"

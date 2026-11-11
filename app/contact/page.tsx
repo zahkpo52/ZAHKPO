@@ -11,9 +11,9 @@ import { buildMetadata, breadcrumbSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Contact ZAH KPO | Book a call or send us a message  ",
+  title: "Contact Us – Discuss Outsourcing Your Work",
   description:
-    "Talk to ZAH KPO about outsourcing your accounting. Call +91 88899 84419, email info@theledgerbridge.com, or send us a message - we reply fast.",
+    "Talk to ZAH KPO about outsourcing your firm's accounting work. Email info@zahkpo.com, WhatsApp our UK number or send a message and we'll reply quickly.",
   path: "/contact",
   keywords: ["ZAH KPO", "contact ZAH KPO", "accounting outsourcing enquiry", "book a call", "ZAH KPO Head Office"],
 });

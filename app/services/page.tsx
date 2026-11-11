@@ -13,9 +13,9 @@ import { buildMetadata, breadcrumbSchema } from "@/lib/seo";
 import { serviceCategories, services } from "@/content/services";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Outsourced Accounting Services",
+  title: "Outsourced Accounting Services for UK Firms",
   description:
-    "Explore ZAH KPO's full range of outsourced services for UK firms - core accounting, compliance, CFO advisory, audit support and company secretarial - built to add capacity without adding headcount.",
+    "Outsourced bookkeeping, year-end accounts, VAT, payroll, tax, audit support and secretarial work for UK accountancy firms. Add capacity, not headcount.",
   path: "/services",
   keywords: ["outsourced accounting services", "audit support outsourcing", "virtual CFO services"],
 });
