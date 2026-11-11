@@ -15,7 +15,7 @@ export const siteConfig = {
     phoneAltHref: "+917999983500",
     careersEmail: "info@zahkpo.com",
     ukOffice: {
-      label: "UK Office",
+      label: "UK Correspondence Address",
       whatsappOnly: true,
       phone: "+44 784 842 6766",
       email: "info@zahkpo.com",
@@ -52,6 +52,8 @@ export const siteConfig = {
   companyLinkedIn:
     process.env.NEXT_PUBLIC_COMPANY_LINKEDIN ??
     "https://www.linkedin.com/company/112570412/",
+  // Google Business Profile (India Delivery Centre, Khargone).
+  googleBusinessProfile: "https://maps.google.com/?cid=16482186183993217954",
   markets: ["United Kingdom"],
   // Search engine ownership tokens (content="..." value only). Paste the token
   // from Google Search Console / Bing Webmaster Tools here, or set the env vars.
