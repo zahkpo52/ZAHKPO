@@ -126,7 +126,7 @@ export function organizationSchema() {
       },
     ],
     founder: founders.map((f) => ({ "@id": personId(f.name) })),
-    ...(siteConfig.companyLinkedIn ? { sameAs: [siteConfig.companyLinkedIn] } : {}),
+    sameAs: [siteConfig.companyLinkedIn, siteConfig.googleBusinessProfile].filter(Boolean),
   };
 }
 
