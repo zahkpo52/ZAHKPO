@@ -24,7 +24,7 @@ export const founders: Founder[] = [
   {
     name: "Mustafa Bag",
     role: "Co-Founder & Director",
-    credential: "B.Com",
+    credential: "B.Com · ACCA Part-Qualified",
     bio: "Accounting professional with 5+ years of experience in UK accounting, management accounts, tax compliance, and KPO operations, supporting firms through efficient and scalable accounting solutions.",
     image: {
       src: "/team/mustafa-bag.webp",
