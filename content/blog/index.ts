@@ -9,6 +9,8 @@ import OutsourceYearEnd, { meta as outsourceYearEndMeta } from "./how-to-outsour
 import IndiaGdpr, { meta as indiaGdprMeta } from "./outsourcing-accounting-to-india-uk-gdpr-checklist";
 import MtdIncomeTax, { meta as mtdIncomeTaxMeta } from "./making-tax-digital-income-tax-what-practices-need-to-do";
 import HiringVsOutsourcing, { meta as hiringMeta } from "./hiring-vs-outsourcing-accounting-capacity";
+import CompaniesHouseIdv, { meta as idvMeta } from "./companies-house-identity-verification-guide";
+import ReverseCharge, { meta as reverseChargeMeta } from "./construction-vat-domestic-reverse-charge-guide";
 
 export interface BlogPost {
   meta: BlogMeta;
@@ -24,6 +26,8 @@ export const posts: BlogPost[] = [
   { meta: indiaGdprMeta, Body: IndiaGdpr },
   { meta: mtdIncomeTaxMeta, Body: MtdIncomeTax },
   { meta: hiringMeta, Body: HiringVsOutsourcing },
+  { meta: idvMeta, Body: CompaniesHouseIdv },
+  { meta: reverseChargeMeta, Body: ReverseCharge },
 ].sort((a, b) => b.meta.date.localeCompare(a.meta.date));
 
 export function getPost(slug: string): BlogPost | undefined {
