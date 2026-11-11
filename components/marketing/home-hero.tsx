@@ -23,7 +23,7 @@ const trustSignals = [
   { icon: Timer, value: "5000+", label: "Hours Delivered" },
   { icon: Clock, value: "99%", label: "On-Time Delivery" },
   { icon: ShieldCheck, value: "GDPR", label: "Secure" },
-  { icon: Award, value: "CA & ACCA", label: "Qualified" },
+  { icon: Award, value: "CA-led", label: "Review" },
 ];
 
 export function HomeHero() {
@@ -35,10 +35,9 @@ export function HomeHero() {
       <div aria-hidden="true" className="absolute inset-0 -z-10">
         <picture>
           <source media="(max-width: 639px)" type="image/webp" srcSet="/images/mobile/hero-team-mobile.webp" />
-          <source media="(max-width: 639px)" type="image/jpeg" srcSet="/images/mobile/hero-team-mobile.jpg" />
           <source media="(min-width: 640px)" type="image/webp" srcSet="/images/home-hero.webp" />
           <img
-            src="/images/home-hero.jpg"
+            src="/images/home-hero.webp"
             alt=""
             fetchPriority="high"
             decoding="async"
@@ -56,7 +55,8 @@ export function HomeHero() {
       <Container>
         <motion.div
           variants={reduce ? undefined : container}
-          initial={reduce ? false : "hidden"}
+          // Rendered visible in the server HTML so the hero (LCP) does not wait for JavaScript.
+          initial={false}
           animate={reduce ? false : "show"}
           className="flex max-w-3xl flex-col items-start py-24 md:py-32 lg:py-36"
         >

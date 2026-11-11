@@ -31,7 +31,7 @@ export const aboutValues: IconItem[] = [
 /** From the profile: "What differentiates us?" */
 export const differentiators: IconItem[] = [
   { title: "Proactive approach", description: "We anticipate what your practice needs and move on it before it becomes a problem.", icon: Award },
-  { title: "Quality & consistency guaranteed", description: "Multi-level review on every deliverable keeps accuracy and standards high.", icon: ShieldCheck },
+  { title: "Quality & consistency", description: "Multi-level review on every deliverable keeps accuracy and standards high.", icon: ShieldCheck },
   { title: "SOP-driven approach", description: "Standardised, documented processes mean dependable, repeatable delivery.", icon: ListChecks },
   { title: "Helps grow client practice", description: "We handle the back office so you can focus on advice, relationships and growth.", icon: TrendingUp },
 ];
@@ -73,7 +73,7 @@ export const timeline: { year: string; title: string; description: string }[] = 
     year: "Built on experience",
     title: "Founder-led delivery",
     description:
-      "Co-founders Husain Sangam (CA) and Mustafa Bag (ACCA) bring 12+ combined years in UK accounting, audit and compliance to every engagement.",
+      "Co-founders Husain Sangam (CA) and Mustafa Bag bring 12+ combined years in UK accounting, audit and compliance to every engagement.",
   },
   {
     year: "People · Process · Technology",

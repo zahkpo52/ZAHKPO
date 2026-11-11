@@ -27,9 +27,9 @@ import { founders } from "@/content/team";
 // import { stats } from "@/content/stats";
 
 export const metadata: Metadata = buildMetadata({
-  title: "About ZAH KPO | The back office UK accounting firms count on",
+  title: "About Us – Outsourcing Partner for UK Firms",
   description:
-    "Founded in 2025, ZAH KPO (Zah Professional Services Pvt Ltd) helps UK accounting firms scale with skilled professionals, SOP-driven processes, modern technology and GDPR-aligned security.",
+    "Meet ZAH KPO's founders and team. We help UK accountancy firms add capacity with skilled staff, SOP-led processes and UK GDPR-aligned security.",
   path: "/about",
   keywords: ["about ZAH KPO", "accounting outsourcing partner UK", "KPO for accountants"],
 });

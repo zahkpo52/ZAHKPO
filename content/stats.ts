@@ -18,7 +18,7 @@ export const deliveryMetrics: Stat[] = [
 /** Qualitative delivery standards shown alongside the headline metrics. */
 export const deliveryStandards: { value: string; label: string }[] = [
   { value: "GDPR", label: "Aligned security processes" },
-  { value: "CA & ACCA", label: "Qualified founders" },
+  { value: "CA-led", label: "Founder review on every engagement" },
   { value: "SOP-driven", label: "Multi-level quality checks" },
   { value: "Xero · QuickBooks · Dext · Sage · FreeAgent", label: "Platform expertise" },
 ];

@@ -93,7 +93,11 @@ interface CounterProps {
   duration?: number;
 }
 
-/** Counts up from 0 to `value` when scrolled into view. */
+/**
+ * Counts up from 0 to `value` when scrolled into view. The final figure is
+ * rendered in the server HTML (so crawlers and no-JS readers see the real
+ * number); the count-up only runs in the browser once the counter is visible.
+ */
 export function AnimatedCounter({
   value,
   prefix = "",
@@ -104,7 +108,7 @@ export function AnimatedCounter({
   const reduce = useReducedMotion();
   const ref = React.useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.5 });
-  const [display, setDisplay] = React.useState(0);
+  const [display, setDisplay] = React.useState(value);
 
   React.useEffect(() => {
     if (reduce || !inView) return;

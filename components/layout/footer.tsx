@@ -7,6 +7,7 @@ import { SocialLinks } from "./social-links";
 import { NewsletterForm } from "@/components/marketing/newsletter-form";
 import { footerColumns } from "@/lib/nav";
 import { siteConfig } from "@/lib/site";
+import { CookieSettingsButton } from "@/components/consent/consent-scripts";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -29,13 +30,13 @@ export function Footer() {
           <div className="grid gap-10 sm:grid-cols-3">
             {footerColumns.map((column) => (
               <div key={column.title}>
-                <h3 className="text-sm font-semibold text-foreground">{column.title}</h3>
-                <ul className="mt-4 space-y-2.5">
+                <h2 className="text-sm font-semibold text-foreground">{column.title}</h2>
+                <ul className="mt-4 space-y-1">
                   {column.links.map((link) => (
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                        className="inline-block py-1 text-sm text-muted-foreground transition-colors hover:text-primary"
                       >
                         {link.label}
                       </Link>
@@ -49,19 +50,19 @@ export function Footer() {
 
         <div className="mt-12">
           <div className="text-sm font-semibold uppercase tracking-[0.2em] text-foreground">
-            India Office
+            {contact.khOffice.label}
           </div>
           <div className="mt-5 grid gap-6 md:grid-cols-3">
             <a
               href={`tel:${contact.khOffice.phoneHref}`}
-              className="flex items-start gap-3 text-sm text-muted-foreground transition-colors hover:text-primary"
+              className="flex min-h-6 items-start gap-3 py-1 text-sm text-muted-foreground transition-colors hover:text-primary"
             >
               <Phone className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
               {contact.khOffice.phone}
             </a>
             <a
               href={`mailto:${contact.khOffice.email}`}
-              className="flex items-start gap-3 text-sm text-muted-foreground transition-colors hover:text-primary"
+              className="flex min-h-6 items-start gap-3 py-1 text-sm text-muted-foreground transition-colors hover:text-primary"
             >
               <Mail className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
               {contact.khOffice.email}
@@ -75,22 +76,20 @@ export function Footer() {
 
         <div className="mt-12">
           <div className="text-sm font-semibold uppercase tracking-[0.2em] text-foreground mb-2">
-            UK Office
+            {contact.ukOffice.label}
           </div>
-            <div className="text-sm text-muted-foreground">
-              Only For WhatsApp
-            </div>
+          <div className="text-sm text-muted-foreground">WhatsApp only</div>
           <div className="mt-5 grid gap-6 md:grid-cols-3">
             <a
               href={`tel:${contact.ukOffice.phoneHref}`}
-              className="flex items-start gap-3 text-sm text-muted-foreground transition-colors hover:text-primary"
+              className="flex min-h-6 items-start gap-3 py-1 text-sm text-muted-foreground transition-colors hover:text-primary"
               >
               <Phone className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
               {contact.ukOffice.phone}
             </a>
             <a
               href={`mailto:${contact.ukOffice.email}`}
-              className="flex items-start gap-3 text-sm text-muted-foreground transition-colors hover:text-primary"
+              className="flex min-h-6 items-start gap-3 py-1 text-sm text-muted-foreground transition-colors hover:text-primary"
             >
               <Mail className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
               {contact.ukOffice.email}
@@ -107,15 +106,16 @@ export function Footer() {
             © {year} {siteConfig.legalName}. All rights reserved.
           </p>
           <div className="flex items-center gap-5">
-            <Link href="/privacy" className="transition-colors hover:text-primary">
+            <Link href="/privacy" className="inline-block py-2 transition-colors hover:text-primary">
               Privacy Policy
             </Link>
-            <Link href="/faq" className="transition-colors hover:text-primary">
+            <Link href="/faq" className="inline-block py-2 transition-colors hover:text-primary">
               FAQ
             </Link>
-            <Link href="/contact" className="transition-colors hover:text-primary">
+            <Link href="/contact" className="inline-block py-2 transition-colors hover:text-primary">
               Contact
             </Link>
+            <CookieSettingsButton className="inline-block py-2 transition-colors hover:text-primary" />
           </div>
         </div>
       </Container>

@@ -31,6 +31,7 @@ export async function generateMetadata({
     title: post.meta.title,
     description: post.meta.description,
     path: `/blog/${slug}`,
+    ogType: "article",
     keywords: [post.meta.category.toLowerCase(), "accounting", "outsourcing"],
   });
 }

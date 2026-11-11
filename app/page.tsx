@@ -12,7 +12,6 @@ import { LogoCloud } from "@/components/marketing/logo-cloud";
 import { OfferingCard } from "@/components/marketing/offering-card";
 import { CTASection } from "@/components/marketing/cta-section";
 import { IconTile } from "@/components/marketing/icon-tile";
-// import { TestimonialsSection } from "@/components/marketing/testimonials-section";
 import { buildMetadata } from "@/lib/seo";
 import { servicesBySlug } from "@/content/services";
 // import { specialties } from "@/content/specialties";
@@ -22,9 +21,10 @@ import { clientTestimonials } from "@/content/testimonials";
 import { deliveryMetrics, deliveryStandards } from "@/content/stats";
 
 export const metadata: Metadata = buildMetadata({
-  title: "ZAH KPO - Accounting Outsourcing for UK Accounting Firms",
+  title: "ZAH KPO | Accounting Outsourcing for UK Accountancy Firms",
+  absoluteTitle: true,
   description:
-    "ZAH KPO is a technology-driven KPO and the outsourced back office for UK accounting firms - bookkeeping, year-end accounts, tax, payroll, audit support and CFO advisory, delivered accurately and on time.",
+    "Outsourced bookkeeping, year-end accounts, VAT, payroll and tax support for UK accountancy firms. Reviewed work, delivered on time by ZAH KPO.",
   path: "/",
   keywords: [
     "accounting outsourcing UK",
@@ -49,7 +49,7 @@ export default function HomePage() {
       <HomeHero />
 
       <Container className="pb-8 pt-12">
-        <LogoCloud label="Trusted by accounting firms across the UK - on the platforms your clients already use" />
+        <LogoCloud label="Platforms we work in - the software your clients already use" />
       </Container>
 
       <Section className="pt-16 md:pt-20">
@@ -146,8 +146,6 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* <TestimonialsSection /> */}
-
       <Section>
         <Container>
           <Reveal>
@@ -235,6 +233,7 @@ export default function HomePage() {
         </Container>
       </Section>
 
+      {clientTestimonials.length > 0 ? (
       <Section className="border-y border-border bg-surface">
         <Container>
           <Reveal>
@@ -289,6 +288,7 @@ export default function HomePage() {
           </Stagger>
         </Container>
       </Section>
+      ) : null}
 
       <CTASection />
     </>

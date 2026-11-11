@@ -17,11 +17,11 @@ import { testimonials } from "@/content/testimonials";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Careers at ZAH KPO | Accounting jobs with UK client exposure",
+  title: "Careers – UK Accounting Jobs in Khargone",
   description:
-    "Build an accounting career with UK client exposure, ACCA support and a collaborative, process-driven culture. See life at ZAH KPO and our current openings.",
+    "Build an accounting career with UK client exposure, study support and a process-driven culture. See life at ZAH KPO and our current openings.",
   path: "/careers",
-  keywords: ["accounting careers", "ACCA jobs", "ZAH KPO careers", "bookkeeper jobs Khargone", "ZAH KPO job openings"],
+  keywords: ["accounting careers", "ZAH KPO careers", "bookkeeper jobs Khargone", "ZAH KPO job openings"],
 });
 
 const crumbs = [{ label: "Home", href: "/" }, { label: "Careers" }];

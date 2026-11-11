@@ -18,9 +18,9 @@ import { challenges } from "@/content/home";
 import { stats } from "@/content/stats";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Why ZAH KPO | The accounting outsourcing partner UK firms trust",
+  title: "Why UK Accountancy Firms Outsource to Us",
   description:
-    "What differentiates ZAH KPO - a proactive way of working, guaranteed quality and consistency, SOP-driven delivery and a model built to grow your client practice.",
+    "How ZAH KPO works with UK accountancy firms: a proactive team, SOP-driven delivery, a review on every job and a model built to help your practice grow.",
   path: "/why-zah-kpo",
   keywords: [
     "why outsource accounting",

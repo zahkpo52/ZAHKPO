@@ -10,8 +10,16 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { FieldError } from "@/components/ui/field-error";
 
+// Newsletter sign-ups go to the same Formspree inbox as the contact form,
+// tagged so they can be filtered. Override with NEXT_PUBLIC_FORMSPREE_NEWSLETTER_ID.
+const newsletterFormId =
+  process.env.NEXT_PUBLIC_FORMSPREE_NEWSLETTER_ID ??
+  process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID ??
+  "xgaadgro";
+
 export function NewsletterForm() {
   const [submitted, setSubmitted] = React.useState(false);
+  const [failed, setFailed] = React.useState(false);
   const {
     register,
     handleSubmit,
@@ -24,10 +32,23 @@ export function NewsletterForm() {
 
   async function onSubmit(values: NewsletterValues) {
     if (values.website) return; // honeypot tripped
-    // Client-only confirmation (no backend wired by project decision).
-    await new Promise((resolve) => setTimeout(resolve, 600));
-    setSubmitted(true);
-    reset();
+    setFailed(false);
+    try {
+      const res = await fetch(`https://formspree.io/f/${newsletterFormId}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          email: values.email,
+          _subject: "Newsletter sign-up (zahkpo.com)",
+          formType: "newsletter",
+        }),
+      });
+      if (!res.ok) throw new Error(`Formspree ${res.status}`);
+      setSubmitted(true);
+      reset();
+    } catch {
+      setFailed(true);
+    }
   }
 
   if (submitted) {
@@ -73,7 +94,10 @@ export function NewsletterForm() {
         {...register("website")}
       />
       <div className="mt-1.5">
-        <FieldError id="newsletter-email-error">{errors.email?.message}</FieldError>
+        <FieldError id="newsletter-email-error">
+          {errors.email?.message ??
+            (failed ? "Sorry, that didn't go through. Please try again or email info@zahkpo.com." : undefined)}
+        </FieldError>
       </div>
     </form>
   );

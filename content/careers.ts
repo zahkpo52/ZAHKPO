@@ -28,7 +28,7 @@ export const cultureValues: IconItem[] = [
 
 export const perks: IconItem[] = [
   { title: "Competitive salary + incentives", description: "Performance-based pay that grows with you.", icon: PoundSterling },
-  { title: "ACCA exam support", description: "Professional exam fees reimbursed on certification.", icon: GraduationCap },
+  { title: "Professional exam support", description: "Professional exam fees reimbursed on certification.", icon: GraduationCap },
   { title: "Modern tools", description: "Work in Xero, QuickBooks and the latest automation and AI tools.", icon: Laptop },
   { title: "Team events & celebrations", description: "Festivals, socials and team activities throughout the year.", icon: PartyPopper },
   { title: "Flexible working", description: "A balanced approach that respects life outside work.", icon: Clock },

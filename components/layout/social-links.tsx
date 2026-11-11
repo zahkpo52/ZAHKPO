@@ -45,7 +45,7 @@ export function SocialLinks({ className }: { className?: string }) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${siteConfig.name} on ${s.platform}`}
-            className="grid size-9 place-items-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="grid size-11 place-items-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <Icon platform={s.platform} />
           </a>

@@ -11,7 +11,7 @@ import { buildMetadata, breadcrumbSchema } from "@/lib/seo";
 import { blogCategories, posts } from "@/content/blog";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Blog & Insights",
+  title: "Insights for UK Accountancy Firms",
   description:
     "Practical guidance on outsourcing, compliance, cloud and tax from the ZAH KPO team - written for UK accountancy firms and the businesses they serve.",
   path: "/blog",
@@ -36,6 +36,7 @@ export default function BlogPage() {
 
       <Section>
         <Container>
+          <h2 className="sr-only">Latest articles</h2>
           <div className="flex flex-wrap gap-2">
             {blogCategories.map((c) => (
               <Badge key={c} variant="surface">

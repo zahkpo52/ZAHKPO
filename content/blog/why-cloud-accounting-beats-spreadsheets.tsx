@@ -4,13 +4,13 @@ import type { BlogMeta } from "@/types/content";
 
 export const meta: BlogMeta = {
   slug: "why-cloud-accounting-beats-spreadsheets",
-  title: "Why cloud accounting beats spreadsheets (and desktop software)",
+  title: "Why cloud accounting beats spreadsheets",
   description:
     "Real-time numbers, fewer errors and easier collaboration - here's why moving clients to the cloud is worth the effort, and how to do it without disruption.",
   category: "Cloud Accounting",
   date: "2026-03-06",
   readingTime: 4,
-  related: ["/specialties/cloud-accounting", "/specialties/mtd"],
+  related: ["/services/bookkeeping", "/services/vat-returns"],
 };
 
 export default function Body() {
@@ -60,9 +60,10 @@ export default function Body() {
       </p>
       <p>
         If you&apos;re planning a move, our{" "}
-        <Link href="/specialties/cloud-accounting">cloud accounting migration</Link> service handles
-        it end to end - and if Making Tax Digital is driving the change, our{" "}
-        <Link href="/specialties/mtd">MTD support</Link> gets clients compliant at the same time.
+        <Link href="/services/bookkeeping">outsourced bookkeeping</Link> team works in Xero,
+        QuickBooks and Sage - and if Making Tax Digital is driving the change, our{" "}
+        <Link href="/services/vat-returns">MTD VAT returns</Link> service keeps clients compliant at
+        the same time.
       </p>
     </>
   );
