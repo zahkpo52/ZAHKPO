@@ -1,39 +1,70 @@
 "use client";
 
 import * as React from "react";
-import {
-  animate,
-  motion,
-  useInView,
-  useReducedMotion,
-  type Variants,
-} from "framer-motion";
 
 import { cn } from "@/lib/utils";
 
-const EASE = [0.22, 1, 0.36, 1] as const;
+/*
+ * Lightweight scroll-reveal helpers. They used to run on framer-motion, which
+ * shipped a large animation runtime to every page and was the main cost on
+ * mobile. The same effects now use CSS transitions (see `.motion-*` in
+ * globals.css) plus one IntersectionObserver per element, so the JavaScript
+ * cost is tiny. Reduced-motion users get static content via CSS.
+ */
+
+function useInViewOnce<T extends Element>(amount: number) {
+  const ref = React.useRef<T>(null);
+  const [inView, setInView] = React.useState(false);
+
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      const id = requestAnimationFrame(() => setInView(true));
+      return () => cancelAnimationFrame(id);
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setInView(true);
+          io.disconnect();
+        }
+      },
+      { threshold: amount },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [amount]);
+
+  return [ref, inView] as const;
+}
 
 interface RevealProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
   y?: number;
+  /** Kept for API compatibility; reveals always run once. */
   once?: boolean;
 }
 
-/** Fade + rise into view. Renders statically when reduced motion is preferred. */
-export function Reveal({ children, className, delay = 0, y = 18, once = true }: RevealProps) {
-  const reduce = useReducedMotion();
+/** Fade + rise into view. */
+export function Reveal({ children, className, delay = 0, y = 18 }: RevealProps) {
+  const [ref, inView] = useInViewOnce<HTMLDivElement>(0.2);
   return (
-    <motion.div
-      className={className}
-      initial={reduce ? false : { opacity: 0, y }}
-      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once, amount: 0.2 }}
-      transition={{ duration: 0.6, delay, ease: EASE }}
+    <div
+      ref={ref}
+      data-shown={inView ? "" : undefined}
+      className={cn("motion-reveal", className)}
+      style={
+        {
+          "--motion-y": `${y}px`,
+          transitionDelay: delay ? `${delay}s` : undefined,
+        } as React.CSSProperties
+      }
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
@@ -46,21 +77,24 @@ interface StaggerProps {
 
 /** Parent that staggers any <StaggerItem> descendants as they enter the viewport. */
 export function Stagger({ children, className, gap = 0.08, delay = 0 }: StaggerProps) {
-  const reduce = useReducedMotion();
-  const variants: Variants = {
-    hidden: {},
-    show: { transition: { staggerChildren: gap, delayChildren: delay } },
-  };
+  const [ref, inView] = useInViewOnce<HTMLDivElement>(0.15);
+
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!inView || !el) return;
+    el.querySelectorAll<HTMLElement>("[data-stagger-item]").forEach((item, i) => {
+      item.style.transitionDelay = `${delay + i * gap}s`;
+    });
+  }, [inView, gap, delay, ref]);
+
   return (
-    <motion.div
-      className={className}
-      variants={variants}
-      initial={reduce ? false : "hidden"}
-      whileInView={reduce ? undefined : "show"}
-      viewport={{ once: true, amount: 0.15 }}
+    <div
+      ref={ref}
+      data-shown={inView ? "" : undefined}
+      className={cn("motion-stagger", className)}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
@@ -73,15 +107,14 @@ export function StaggerItem({
   className?: string;
   y?: number;
 }) {
-  const reduce = useReducedMotion();
-  const variants: Variants = {
-    hidden: { opacity: 0, y },
-    show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE } },
-  };
   return (
-    <motion.div className={className} variants={reduce ? undefined : variants}>
+    <div
+      data-stagger-item=""
+      className={cn("motion-item", className)}
+      style={{ "--motion-y": `${y}px` } as React.CSSProperties}
+    >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
@@ -105,27 +138,29 @@ export function AnimatedCounter({
   className,
   duration = 1.5,
 }: CounterProps) {
-  const reduce = useReducedMotion();
-  const ref = React.useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.5 });
+  const [ref, inView] = useInViewOnce<HTMLSpanElement>(0.5);
   const [display, setDisplay] = React.useState(value);
 
   React.useEffect(() => {
-    if (reduce || !inView) return;
-    const controls = animate(0, value, {
-      duration,
-      ease: "easeOut",
-      onUpdate: (v) => setDisplay(v),
-    });
-    return () => controls.stop();
-  }, [inView, value, reduce, duration]);
-
-  const shown = reduce ? value : display;
+    if (!inView) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let frame = 0;
+    const start = performance.now();
+    const ms = duration * 1000;
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - start) / ms);
+      const eased = 1 - Math.pow(1 - t, 3);
+      setDisplay(value * eased);
+      if (t < 1) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [inView, value, duration]);
 
   return (
     <span ref={ref} className={cn("tabular-nums", className)}>
       {prefix}
-      {Math.round(shown)}
+      {Math.round(display)}
       {suffix}
     </span>
   );
@@ -141,16 +176,9 @@ export function FadeIn({
   className?: string;
   delay?: number;
 }) {
-  const reduce = useReducedMotion();
   return (
-    <motion.div
-      className={className}
-      initial={reduce ? false : { opacity: 0 }}
-      whileInView={reduce ? undefined : { opacity: 1 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.8, delay, ease: "easeOut" }}
-    >
+    <Reveal className={cn("motion-fade", className)} delay={delay} y={0}>
       {children}
-    </motion.div>
+    </Reveal>
   );
 }
