@@ -4,8 +4,8 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 /**
- * ZAH KPO lockup - the ZK monogram (gold Z, white K on deep navy) from the
- * brand artwork, plus the wordmark. The mark is rendered from a high-res source
+ * ZAH KPO lockup - the official ZH mark (gold Z, white H, gold frame on deep
+ * navy) from the brand artwork, plus the wordmark. The mark is rendered from a high-res source
  * so it stays crisp at display size in both themes.
  */
 export function Logo({ className }: { className?: string }) {
@@ -20,7 +20,7 @@ export function Logo({ className }: { className?: string }) {
       <Image
         src="/logo-mark-80.webp"
         alt=""
-        width={43}
+        width={40}
         height={40}
         priority
         className="h-10 w-auto shrink-0 object-contain rounded-xl shadow-[var(--shadow-soft)] ring-1 ring-inset ring-white/10 transition-transform duration-300 ease-out-quint group-hover:-translate-y-0.5"

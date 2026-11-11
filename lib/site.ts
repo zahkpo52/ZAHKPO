@@ -1,5 +1,3 @@
-import { founders } from "@/content/team";
-
 export const siteConfig = {
   name: "ZAH KPO",
   shortName: "ZAH KPO",
@@ -46,12 +44,14 @@ export const siteConfig = {
   social: [
     {
       platform: "LinkedIn",
-      url: founders[1].linkedin,
+      url: "https://www.linkedin.com/company/112570412/",
     },
   ] as { platform: "LinkedIn" | "Facebook" | "Instagram" | "X"; url: string }[],
-  // Company LinkedIn page URL. Leave empty until confirmed; when set it is used
+  // Company LinkedIn page URL, used
   // as the Organization's sameAs in schema (personal profiles go on each founder).
-  companyLinkedIn: process.env.NEXT_PUBLIC_COMPANY_LINKEDIN ?? "",
+  companyLinkedIn:
+    process.env.NEXT_PUBLIC_COMPANY_LINKEDIN ??
+    "https://www.linkedin.com/company/112570412/",
   markets: ["United Kingdom"],
   // Search engine ownership tokens (content="..." value only). Paste the token
   // from Google Search Console / Bing Webmaster Tools here, or set the env vars.
