@@ -5,6 +5,10 @@ import Cloud, { meta as cloudMeta } from "./why-cloud-accounting-beats-spreadshe
 import LateAccounts, { meta as lateMeta } from "./the-real-cost-of-filing-year-end-accounts-late";
 import Bookkeeping, { meta as bookkeepingMeta } from "./how-to-choose-bookkeeping-support";
 import IR35, { meta as ir35Meta } from "./does-ir35-apply-to-non-uk-companies";
+import OutsourceYearEnd, { meta as outsourceYearEndMeta } from "./how-to-outsource-year-end-accounts";
+import IndiaGdpr, { meta as indiaGdprMeta } from "./outsourcing-accounting-to-india-uk-gdpr-checklist";
+import MtdIncomeTax, { meta as mtdIncomeTaxMeta } from "./making-tax-digital-income-tax-what-practices-need-to-do";
+import HiringVsOutsourcing, { meta as hiringMeta } from "./hiring-vs-outsourcing-accounting-capacity";
 
 export interface BlogPost {
   meta: BlogMeta;
@@ -16,6 +20,10 @@ export const posts: BlogPost[] = [
   { meta: lateMeta, Body: LateAccounts },
   { meta: bookkeepingMeta, Body: Bookkeeping },
   { meta: ir35Meta, Body: IR35 },
+  { meta: outsourceYearEndMeta, Body: OutsourceYearEnd },
+  { meta: indiaGdprMeta, Body: IndiaGdpr },
+  { meta: mtdIncomeTaxMeta, Body: MtdIncomeTax },
+  { meta: hiringMeta, Body: HiringVsOutsourcing },
 ].sort((a, b) => b.meta.date.localeCompare(a.meta.date));
 
 export function getPost(slug: string): BlogPost | undefined {

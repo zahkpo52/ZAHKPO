@@ -16,6 +16,12 @@ import { CTASection } from "./cta-section";
 import { IconTile } from "./icon-tile";
 import type { Crumb } from "./breadcrumb";
 
+export interface ReadingItem {
+  href: string;
+  title: string;
+  description: string;
+}
+
 export interface RelatedItem {
   href: string;
   title: string;
@@ -27,10 +33,12 @@ export function ServiceDetail({
   offering,
   crumbs,
   related,
+  reading = [],
 }: {
   offering: OfferingBase;
   crumbs: Crumb[];
   related: RelatedItem[];
+  reading?: ReadingItem[];
 }) {
   return (
     <>
@@ -121,6 +129,36 @@ export function ServiceDetail({
                 <FaqAccordion items={offering.faqs} idPrefix={offering.slug} />
               </Reveal>
             </div>
+          </Container>
+        </Section>
+      ) : null}
+
+      {reading.length ? (
+        <Section className="border-t border-border">
+          <Container>
+            <Reveal>
+              <SectionHeading align="left" eyebrow="Guides" title="Further reading" />
+            </Reveal>
+            <ul className="mt-8 grid gap-4 md:grid-cols-3">
+              {reading.map((r) => (
+                <li key={r.href}>
+                  <Link
+                    href={r.href}
+                    className="group block h-full rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/40"
+                  >
+                    <h3 className="font-semibold leading-snug text-foreground group-hover:text-primary">
+                      {r.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {r.description}
+                    </p>
+                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary">
+                      Read the guide <ArrowRight className="size-4" aria-hidden="true" />
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </Container>
         </Section>
       ) : null}

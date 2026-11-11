@@ -67,6 +67,8 @@ export const services: Service[] = [
       { question: "Which accounting standards do you work to?", answer: "We prepare accounts to the appropriate FRS standard for the entity, including micro and small-company regimes, and produce a tagged iXBRL file ready for submission." },
       { question: "Do you work in our software?", answer: "Yes. We work inside your existing systems and templates so the output matches your house style and slots straight into your workflow." },
       { question: "Can you handle filing as well as preparation?", answer: "We can prepare drafts for your review and, once approved, support or complete the Companies House and HMRC submissions." },
+      { question: "How does outsourcing year-end accounts work?", answer: "You share the records or give us access to the client file, we prepare the trial balance, working papers, adjustments and draft statutory accounts, and you review and approve before anything is filed. Queries come back to you in one consolidated list rather than piecemeal." },
+      { question: "Who reviews the accounts before they come back to us?", answer: "Every set is prepared by one accountant and checked by an independent reviewer before it reaches you, so you receive reviewed drafts rather than a first attempt." },
     ],
     related: ["management-accounts", "bookkeeping", "ixbrl-tagging"],
   },
@@ -108,6 +110,8 @@ export const services: Service[] = [
     faqs: [
       { question: "How quickly after month-end can we have packs?", answer: "We agree a fixed timetable up front and deliver to it - typically within a few working days of receiving complete data." },
       { question: "Can you match our existing report format?", answer: "Yes. We replicate your house template and KPIs so clients see a seamless, consistent pack." },
+      { question: "Can you work to our existing reporting pack?", answer: "Yes. We build each client's pack to your layout, KPIs and commentary style, so the reports go out under your name looking the way your clients expect." },
+      { question: "Which accounting software do you use?", answer: "We work in the software you and your clients already use, including Xero, QuickBooks, Sage and FreeAgent, with Power BI for dashboards where it helps." },
     ],
     related: ["year-end-accounts", "bookkeeping", "vat-returns"],
   },
@@ -143,6 +147,8 @@ export const services: Service[] = [
     faqs: [
       { question: "What do you need to get started?", answer: "Access to the accounting software, prior-year working papers, and any documented procedures or coding rules so we can match how you work." },
       { question: "How is pricing structured?", answer: "Flexibly - many firms use a pay-as-you-use model that scales with transaction volume rather than a fixed in-house cost." },
+      { question: "How often do you update the books?", answer: "Weekly, monthly or quarterly - we agree the frequency for each client so the ledger is current when VAT, management accounts or year-end work is due." },
+      { question: "Do you work in Xero and QuickBooks?", answer: "Yes. We work directly in your clients' Xero, QuickBooks, Sage or FreeAgent files, with receipt tools such as Dext and Hubdoc, so there is nothing new for your team or your clients to learn." },
     ],
     related: ["management-accounts", "year-end-accounts", "payroll"],
   },
@@ -184,6 +190,8 @@ export const services: Service[] = [
     faqs: [
       { question: "Can you run weekly and monthly payrolls?", answer: "Yes. We work to whatever pay calendar your clients need and build the schedule around their deadlines." },
       { question: "Do you handle auto-enrolment pensions?", answer: "We manage contributions and reporting and keep enrolment obligations on track each period." },
+      { question: "Do you handle RTI submissions and auto-enrolment?", answer: "Yes. We prepare each pay run with its Full Payment Submission to HMRC, and manage pension auto-enrolment assessments and contribution reporting alongside it." },
+      { question: "Who approves each pay run?", answer: "You do. We prepare the run and the reports, send them for sign-off, and only process payments and filings once they are approved." },
     ],
     related: ["bookkeeping", "cis-returns", "management-accounts"],
   },
@@ -218,6 +226,8 @@ export const services: Service[] = [
     faqs: [
       { question: "Do you verify subcontractors with HMRC?", answer: "Yes. We confirm subcontractor status and the correct deduction rate before each return so figures are right first time." },
       { question: "Can you handle contractors of any size?", answer: "From a handful of subcontractors to large monthly schedules, the process scales to your clients' volume." },
+      { question: "When are CIS returns due?", answer: "Monthly CIS returns are due by the 19th of each month for the tax month ending on the 5th. We work to that calendar so returns, deduction statements and payments are ready in time." },
+      { question: "Do you verify subcontractors with HMRC?", answer: "Yes. We verify new subcontractors so the correct deduction rate is applied, and keep the records needed to issue monthly payment and deduction statements." },
     ],
     related: ["payroll", "bookkeeping", "vat-returns"],
   },
@@ -248,6 +258,11 @@ export const services: Service[] = [
       { title: "Fewer rejections", description: "Validation reduces errors and resubmissions.", icon: CheckCircle2 },
       { title: "Full compliance", description: "Output aligned to HMRC's latest requirements.", icon: ShieldCheck },
       { title: "Lower cost", description: "Skip the licences and the in-house learning curve.", icon: PoundSterling },
+    ],
+    faqs: [
+      { question: "What is iXBRL and why is it needed?", answer: "iXBRL is the tagged, machine-readable format HMRC requires for the accounts and tax computations filed with a company's CT600 return. Each figure is tagged so HMRC's systems can read it." },
+      { question: "Can you tag accounts prepared by someone else?", answer: "Yes. We can take finished accounts and computations prepared by your team and return a validated, tagged file ready to submit with the return." },
+      { question: "Do you check the tagging before returning it?", answer: "Yes. Files are validated and the tags are reviewed against the figures in the accounts, so errors are caught before submission rather than by HMRC." },
     ],
     related: ["year-end-accounts", "corporation-tax", "management-accounts"],
   },
@@ -289,6 +304,8 @@ export const services: Service[] = [
     faqs: [
       { question: "Are your filings MTD compliant?", answer: "Yes. All VAT returns are prepared and submitted through Making Tax Digital-compatible processes." },
       { question: "Do you review before filing?", answer: "Always. We share the workings for your approval and only submit once you've signed off." },
+      { question: "Do you file under Making Tax Digital?", answer: "Yes. All VAT-registered businesses must keep digital records and file through MTD-compatible software, and we prepare and file returns that way from the client's records." },
+      { question: "Can you handle the Flat Rate Scheme and partial exemption?", answer: "Yes. We work across the standard, cash accounting and Flat Rate schemes, and flag partial exemption, reverse charge and other areas that need your judgement before the return is filed." },
     ],
     related: ["personal-tax", "corporation-tax", "bookkeeping"],
   },
@@ -323,6 +340,8 @@ export const services: Service[] = [
     faqs: [
       { question: "Can you absorb our January peak?", answer: "Yes - peak-season support is exactly what this service is built for, with capacity that flexes to your volume." },
       { question: "Who reviews the returns?", answer: "Each return goes through a two-level review before it comes back to you, ready to file." },
+      { question: "Can you help us prepare for Making Tax Digital for Income Tax?", answer: "Yes. Sole traders and landlords with qualifying income over £50,000 joined MTD for Income Tax from April 2026, with lower thresholds following in 2027 and 2028. We can keep their digital records and prepare the quarterly updates for your review." },
+      { question: "What do you need from us to prepare a return?", answer: "The client's income records, bank statements or bookkeeping file, and any supporting documents such as P60s, rental statements or dividend vouchers. We send one consolidated query list if anything is missing." },
     ],
     related: ["vat-returns", "corporation-tax", "tax-registrations"],
   },
@@ -353,6 +372,11 @@ export const services: Service[] = [
       { title: "Deadlines met", description: "Filing handled to a dependable timetable.", icon: Clock },
       { title: "Specialist expertise", description: "Current technical knowledge on tap.", icon: Scale },
       { title: "Simpler administration", description: "One less complex task on your plate.", icon: CheckCircle2 },
+    ],
+    faqs: [
+      { question: "When is corporation tax due?", answer: "For most companies, corporation tax is payable nine months and one day after the end of the accounting period, and the CT600 return is due 12 months after the period end. We plan work back from both dates." },
+      { question: "Do you prepare the computations and the CT600?", answer: "Yes. We prepare the tax computation, capital allowances and the CT600, with the accounts and computations tagged in iXBRL, ready for your review and submission." },
+      { question: "Do you flag reliefs and risk areas?", answer: "Yes. We highlight items that need your judgement - such as R&D claims, loss relief, associated companies or director loan account charges - rather than leaving them to be found later." },
     ],
     related: ["vat-returns", "personal-tax", "ixbrl-tagging"],
   },
@@ -385,6 +409,10 @@ export const services: Service[] = [
       { title: "No missed statutory dates", description: "Deadlines tracked and met throughout.", icon: Clock },
       { title: "Cost-effective", description: "Lifecycle support without a full-time hire.", icon: PoundSterling },
     ],
+    faqs: [
+      { question: "Can you help with Companies House identity verification?", answer: "Yes. Companies House now requires identity verification for directors and people with significant control. We organise the information and documents and guide clients through verification with GOV.UK One Login or an authorised provider." },
+      { question: "Do you handle company closures as well as formations?", answer: "Yes. We support the whole life of a company - incorporation, confirmation statements and changes, through to striking off or dissolution - working to your instructions." },
+    ],
     related: ["tax-registrations", "corporate-due-diligence", "corporation-tax"],
   },
   {
@@ -416,6 +444,10 @@ export const services: Service[] = [
       { title: "Expert handling", description: "Specialist support without an internal hire.", icon: Scale },
       { title: "Less founder admin", description: "We absorb the back-office paperwork.", icon: CheckCircle2 },
     ],
+    faqs: [
+      { question: "Which registrations can you handle?", answer: "VAT, PAYE, Self Assessment, CIS and corporation tax registrations, plus the related changes and deregistrations, prepared accurately and submitted to your instructions." },
+      { question: "How do you avoid delays with HMRC?", answer: "We check the information against what HMRC asks for before submitting, so applications are complete first time and fewer come back with questions." },
+    ],
     related: ["business-setup", "corporate-due-diligence", "vat-returns"],
   },
   {
@@ -445,6 +477,10 @@ export const services: Service[] = [
       { title: "Secure handling", description: "Sensitive documents managed under strict controls.", icon: Lock },
       { title: "Reputation protected", description: "Verified records reduce filing and AML risk.", icon: CheckCircle2 },
       { title: "Capacity freed", description: "Time-consuming checks taken off your team.", icon: Users },
+    ],
+    faqs: [
+      { question: "What does your due diligence support cover?", answer: "Organising client identity and AML/KYC documents, director and PSC identity verification support, and statutory registers and filings - prepared securely so your team can make the decisions." },
+      { question: "Who makes the final AML decision?", answer: "Your firm does. We gather, check and organise the evidence and flag gaps, but the risk assessment and acceptance decision stay with you as the supervised firm." },
     ],
     related: ["business-setup", "tax-registrations", "corporation-tax"],
   },
@@ -486,6 +522,7 @@ export const services: Service[] = [
     faqs: [
       { question: "Is this a fully outsourced CFO?", answer: "It's flexible - from periodic advisory and reporting through to a virtual CFO acting as an ongoing senior financial partner for your client." },
       { question: "Can you build dashboards in our tools?", answer: "Yes. We build KPI dashboards and reports using Power BI, Excel and Power Query, tailored to the metrics each client cares about." },
+      { question: "Is this support for us or for our clients?", answer: "Both. We can work behind the scenes so your firm offers CFO-level support under its own name, or work alongside your partners on client forecasts, KPIs and board reporting." },
     ],
     related: ["management-accounts", "year-end-accounts", "audit-support"],
   },
@@ -520,6 +557,7 @@ export const services: Service[] = [
     faqs: [
       { question: "Do you perform the audit?", answer: "No - we provide preparation and support work under your firm's direction and methodology. Audit opinion, review and sign-off remain entirely with you." },
       { question: "Can you work to our audit file structure?", answer: "Yes. We follow your templates, referencing and methodology so files slot straight into your review process." },
+      { question: "Do you sign audit opinions?", answer: "No. We prepare working papers, lead schedules and supporting analysis; the audit judgement and opinion always stay with your responsible individual." },
     ],
     related: ["year-end-accounts", "cfo-advisory", "corporation-tax"],
   },
