@@ -78,7 +78,7 @@ export function PageHero({
       <Container className="relative py-14 md:py-20 lg:py-24">
         {crumbs ? <Breadcrumb items={crumbs} className="mb-6" /> : null}
         {eyebrow ? (
-          <Eyebrow className={withImage ? "text-[#f8d509]" : undefined}>{eyebrow}</Eyebrow>
+          <Eyebrow className={withImage ? "text-[#e5b84a]" : undefined}>{eyebrow}</Eyebrow>
         ) : null}
         <h1
           className={cn(

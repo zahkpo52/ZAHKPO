@@ -37,7 +37,7 @@ export function FounderCard({ founder }: { founder: Founder }) {
         ) : null}
         <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
           <div className="max-w-[70%]">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f8d509]/95 px-3 py-1 text-xs font-semibold text-[#1c1600]">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#e5b84a]/95 px-3 py-1 text-xs font-semibold text-[#0b1a33]">
               <BadgeCheck className="size-3.5" aria-hidden="true" />
               {founder.credential}
             </span>

@@ -20,5 +20,5 @@ export const deliveryStandards: { value: string; label: string }[] = [
   { value: "GDPR", label: "Aligned security processes" },
   { value: "CA-led", label: "Founder review on every engagement" },
   { value: "SOP-driven", label: "Multi-level quality checks" },
-  { value: "Xero · QuickBooks · Dext · Sage · FreeAgent", label: "Platform expertise" },
+  { value: "Cloud-first", label: "Xero, QuickBooks, Sage, Dext and FreeAgent" },
 ];

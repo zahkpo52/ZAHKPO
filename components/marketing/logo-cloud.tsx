@@ -12,7 +12,7 @@ export function LogoCloud({
 }) {
   return (
     <div className={className}>
-      {label ? <p className="text-center text-sm text-muted-foreground">{label}</p> : null}
+      {label ? <p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">{label}</p> : null}
       <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
         {tools.map((tool) => (
           <li key={tool.name} className="group flex items-center gap-2.5" title={tool.name}>
@@ -24,12 +24,13 @@ export function LogoCloud({
               loading="lazy"
               decoding="async"
               className={cn(
-                "w-auto opacity-80 saturate-[.85] transition duration-300 group-hover:opacity-100 group-hover:saturate-100",
+                "w-auto transition duration-300 group-hover:opacity-90",
+                tool.name === "Xero" ? "opacity-60 grayscale" : "opacity-60 brightness-0 invert",
                 tool.width === tool.height ? "h-9 md:h-10" : "h-6 md:h-7",
               )}
             />
             {tool.showName ? (
-              <span className="text-lg font-semibold tracking-tight text-muted-foreground/80 transition-colors group-hover:text-foreground">
+              <span className="text-lg font-semibold tracking-tight text-white/60 transition-colors group-hover:text-white/90">
                 {tool.name}
               </span>
             ) : null}
