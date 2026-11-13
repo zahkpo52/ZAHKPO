@@ -160,7 +160,7 @@ export function AnimatedCounter({
   return (
     <span ref={ref} className={cn("tabular-nums", className)}>
       {prefix}
-      {Math.round(display)}
+      {Math.round(display).toLocaleString("en-GB")}
       {suffix}
     </span>
   );

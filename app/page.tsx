@@ -93,7 +93,7 @@ export default function HomePage() {
 
       <section className="border-b border-border bg-background py-12">
         <Container>
-          <LogoCloud label="We work in the software your clients already use" />
+          <LogoCloud label="We work in the software your clients already use" marquee />
           <p className="mt-8 text-center">
             <Link href="/software" className="text-sm font-medium text-primary hover:underline">
               How we work in each platform →
@@ -199,7 +199,19 @@ export default function HomePage() {
               description="A simple, low-risk way to start - and a process that stays the same as you grow."
             />
           </Reveal>
-          <Stagger className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+          <Reveal className="steps-progress mt-14 hidden lg:block" y={0}>
+            <div className="relative h-px bg-border">
+              <span className="steps-progress-bar absolute inset-y-0 left-0 bg-primary" />
+              {howWeWork.map((step, i) => (
+                <span
+                  key={step.title}
+                  className="steps-progress-dot absolute top-1/2 size-3 -translate-y-1/2 rounded-full border-2 border-primary bg-background"
+                  style={{ left: `calc(${(i / howWeWork.length) * 100}% + 1.75rem)`, transitionDelay: `${0.35 + i * 0.4}s` }}
+                />
+              ))}
+            </div>
+          </Reveal>
+          <Stagger className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:mt-8 lg:grid-cols-4">
             {howWeWork.map((step, i) => (
               <StaggerItem key={step.title} className="h-full">
                 <div className="h-full bg-background p-7">

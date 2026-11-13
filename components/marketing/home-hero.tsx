@@ -4,11 +4,13 @@ import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/section";
+import { AnimatedCounter } from "@/components/motion";
+import { LiveClocks } from "@/components/marketing/live-clocks";
 
 const facts = [
-  { value: "5,000+", label: "hours delivered for UK firms" },
-  { value: "99%", label: "of jobs delivered on time" },
-  { value: "0", label: "filing penalties on our work" },
+  { value: 5000, suffix: "+", label: "hours delivered for UK firms" },
+  { value: 99, suffix: "%", label: "of jobs delivered on time" },
+  { value: 0, suffix: "", label: "filing penalties on our work" },
 ];
 
 export function HomeHero() {
@@ -43,7 +45,9 @@ export function HomeHero() {
           <dl className="mt-12 grid max-w-xl grid-cols-3 divide-x divide-white/15 border-t border-white/15 pt-6">
             {facts.map((f, i) => (
               <div key={f.label} className={i === 0 ? "pr-4" : "px-4"}>
-                <dd className="font-serif text-3xl font-medium text-foreground md:text-4xl">{f.value}</dd>
+                <dd className="font-serif text-3xl font-medium text-foreground md:text-4xl">
+                  <AnimatedCounter value={f.value} suffix={f.suffix} duration={1.8} />
+                </dd>
                 <dt className="mt-1.5 text-xs leading-snug text-foreground/60 md:text-sm">{f.label}</dt>
               </div>
             ))}
@@ -58,8 +62,10 @@ export function HomeHero() {
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 45vw"
-              className="object-cover"
+              className="hero-drift object-cover"
             />
+            <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#031833]/85 to-transparent" />
+            <LiveClocks className="absolute inset-x-4 bottom-4 rounded-xl border border-white/15 bg-[#031833]/75 p-4 backdrop-blur-md sm:inset-x-6 sm:bottom-6 sm:p-5" />
           </div>
           <figcaption className="mt-3 text-xs text-foreground/50">Our delivery centre in Khargone, India</figcaption>
         </figure>
