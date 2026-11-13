@@ -40,6 +40,14 @@ export function NexusBridge() {
   return (
     <div className="theme-navy relative overflow-hidden rounded-3xl border border-[#e5b84a]/25 bg-[#061c3a] px-4 pb-8 pt-8 text-white shadow-[0_40px_100px_-40px_rgba(6,28,58,0.8)] sm:px-10 sm:pb-10">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_30%,rgba(229,184,74,0.16),transparent)]" />
+      <figure className="bridge-quote relative mx-auto mb-6 max-w-2xl text-center">
+        <blockquote className="font-serif text-2xl font-medium italic leading-snug text-white sm:text-3xl">
+          &ldquo;The sun rises on your work before it rises on you.&rdquo;
+        </blockquote>
+        <figcaption className="mt-3 text-sm text-white/70">
+          Our day in India starts while the UK is still asleep - so your jobs have moved on before you open your inbox.
+        </figcaption>
+      </figure>
       <svg
         viewBox="0 0 1000 300"
         role="img"
@@ -57,13 +65,50 @@ export function NexusBridge() {
             <stop offset="0.5" stopColor="#f3d27a" />
             <stop offset="1" stopColor="#c99a2e" />
           </linearGradient>
+          <linearGradient id="br-dawn" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stopColor="#061c3a" stopOpacity="0" />
+            <stop offset="0.55" stopColor="#c8743a" stopOpacity="0.18" />
+            <stop offset="1" stopColor="#f3b25a" stopOpacity="0.55" />
+          </linearGradient>
+          <radialGradient id="br-sun">
+            <stop offset="0" stopColor="#fff6d8" />
+            <stop offset="0.55" stopColor="#ffd77a" />
+            <stop offset="1" stopColor="#f0a33c" />
+          </radialGradient>
+          <radialGradient id="br-halo">
+            <stop offset="0" stopColor="#ffcf6b" stopOpacity="0.55" />
+            <stop offset="1" stopColor="#ffcf6b" stopOpacity="0" />
+          </radialGradient>
+          <clipPath id="br-flag-uk"><circle cx="40" cy="210" r="24" /></clipPath>
+          <clipPath id="br-flag-in"><circle cx="960" cy="210" r="24" /></clipPath>
+          <clipPath id="br-sky"><rect x="0" y="0" width="1000" height="234" /></clipPath>
           <filter id="br-glow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="4" />
           </filter>
         </defs>
 
+        {/* dawn: the sky warms and the sun rises behind the bridge */}
+        <rect className="bridge-dawn" x="0" y="0" width="1000" height="234" fill="url(#br-dawn)" />
+        <g clipPath="url(#br-sky)">
+          <g className="bridge-sun">
+            <circle cx="500" cy="150" r="150" fill="url(#br-halo)" />
+            <g opacity="0.35">
+              {Array.from({ length: 12 }, (_, i) => (
+                <rect key={i} x="497" y="20" width="6" height="40" rx="3" fill="#ffd77a" transform={`rotate(${i * 30} 500 150)`} />
+              ))}
+              <animateTransform attributeName="transform" type="rotate" from="0 500 150" to="360 500 150" dur="60s" repeatCount="indefinite" />
+            </g>
+            <circle cx="500" cy="150" r="62" fill="url(#br-sun)" />
+          </g>
+        </g>
+
         {/* water */}
         <rect x="0" y="232" width="1000" height="68" fill="url(#br-water)" />
+        <g className="bridge-dawn">
+          {[240, 252, 266, 282].map((y, i) => (
+            <rect key={y} x={500 - (70 - i * 14)} y={y} width={(70 - i * 14) * 2} height="3" rx="1.5" fill="#ffd77a" opacity={0.5 - i * 0.1} />
+          ))}
+        </g>
         {[248, 262, 278].map((y, i) => (
           <path key={y} d={`M${40 + i * 30} ${y} H${960 - i * 30}`} stroke="#9fd3f5" strokeOpacity={0.12 - i * 0.03} strokeWidth="2" strokeDasharray="18 14" />
         ))}
@@ -109,12 +154,29 @@ export function NexusBridge() {
           ))}
         </g>
 
-        {/* ends */}
+        {/* ends: Union flag and Indian tricolour */}
         <g>
-          <circle cx="40" cy="210" r="26" fill="#0a2243" stroke="#e5b84a" strokeWidth="2" />
-          <text x="40" y="216" textAnchor="middle" fontSize="16" fontWeight="700" fill="#f3d27a" fontFamily="system-ui, sans-serif">UK</text>
-          <circle cx="960" cy="210" r="26" fill="#0a2243" stroke="#9fd3f5" strokeWidth="2" />
-          <text x="960" y="216" textAnchor="middle" fontSize="16" fontWeight="700" fill="#cfe9fb" fontFamily="system-ui, sans-serif">IN</text>
+          <g clipPath="url(#br-flag-uk)">
+            <rect x="10" y="180" width="60" height="60" fill="#012169" />
+            <path d="M10 180 L70 240 M70 180 L10 240" stroke="#ffffff" strokeWidth="12" />
+            <path d="M10 180 L70 240 M70 180 L10 240" stroke="#c8102e" strokeWidth="4" />
+            <path d="M40 180 V240 M10 210 H70" stroke="#ffffff" strokeWidth="16" />
+            <path d="M40 180 V240 M10 210 H70" stroke="#c8102e" strokeWidth="9" />
+          </g>
+          <circle cx="40" cy="210" r="25" fill="none" stroke="#e5b84a" strokeWidth="3" />
+          <text x="40" y="258" textAnchor="middle" fontSize="13" fontWeight="700" fill="#f3d27a" fontFamily="system-ui, sans-serif">UK</text>
+
+          <g clipPath="url(#br-flag-in)">
+            <rect x="930" y="180" width="60" height="20" fill="#ff9933" />
+            <rect x="930" y="200" width="60" height="20" fill="#ffffff" />
+            <rect x="930" y="220" width="60" height="20" fill="#138808" />
+            <circle cx="960" cy="210" r="6.5" fill="none" stroke="#000080" strokeWidth="1.4" />
+            {Array.from({ length: 12 }, (_, i) => (
+              <line key={i} x1="960" y1="210" x2="960" y2="203.5" stroke="#000080" strokeWidth="0.8" transform={`rotate(${i * 30} 960 210)`} />
+            ))}
+          </g>
+          <circle cx="960" cy="210" r="25" fill="none" stroke="#e5b84a" strokeWidth="3" />
+          <text x="960" y="258" textAnchor="middle" fontSize="13" fontWeight="700" fill="#f3d27a" fontFamily="system-ui, sans-serif">INDIA</text>
         </g>
 
         {/* Nexus hub at mid-span */}

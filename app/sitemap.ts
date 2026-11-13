@@ -33,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/uk-tax-deadlines",
     "/free-tools",
     "/in-house-cost-calculator",
+    "/pricing-calculator",
     "/sample-working-papers",
     "/terms",
     "/accessibility",

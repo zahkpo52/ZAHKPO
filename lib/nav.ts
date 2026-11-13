@@ -158,6 +158,7 @@ export const resourceLinks: NavLink[] = [
   { label: "Industries", href: "/industries", description: "Construction, hospitality, property and charities." },
   { label: "Free tools", href: "/free-tools", description: "Calculators, deadlines and sample working papers." },
   { label: "UK tax deadlines", href: "/uk-tax-deadlines", description: "Live countdown and year-end calculator." },
+  { label: "Pricing calculator", href: "/pricing-calculator", description: "Indicative ranges for the work you send." },
   { label: "In-house vs outsourcing", href: "/in-house-cost-calculator", description: "What a new hire really costs your practice." },
   { label: "Sample working papers", href: "/sample-working-papers", description: "Download the files we hand back." },
   { label: "FAQ", href: "/faq", description: "Answers to common outsourcing questions." },

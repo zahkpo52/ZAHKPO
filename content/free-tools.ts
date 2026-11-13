@@ -1,20 +1,20 @@
-import { CalendarClock, Calculator, FileSpreadsheet, Hourglass } from "lucide-react";
+import { CalendarClock, Calculator, FileSpreadsheet, PoundSterling } from "lucide-react";
 
 /** Free tools for UK practices - shown on the home page, /free-tools and in the menu. */
 export const freeTools = [
   {
-    icon: CalendarClock,
-    title: "UK tax deadlines calendar",
-    text: "The next Self Assessment, MTD, payroll, CIS and VAT deadlines, counted down live.",
-    href: "/uk-tax-deadlines",
-    cta: "See the deadlines",
+    icon: PoundSterling,
+    title: "Pricing calculator",
+    text: "Pick the work you would send and see an indicative monthly range - review included, first 3 jobs free.",
+    href: "/pricing-calculator",
+    cta: "Estimate my cost",
   },
   {
-    icon: Hourglass,
-    title: "Year-end deadline calculator",
-    text: "Enter a company year-end and get the Companies House, CT600 and corporation tax payment dates.",
-    href: "/uk-tax-deadlines#calculator",
-    cta: "Work out the dates",
+    icon: CalendarClock,
+    title: "UK tax deadlines calendar",
+    text: "Live countdown to the next UK deadlines, plus a year-end calculator for Companies House and CT600 dates.",
+    href: "/uk-tax-deadlines",
+    cta: "See the deadlines",
   },
   {
     icon: Calculator,

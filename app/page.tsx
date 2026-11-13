@@ -478,6 +478,9 @@ export default function HomePage() {
           </Stagger>
           <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
             <Button asChild>
+              <Link href="/pricing-calculator">Estimate your cost</Link>
+            </Button>
+            <Button asChild variant="secondary">
               <Link href="/contact">Get a quote</Link>
             </Button>
             <Link
