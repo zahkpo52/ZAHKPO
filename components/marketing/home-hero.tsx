@@ -62,7 +62,7 @@ export function HomeHero() {
 
         <div className="relative mx-auto mt-14 max-w-4xl md:mt-16">
           <NexusMock className="text-left" />
-          <p className="mt-3 text-xs text-white/40">ZAH Nexus - illustrative screen with sample data</p>
+          <p className="mt-3 text-xs text-white/40">ZAH Nexus VAT Hub - shown with sample client names</p>
         </div>
 
         <ul className="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-3 pb-16 md:grid-cols-4 md:gap-4 md:pb-20">

@@ -99,33 +99,38 @@ export default function NexusPage() {
         </Button>
       </PageHero>
 
+      <section className="relative overflow-hidden bg-[#031833] pb-20 pt-4 md:pb-28">
+        <div aria-hidden="true" className="absolute inset-0 bg-dotted opacity-40 mask-fade-b" />
+        <Container className="relative">
+          <div className="mx-auto max-w-4xl">
+            <NexusMock />
+            <p className="mt-4 text-center text-xs text-white/40">The ZAH Nexus VAT Hub - shown with sample client names</p>
+          </div>
+        </Container>
+      </section>
+
       <Section>
         <Container>
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            <Reveal>
-              <SectionHeading
-                align="left"
-                eyebrow="Why we built it"
-                title="Outsourcing fails on visibility, not on skill"
-                description="Most firms that give up on outsourcing do so because they could not see what was happening. We built ZAH Nexus around the questions UK partners ask us most."
-              />
-              <ul className="mt-8 space-y-5">
-                {gaps.map((g) => (
-                  <li key={g.worry}>
-                    <p className="text-sm font-medium text-muted-foreground">{g.worry}</p>
-                    <p className="mt-1 flex items-start gap-2 text-white">
-                      <BadgeCheck className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden="true" />
-                      {g.answer}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-            <Reveal delay={0.05}>
-              <NexusMock />
-              <p className="mt-3 text-center text-xs text-white/40">Illustrative screen with sample data</p>
-            </Reveal>
-          </div>
+          <Reveal>
+            <SectionHeading
+              eyebrow="Why we built it"
+              title="Outsourcing fails on visibility, not on skill"
+              description="Most firms that give up on outsourcing do so because they could not see what was happening. We built ZAH Nexus around the questions UK partners ask us most."
+            />
+          </Reveal>
+          <Stagger className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-2">
+            {gaps.map((g) => (
+              <StaggerItem key={g.worry} className="h-full">
+                <Card className="h-full p-7">
+                  <p className="text-lg font-medium italic text-white/60">{g.worry}</p>
+                  <p className="mt-4 flex items-start gap-2.5 text-white">
+                    <BadgeCheck className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden="true" />
+                    {g.answer}
+                  </p>
+                </Card>
+              </StaggerItem>
+            ))}
+          </Stagger>
         </Container>
       </Section>
 
