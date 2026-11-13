@@ -26,7 +26,7 @@ export function Logo({ className }: { className?: string }) {
         className="size-10 shrink-0 rounded-lg object-cover transition-transform duration-300 ease-out-quint group-hover:-translate-y-0.5"
       />
       <span className="flex flex-col leading-none">
-        <span className="text-[1.05rem] font-bold tracking-tight text-white">
+        <span className="text-[1.05rem] font-bold tracking-tight text-foreground">
           ZAH<span className="text-accent"> KPO</span>
         </span>
         <span className="mt-1 text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-slate-300">

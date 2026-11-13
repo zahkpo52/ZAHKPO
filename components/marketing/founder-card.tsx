@@ -12,7 +12,7 @@ export function FounderCard({ founder }: { founder: Founder }) {
       id={founder.name.toLowerCase().replace(/[^a-z]+/g, "-")}
       className="group flex h-full scroll-mt-24 flex-col overflow-hidden p-0"
     >
-      <div className="relative aspect-[2/3] overflow-hidden sm:aspect-[3/3.2]">
+      <div className="theme-navy relative aspect-[2/3] overflow-hidden sm:aspect-[3/3.2]">
         <Image
           src={founder.image.src}
           alt={founder.image.alt}
@@ -30,7 +30,7 @@ export function FounderCard({ founder }: { founder: Founder }) {
             target="_blank"
             rel="noreferrer"
             aria-label={`Visit ${founder.name}'s LinkedIn profile`}
-            className="absolute right-4 top-4 inline-flex size-11 items-center justify-center rounded-full border border-white/20 bg-white/10 p-2 text-white backdrop-blur-sm transition-colors hover:bg-primary hover:text-primary-foreground"
+            className="absolute right-4 top-4 inline-flex size-11 items-center justify-center rounded-full border border-border bg-white/10 p-2 text-foreground backdrop-blur-sm transition-colors hover:bg-primary hover:text-primary-foreground"
           >
             <Icon platform="LinkedIn" />
           </Link>
@@ -41,8 +41,8 @@ export function FounderCard({ founder }: { founder: Founder }) {
               <BadgeCheck className="size-3.5" aria-hidden="true" />
               {founder.credential}
             </span>
-            <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white">{founder.name}</h3>
-            <p className="text-sm font-medium text-white/75">{founder.role}</p>
+            <h3 className="mt-3 text-2xl font-semibold tracking-tight text-foreground">{founder.name}</h3>
+            <p className="text-sm font-medium text-foreground/75">{founder.role}</p>
           </div>
         </div>
       </div>

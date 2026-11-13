@@ -4,33 +4,57 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
   /* Brand constants sampled from the ZAH KPO logo */
   --brand-navy: #031833;
   --brand-gold: #e5b84a;
 
-  --background: #051a37;
-  --surface: #0a2243;
-  --surface-2: #0f2c52;
-  --foreground: #e9eef7;
-  --muted: #0a2243;
-  --muted-foreground: #9fb1cc;
-  --border: rgba(255, 255, 255, 0.09);
-  --input: rgba(255, 255, 255, 0.16);
-  --card: #0a2243;
-  --card-foreground: #e9eef7;
+  --background: #ffffff;
+  --surface: #f5f6f8;
+  --surface-2: #eceff3;
+  --foreground: #0b1f3a;
+  --muted: #f5f6f8;
+  --muted-foreground: #4f5d72;
+  --border: #e1e5eb;
+  --input: #cfd6df;
+  --card: #ffffff;
+  --card-foreground: #0b1f3a;
   --primary: #e5b84a;
   --primary-strong: #c99a2e;
   --primary-foreground: #0b1a33;
+  --primary-ink: #96690f;
   --accent: #e5b84a;
   --accent-foreground: #0b1a33;
-  --ring: #e5b84a;
+  --ring: #c99a2e;
   --success: #059669;
   --warning: #b45309;
   --danger: #dc2626;
 
   --radius: 0.75rem;
+}
+
+/* Navy bands: navbar, heroes, call-to-action, footer, ZAH Nexus showcase */
+.theme-navy {
+  color-scheme: dark;
+  --background: #031833;
+  --surface: #0a2243;
+  --surface-2: #0f2c52;
+  --foreground: #ffffff;
+  --muted: #0a2243;
+  --muted-foreground: #a9b8cf;
+  --border: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.18);
+  --card: #0a2243;
+  --card-foreground: #ffffff;
+  --primary-ink: #e5b84a;
+  --ring: #e5b84a;
+  color: var(--foreground);
+}
+
+/* Gold text needs a deeper tone on white for contrast; fills keep the brand gold. */
+.text-primary {
+  color: var(--primary-ink);
 }
 
 @theme inline {
@@ -55,6 +79,7 @@
   --color-danger: var(--danger);
 
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-display-face), Georgia, "Times New Roman", serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: var(--radius);
@@ -296,4 +321,64 @@
     transform: none;
     animation: none;
   }
+}
+
+/* ZAH Nexus showcase */
+@property --nexus-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.nexus-frame {
+  background: conic-gradient(from var(--nexus-angle), rgba(229, 184, 74, 0.15), rgba(229, 184, 74, 0.95), rgba(125, 211, 252, 0.6), rgba(229, 184, 74, 0.15) 55%, rgba(255, 255, 255, 0.12), rgba(229, 184, 74, 0.15));
+  animation: nexus-spin 7s linear infinite;
+}
+@keyframes nexus-spin {
+  to { --nexus-angle: 360deg; }
+}
+.nexus-glow { animation: nexus-glow 5s ease-in-out infinite; }
+@keyframes nexus-glow {
+  0%, 100% { opacity: 0.55; transform: scale(0.97); }
+  50% { opacity: 1; transform: scale(1.03); }
+}
+.nexus-float { animation: nexus-float 6s ease-in-out infinite; }
+.nexus-float-delay { animation-delay: -2s; }
+.nexus-float-slow { animation-duration: 8s; animation-delay: -4s; }
+@keyframes nexus-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.nexus-bar { transform-origin: left; animation: nexus-bar 1.4s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@keyframes nexus-bar {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.nexus-ping { animation: nexus-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite; }
+@keyframes nexus-ping {
+  75%, 100% { transform: scale(2.4); opacity: 0; }
+}
+.nexus-stage { animation: nexus-stage 2.4s ease-in-out infinite; }
+@keyframes nexus-stage {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(229, 184, 74, 0.55); }
+  50% { box-shadow: 0 0 0 6px rgba(229, 184, 74, 0); }
+}
+.nexus-dot { animation: nexus-dot-y 2.6s linear infinite; }
+.nexus-dot-rev { animation-direction: reverse; }
+.nexus-dot-late { animation-delay: -1.3s; }
+@keyframes nexus-dot-y {
+  0% { top: 0; opacity: 0; }
+  15%, 85% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+@media (min-width: 640px) {
+  .nexus-dot { animation-name: nexus-dot-x; }
+  @keyframes nexus-dot-x {
+    0% { left: 0; opacity: 0; }
+    15%, 85% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nexus-frame, .nexus-glow, .nexus-float, .nexus-bar, .nexus-ping, .nexus-stage, .nexus-dot { animation: none; }
+  .nexus-dot { display: none; }
 }

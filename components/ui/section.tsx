@@ -58,7 +58,7 @@ export function SectionHeading({
       {...props}
     >
       {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-      <Heading className="text-balance text-3xl font-semibold tracking-tight text-white md:text-[2.5rem] md:leading-[1.15]">
+      <Heading className="text-balance font-serif text-[2rem] font-medium leading-[1.15] tracking-[-0.01em] text-foreground md:text-[2.75rem] md:leading-[1.1]">
         <BrandHighlight>{title}</BrandHighlight>
       </Heading>
       {description ? (

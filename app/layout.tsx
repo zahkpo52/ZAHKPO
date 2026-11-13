@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
@@ -14,6 +15,15 @@ import { ConsentScripts } from "@/components/consent/consent-scripts";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
+});
+
+const serif = localFont({
+  src: [
+    { path: "./fonts/source-serif-4-latin-wght-normal.woff2", style: "normal", weight: "200 900" },
+    { path: "./fonts/source-serif-4-latin-wght-italic.woff2", style: "italic", weight: "200 900" },
+  ],
+  variable: "--font-display-face",
   display: "swap",
 });
 
@@ -73,7 +83,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en-GB" className={`${inter.variable} dark`}>
+    <html lang="en-GB" className={`${inter.variable} ${serif.variable}`}>
       <body className="flex min-h-dvh flex-col bg-background font-sans text-foreground antialiased">
         <JsonLd data={[organizationSchema(), websiteSchema(), ...founderSchemas()]} />
         <a

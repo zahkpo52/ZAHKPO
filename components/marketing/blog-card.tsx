@@ -27,7 +27,7 @@ export function BlogCard({ post, featured = false }: { post: BlogMeta; featured?
           )}
         >
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-dotted opacity-20" />
-          <Badge className="relative bg-white/15 text-white">{post.category}</Badge>
+          <Badge className="relative bg-white/15 text-foreground">{post.category}</Badge>
         </div>
         <div className="flex flex-1 flex-col p-6">
           <p className="text-xs text-muted-foreground">

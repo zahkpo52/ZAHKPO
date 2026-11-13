@@ -1,111 +1,68 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Award, CalendarCheck, Clock, ShieldCheck, Timer } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/section";
-import { WaveTextAnimation } from "../text-animation/wave-text";
 
-const trustSignals = [
-  { icon: Timer, value: "5000+", label: "Hours Delivered" },
-  { icon: Clock, value: "99%", label: "On-Time Delivery" },
-  { icon: ShieldCheck, value: "GDPR", label: "Secure" },
-  { icon: Award, value: "CA-led", label: "Review" },
+const facts = [
+  { value: "5,000+", label: "hours delivered for UK firms" },
+  { value: "99%", label: "of jobs delivered on time" },
+  { value: "0", label: "filing penalties on our work" },
 ];
 
 export function HomeHero() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#031833]">
-      {/* Office meeting backdrop with a navy wash that keeps copy readable */}
-      <div aria-hidden="true" className="absolute inset-0 -z-10">
-        <picture>
-          <source media="(max-width: 639px)" type="image/webp" srcSet="/images/mobile/hero-team-mobile.webp" />
-          <source media="(min-width: 640px)" type="image/webp" srcSet="/images/home-hero.webp" />
-          <img
-            src="/images/home-hero.webp"
-            alt=""
-            fetchPriority="high"
-            decoding="async"
-            className="absolute inset-0 size-full object-cover object-[center_72%]"
-          />
-        </picture>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#031833] via-[#031833]/80 to-[#031833]/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#031833]/90 via-transparent to-[#031833]/40" />
-      </div>
-      <div
-        aria-hidden="true"
-        className="absolute right-[-10%] top-[-20%] -z-10 size-36rem rounded-full bg-[#e5b84a]/10 blur-3xl"
-      />
+    <section className="theme-navy bg-[#031833]">
+      <Container className="grid items-center gap-12 py-16 md:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-24">
+        <div>
+          <p className="text-sm font-medium text-[#e5b84a]">Outsourcing for UK accountancy firms</p>
 
-      <Container>
-        <div
-          className="flex max-w-3xl flex-col items-start py-24 md:py-32 lg:py-36"
-        >
-          <span
-            className="inline-flex items-center gap-2.5 rounded-full border border-[#e5b84a]/30 bg-[#e5b84a]/10 px-4 py-1.5 md:text-lg sm:text-md text-xs font-bold tracking-wide text-[#e5b84a] backdrop-blur"
-          >
-            <WaveTextAnimation content="Think Outsourcing. Think ZAH." />
-          </span>
-
-          <h1
-            className="mt-6 text-balance text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl"
-          >
-            Trusted Outsourcing Partner for{" "}
-            <span className="bg-[linear-gradient(120deg,#e5b84a,#c99a2e)] bg-clip-text text-transparent">
-              UK Accounting Firms
-            </span>
+          <h1 className="mt-5 text-balance font-serif text-[2.6rem] font-medium leading-[1.05] tracking-[-0.015em] text-foreground sm:text-6xl lg:text-[4.25rem]">
+            Outsourced accounting that works like <em className="font-normal text-[#e5b84a]">your own team.</em>
           </h1>
 
-          <p
-            className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-white/80"
-          >
-            We help UK accounting firms save time, reduce costs and scale with confidence -
-            through accurate, compliant and reliable back-office support.
+          <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-foreground/75">
+            Bookkeeping, year-end accounts, VAT, payroll and tax - prepared by qualified accountants in
+            your software, reviewed twice before it reaches you, and tracked job by job in ZAH Nexus.
           </p>
 
-          <p
-            className="mt-4 text-sm font-medium uppercase tracking-[0.14em] text-white/50"
-          >
-            Bookkeeping · Accounts · Tax · Payroll · Audit Support · CFO Advisory
-          </p>
-
-          <div
-            className="mt-9 flex flex-wrap items-center gap-3"
-          >
+          <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
             <Button asChild size="lg" variant="accent">
-              <Link href="/contact">
-                <CalendarCheck className="size-4" aria-hidden="true" />
-                Book a Discovery Call
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </Link>
+              <Link href="/contact">Book a discovery call</Link>
             </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-white/30 bg-white/5 text-white backdrop-blur hover:bg-white/10"
+            <Link
+              href="/how-we-work"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-foreground underline decoration-white/30 underline-offset-[6px] transition-colors hover:decoration-[#e5b84a]"
             >
-              <Link href="/services">Explore Services</Link>
-            </Button>
+              See how it works
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+            </Link>
           </div>
 
-          <ul
-            className="mt-12 grid w-full grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/12 bg-white/10 backdrop-blur-sm sm:grid-cols-4"
-          >
-            {trustSignals.map((signal) => (
-              <li
-                key={signal.label}
-                className="flex items-center gap-3 bg-[#051a37]/80 px-4 py-4 sm:px-5"
-              >
-                <signal.icon className="size-5 shrink-0 text-[#e5b84a]" aria-hidden="true" />
-                <div>
-                  <p className="text-base font-semibold leading-tight text-white">{signal.value}</p>
-                  <p className="text-xs leading-tight text-white/60">{signal.label}</p>
-                </div>
-              </li>
+          <dl className="mt-12 grid max-w-xl grid-cols-3 divide-x divide-white/15 border-t border-white/15 pt-6">
+            {facts.map((f, i) => (
+              <div key={f.label} className={i === 0 ? "pr-4" : "px-4"}>
+                <dd className="font-serif text-3xl font-medium text-foreground md:text-4xl">{f.value}</dd>
+                <dt className="mt-1.5 text-xs leading-snug text-foreground/60 md:text-sm">{f.label}</dt>
+              </div>
             ))}
-          </ul>
+          </dl>
         </div>
+
+        <figure className="relative">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-xl sm:aspect-[5/4] lg:aspect-[4/5]">
+            <Image
+              src="/images/office-workstations.webp"
+              alt="Two ZAH KPO accountants working at their desks in the Khargone delivery centre"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 45vw"
+              className="object-cover"
+            />
+          </div>
+          <figcaption className="mt-3 text-xs text-foreground/50">Our delivery centre in Khargone, India</figcaption>
+        </figure>
       </Container>
     </section>
   );

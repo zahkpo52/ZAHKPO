@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/software",
     "/how-we-work",
     "/security",
+    "/nexus",
   ];
 
   const staticEntries: MetadataRoute.Sitemap = staticPaths.map((path) => ({

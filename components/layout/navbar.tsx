@@ -21,12 +21,12 @@ import { resourceLinks, serviceGroups, serviceMenuColumns }
 // , specialtiesGroup } 
 
 const triggerClass =
-  "group inline-flex h-9 items-center gap-1 rounded-md px-3 text-sm font-medium text-white/80 transition-colors hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring data-[state=open]:text-white";
+  "group inline-flex h-9 items-center gap-1 rounded-md px-3 text-sm font-medium text-foreground/80 transition-colors hover:bg-white/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring data-[state=open]:text-foreground";
 
 function navLinkClass(active: boolean) {
   return cn(
-    "inline-flex h-9 items-center rounded-md px-3 text-sm font-medium transition-colors hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-    active ? "text-white" : "text-white/80",
+    "inline-flex h-9 items-center rounded-md px-3 text-sm font-medium transition-colors hover:bg-white/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+    active ? "text-foreground" : "text-foreground/80",
   );
 }
 
@@ -54,7 +54,7 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full border-b border-white/10 bg-[#051a37] text-white transition-colors duration-300 backdrop-blur-xl",
+        "theme-navy sticky top-0 z-50 w-full border-b border-white/10 bg-[#031833] text-foreground transition-colors duration-300 backdrop-blur-xl",
         scrolled ? "shadow-[0_12px_30px_rgba(3,24,51,0.18)]" : "",
       )}
     >
@@ -96,7 +96,7 @@ export function Navbar() {
                                     href={item.href}
                                     className="block rounded-lg p-2.5 transition-colors hover:bg-white/5"
                                   >
-                                    <span className="block text-sm font-medium text-white">
+                                    <span className="block text-sm font-medium text-foreground">
                                       {item.label}
                                     </span>
                                     {item.description ? (
@@ -144,7 +144,7 @@ export function Navbar() {
                         href={item.href}
                         className="block rounded-lg p-3 transition-colors hover:bg-white/5"
                       >
-                        <span className="block text-sm font-medium text-white">
+                        <span className="block text-sm font-medium text-foreground">
                           {item.label}
                         </span>
                         <span className="mt-0.5 block text-xs leading-snug text-slate-300">
@@ -177,18 +177,18 @@ export function Navbar() {
               <button
                 type="button"
                 aria-label="Open menu"
-                className="grid size-10 place-items-center rounded-lg border border-white/10 bg-white/5 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:hidden"
+                className="grid size-10 place-items-center rounded-lg border border-white/10 bg-white/5 text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:hidden"
               >
                 <Menu className="size-5" aria-hidden="true" />
               </button>
             </SheetTrigger>
-            <SheetContent className="bg-[#051a37] text-white">
+            <SheetContent className="theme-navy bg-[#031833] text-foreground">
               <SheetTitle className="sr-only">Navigation menu</SheetTitle>
               <Logo />
-              <nav className="-mx-1 flex-1 overflow-y-auto px-1 text-white">
+              <nav className="-mx-1 flex-1 overflow-y-auto px-1 text-foreground">
                 <Link
                   href="/about"
-                  className="block border-b border-white/10 py-3.5 text-base font-medium text-white"
+                  className="block border-b border-white/10 py-3.5 text-base font-medium text-foreground"
                 >
                   About
                 </Link>
@@ -241,17 +241,17 @@ export function Navbar() {
                 </Accordion>
                 <Link
                   href="/why-zah-kpo"
-                  className="block border-b border-white/10 py-3.5 text-base font-medium text-white"
+                  className="block border-b border-white/10 py-3.5 text-base font-medium text-foreground"
                 >
                   Why ZAH
                 </Link>
                 <Link
                   href="/careers"
-                  className="block border-b border-white/10 py-3.5 text-base font-medium text-white"
+                  className="block border-b border-white/10 py-3.5 text-base font-medium text-foreground"
                 >
                   Careers
                 </Link>
-                <Link href="/contact" className="block py-3.5 text-base font-medium text-white">
+                <Link href="/contact" className="block py-3.5 text-base font-medium text-foreground">
                   Contact
                 </Link>
               </nav>
