@@ -24,6 +24,7 @@ import { IconTile } from "@/components/marketing/icon-tile";
 import { Icon } from "@/components/layout/social-links";
 import { buildMetadata, faqSchema } from "@/lib/seo";
 import { JsonLd } from "@/components/seo/json-ld";
+import { siteConfig } from "@/lib/site";
 import { FaqAccordion } from "@/components/marketing/faq-section";
 import { servicesBySlug } from "@/content/services";
 import { securityFeatures } from "@/content/about";
@@ -250,6 +251,69 @@ export default function HomePage() {
               </StaggerItem>
             ))}
           </Stagger>
+        </Container>
+      </Section>
+
+      {/* Intro video */}
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "VideoObject",
+          name: "Meet ZAH KPO - outsourced accounting for UK accountancy firms",
+          description:
+            "A one-minute introduction to ZAH KPO: how we help UK practices save time, reduce cost and grow with confidence, with clear SOPs, multi-level review and GDPR-aligned practices.",
+          thumbnailUrl: [`${siteConfig.url}/videos/zah-kpo-intro-poster.webp`],
+          contentUrl: `${siteConfig.url}/videos/zah-kpo-intro.mp4`,
+          uploadDate: "2026-11-13",
+          duration: "PT56S",
+          publisher: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url },
+        }}
+      />
+      <Section>
+        <Container className="grid items-center gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+          <Reveal>
+            <SectionHeading
+              align="left"
+              eyebrow="Meet ZAH KPO"
+              title="Who we are, in under a minute"
+              description="Hear from our leadership about how we work with UK accountancy firms - and why practices trust us with their clients' work."
+            />
+            <ul className="mt-8 space-y-4">
+              {[
+                "Save time, reduce cost and grow with confidence",
+                "Clear SOPs and multi-level review on every engagement",
+                "AI-assisted speed with qualified accountant review",
+                "GDPR-aligned practices you can rely on",
+              ].map((point) => (
+                <li key={point} className="flex gap-3 text-muted-foreground">
+                  <BadgeCheck className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-9">
+              <Button asChild size="lg">
+                <Link href="/contact">
+                  Book a discovery call <ArrowRight className="size-4" />
+                </Link>
+              </Button>
+            </div>
+          </Reveal>
+          <Reveal>
+            <div className="mx-auto w-full max-w-[22rem] overflow-hidden rounded-3xl border border-border bg-surface shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)] ring-1 ring-primary/20">
+              <video
+                className="aspect-[9/16] w-full bg-black object-cover"
+                controls
+                playsInline
+                preload="none"
+                poster="/videos/zah-kpo-intro-poster.webp"
+                aria-label="Meet ZAH KPO - introduction video"
+              >
+                <source src="/videos/zah-kpo-intro.mp4" type="video/mp4" />
+                Your browser does not support video playback.
+              </video>
+            </div>
+          </Reveal>
         </Container>
       </Section>
 
