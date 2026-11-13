@@ -145,7 +145,7 @@ export default function HomePage() {
               href="/services"
               className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-foreground underline decoration-white/30 underline-offset-[6px] hover:decoration-primary"
             >
-              All 15 services
+              All 14 services
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
             </Link>
           </Reveal>
@@ -352,6 +352,13 @@ export default function HomePage() {
                   <span className="text-white/60"> - {t.role}</span>
                 </figcaption>
               </figure>
+              <Link
+                href="/case-study"
+                className="group mt-10 inline-flex items-center gap-2 text-sm font-semibold text-white underline decoration-white/30 underline-offset-[6px] hover:decoration-[#e5b84a]"
+              >
+                Read the case study
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+              </Link>
             </Reveal>
           ))}
         </Container>
@@ -408,6 +415,13 @@ export default function HomePage() {
               title="Experience across the clients UK practices serve"
               description="We already work on these sectors for UK firms, so we know the records, the VAT points and the questions to ask."
             />
+            <Link
+              href="/industries"
+              className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-foreground underline decoration-foreground/30 underline-offset-[6px] hover:decoration-primary"
+            >
+              Sector guides
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+            </Link>
           </Reveal>
           <Stagger className="grid gap-x-10 sm:grid-cols-2">
             {industries.map(([name, detail]) => (

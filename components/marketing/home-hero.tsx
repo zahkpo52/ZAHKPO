@@ -42,7 +42,15 @@ export function HomeHero() {
             </Link>
           </div>
 
-          <dl className="mt-12 grid max-w-xl grid-cols-3 divide-x divide-white/15 border-t border-white/15 pt-6">
+          <p className="mt-6 text-sm text-white/70">
+            <span className="mr-2 rounded-full bg-[#e5b84a]/15 px-2.5 py-1 text-xs font-semibold text-[#e5b84a]">New firms</span>
+            Your first 3 jobs are free.{" "}
+            <Link href="/contact?offer=free-trial" className="font-semibold text-white underline decoration-white/30 underline-offset-4 hover:decoration-[#e5b84a]">
+              Claim the free trial
+            </Link>
+          </p>
+
+          <dl className="mt-10 grid max-w-xl grid-cols-3 divide-x divide-white/15 border-t border-white/15 pt-6">
             {facts.map((f, i) => (
               <div key={f.label} className={i === 0 ? "pr-4" : "px-4"}>
                 <dd className="font-serif text-3xl font-medium text-foreground md:text-4xl">

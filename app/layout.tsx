@@ -11,6 +11,7 @@ import { defaultOgImage, founderSchemas, organizationSchema, websiteSchema } fro
 import { siteConfig } from "@/lib/site";
 import WhatsAppIcon from "@/components/marketing/whatsApp-icon";
 import { ConsentScripts } from "@/components/consent/consent-scripts";
+import { TrialOffer } from "@/components/marketing/trial-offer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -99,6 +100,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <WhatsAppIcon />
         <Footer />
         <ConsentScripts />
+        <TrialOffer />
       </body>
     </html>
   );

@@ -24,6 +24,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/security",
     "/nexus",
     "/gdpr",
+    "/case-study",
+    "/industries",
+    "/industries/construction-cis",
+    "/industries/restaurants-hospitality",
+    "/industries/property-landlords",
+    "/industries/charities",
+    "/uk-tax-deadlines",
+    "/terms",
+    "/accessibility",
   ];
 
   const staticEntries: MetadataRoute.Sitemap = staticPaths.map((path) => ({

@@ -154,6 +154,9 @@ export const resourceLinks: NavLink[] = [
   { label: "Blog", href: "/blog", description: "Guides on outsourcing, tax and cloud." },
   { label: "ZAH Nexus", href: "/nexus", description: "One workspace for your UK team and ours." },
   { label: "UK GDPR", href: "/gdpr", description: "DPA, IDTA and our client assurance pack." },
+  { label: "Case study", href: "/case-study", description: "How we cleared a UK practice's backlog." },
+  { label: "Industries", href: "/industries", description: "Construction, hospitality, property and charities." },
+  { label: "UK tax deadlines", href: "/uk-tax-deadlines", description: "Live countdown and year-end calculator." },
   { label: "FAQ", href: "/faq", description: "Answers to common outsourcing questions." },
 ];
 
