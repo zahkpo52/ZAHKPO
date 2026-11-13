@@ -419,3 +419,13 @@
 .trial-pop { animation: trial-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s both; }
 @keyframes trial-pop { from { opacity: 0; transform: translateY(16px) scale(0.92); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .trial-fade, .trial-pop { animation: none; } }
+
+/* ZAH Nexus bridge: sunrise when the section scrolls into view */
+.bridge-sun { transform: translateY(170px); transition: transform 3.4s cubic-bezier(0.2, 0.7, 0.2, 1) 0.3s; }
+.bridge-dawn { opacity: 0; transition: opacity 3s ease 0.4s; }
+.bridge-quote { opacity: 0; transform: translateY(10px); transition: opacity 1s ease 2.2s, transform 1s ease 2.2s; }
+[data-shown] .bridge-sun { transform: none; }
+[data-shown] .bridge-dawn, [data-shown] .bridge-quote { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .bridge-sun, .bridge-dawn, .bridge-quote { transform: none; opacity: 1; transition: none; }
+}

@@ -43,7 +43,7 @@ const glance: [string, string][] = [
   ["Leadership", "Husain Sangam (Chartered Accountant) and Mustafa Bag (B.Com, ACCA part-qualified)."],
   ["Services", "Bookkeeping, year-end accounts, VAT, payroll, CIS, corporation tax, Self Assessment and MTD."],
   ["Software", "Xero, QuickBooks, Sage, FreeAgent, Dext, Hubdoc and Power BI."],
-  ["Pricing", "Per hour, per job or a dedicated team. Quotes on enquiry; first three jobs free for new firms."],
+  ["Pricing", "Per hour (from £10), per job or a dedicated team. Exact quote after a short call; first three jobs free for new firms."],
   ["Quality", "Two-level review on every job, tracked in our own platform, ZAH Nexus."],
   ["Data protection", "Article 28 DPA and the ICO's IDTA or UK Addendum with every firm."],
   ["Contact", "info@zahkpo.com or WhatsApp +44 784 842 6766."],

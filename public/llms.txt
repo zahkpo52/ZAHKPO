@@ -6,7 +6,7 @@ Key facts:
 - Who it serves: UK accountancy practices and bookkeeping firms (not businesses directly).
 - Services: bookkeeping, year-end accounts (FRS 102 / FRS 105), management accounts, VAT returns (Making Tax Digital), payroll, CIS returns, corporation tax (CT600), personal tax / Self Assessment, MTD for Income Tax, iXBRL tagging, audit support, CFO advisory.
 - Software: Xero, QuickBooks, Sage, FreeAgent, Dext, Hubdoc, Power BI.
-- Pricing: flexible - pay per hour, a fixed price per job, or a dedicated team. No public price list; quotes on enquiry, usually after a short discovery call.
+- Pricing: flexible - per hour (indicatively £10-£16), a fixed price per job (e.g. VAT return £25-£60, small-company year-end accounts and CT600 £150-£350, Self Assessment £50-£120), or a dedicated full-time accountant (£1,100-£1,800 a month). Exact quotes follow a short discovery call. Pricing calculator: https://www.zahkpo.com/pricing-calculator/
 - Free trial: UK accounting firms new to ZAH KPO get their first three jobs free, any service.
 - Quality: two-level review (preparer and independent reviewer) and founder review; service checklists; review points logged and closed in ZAH Nexus.
 - Results published on the site: 5,000+ hours delivered for UK firms, 99% of jobs on time, 100% of VAT returns submitted on time and no penalties on returns prepared.
@@ -40,6 +40,7 @@ Key facts:
 
 ## Resources
 - [Free tools](https://www.zahkpo.com/free-tools/): free tools for UK accountancy practices
+- [Pricing calculator](https://www.zahkpo.com/pricing-calculator/): indicative monthly cost of outsourcing work to ZAH KPO
 - [UK tax deadlines calendar](https://www.zahkpo.com/uk-tax-deadlines/): live countdown and company year-end calculator
 - [In-house vs outsourcing cost calculator](https://www.zahkpo.com/in-house-cost-calculator/): the true annual and hourly cost of hiring an accountant in a UK practice
 - [Sample working papers](https://www.zahkpo.com/sample-working-papers/): downloadable sample VAT return working paper, bank reconciliation and year-end lead schedule
