@@ -53,7 +53,7 @@ export default function DeadlinesPage() {
               <NextDeadlines count={8} />
             </div>
           </div>
-          <div>
+          <div id="calculator" className="scroll-mt-28">
             <Reveal>
               <SectionHeading align="left" eyebrow="Calculator" title="Company deadlines from a year-end" />
             </Reveal>

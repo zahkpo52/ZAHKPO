@@ -141,7 +141,7 @@ export function Navbar() {
                 />
               </NavigationMenu.Trigger>
               <NavigationMenu.Content className="absolute left-0 top-full z-50 mt-2.5 rounded-2xl border border-white/10 bg-[#0a2243] shadow-[0_18px_48px_rgba(3,24,51,0.35)] data-[state=closed]:animate-fade-out data-[state=open]:animate-fade-in">
-                <div className="w-[20rem] p-3">
+                <div className="grid w-[36rem] grid-cols-2 gap-x-1 p-3">
                   {resourceLinks.map((item) => (
                     <NavigationMenu.Link asChild key={item.href}>
                       <Link
@@ -159,6 +159,14 @@ export function Navbar() {
                   ))}
                 </div>
               </NavigationMenu.Content>
+            </NavigationMenu.Item>
+
+            <NavigationMenu.Item>
+              <NavigationMenu.Link asChild>
+                <Link href="/free-tools" className={navLinkClass(pathname === "/free-tools")}>
+                  Free tools
+                </Link>
+              </NavigationMenu.Link>
             </NavigationMenu.Item>
 
             <NavigationMenu.Item>
@@ -257,6 +265,12 @@ export function Navbar() {
                   className="block border-b border-white/10 py-3.5 text-base font-medium text-foreground"
                 >
                   Why ZAH
+                </Link>
+                <Link
+                  href="/free-tools"
+                  className="block border-b border-white/10 py-3.5 text-base font-medium text-foreground"
+                >
+                  Free tools
                 </Link>
                 <Link
                   href="/careers"

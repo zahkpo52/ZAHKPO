@@ -31,6 +31,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/industries/property-landlords",
     "/industries/charities",
     "/uk-tax-deadlines",
+    "/free-tools",
+    "/in-house-cost-calculator",
+    "/sample-working-papers",
     "/terms",
     "/accessibility",
   ];

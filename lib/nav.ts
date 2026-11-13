@@ -156,7 +156,10 @@ export const resourceLinks: NavLink[] = [
   { label: "UK GDPR", href: "/gdpr", description: "DPA, IDTA and our client assurance pack." },
   { label: "Case study", href: "/case-study", description: "How we cleared a UK practice's backlog." },
   { label: "Industries", href: "/industries", description: "Construction, hospitality, property and charities." },
+  { label: "Free tools", href: "/free-tools", description: "Calculators, deadlines and sample working papers." },
   { label: "UK tax deadlines", href: "/uk-tax-deadlines", description: "Live countdown and year-end calculator." },
+  { label: "In-house vs outsourcing", href: "/in-house-cost-calculator", description: "What a new hire really costs your practice." },
+  { label: "Sample working papers", href: "/sample-working-papers", description: "Download the files we hand back." },
   { label: "FAQ", href: "/faq", description: "Answers to common outsourcing questions." },
 ];
 
@@ -164,6 +167,7 @@ export const primaryNav: NavLink[] = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Why ZAH", href: "/why-zah-kpo" },
+  { label: "Free tools", href: "/free-tools" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];

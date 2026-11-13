@@ -14,7 +14,7 @@ export function BrandHighlight({ children }: { children: React.ReactNode }) {
       {children.split(/(ZAH KPO)/g).map((part, i) =>
         part === "ZAH KPO" ? (
           <React.Fragment key={i}>
-            ZAH<span className="text-accent"> KPO</span>
+            ZAH<span className="text-[color:var(--primary-ink)]"> KPO</span>
           </React.Fragment>
         ) : (
           part
