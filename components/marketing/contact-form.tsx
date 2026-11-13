@@ -52,6 +52,7 @@ export function ContactForm() {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<ContactValues>({
     resolver: zodResolver(contactSchema),
@@ -67,6 +68,12 @@ export function ContactForm() {
       website: "",
     },
   });
+
+  React.useEffect(() => {
+    if (new URLSearchParams(window.location.search).get("offer") === "free-trial") {
+      setValue("topic", "Free trial - 3 jobs");
+    }
+  }, [setValue]);
 
   const { name: _first, ...firstNameReg } = register("firstName");
   const { name: _last, ...lastNameReg } = register("lastName");

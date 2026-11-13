@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import { ChevronDown, Menu } from "lucide-react";
+import { ChevronDown, LogIn, Menu } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -40,6 +40,10 @@ function useScrolled() {
   }, []);
   return scrolled;
 }
+
+
+/** ZAH Nexus sign-in for client firms' UK teams. */
+const NEXUS_LOGIN = "https://zahkpo.pages.dev/";
 
 export function Navbar() {
   const scrolled = useScrolled();
@@ -168,6 +172,15 @@ export function Navbar() {
         </NavigationMenu.Root>
 
         <div className="flex items-center gap-2">
+          <a
+            href={NEXUS_LOGIN}
+            target="_blank"
+            rel="noreferrer"
+            className="mr-1 hidden items-center gap-1.5 rounded-md px-2.5 py-2 text-sm font-medium text-white/80 transition-colors hover:text-white xl:inline-flex"
+          >
+            <LogIn className="size-4" aria-hidden="true" />
+            Client login
+          </a>
           <Button asChild size="sm" className="hidden sm:inline-flex">
             <Link href="/contact">Book a Discovery Call</Link>
           </Button>
@@ -251,9 +264,21 @@ export function Navbar() {
                 >
                   Careers
                 </Link>
-                <Link href="/contact" className="block py-3.5 text-base font-medium text-foreground">
+                <Link
+                  href="/contact"
+                  className="block border-b border-white/10 py-3.5 text-base font-medium text-foreground"
+                >
                   Contact
                 </Link>
+                <a
+                  href={NEXUS_LOGIN}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 py-3.5 text-base font-medium text-foreground"
+                >
+                  <LogIn className="size-4" aria-hidden="true" />
+                  Client login (ZAH Nexus)
+                </a>
               </nav>
               <div className="flex items-center justify-between gap-3 border-t border-border pt-4">
                 <SheetClose asChild>

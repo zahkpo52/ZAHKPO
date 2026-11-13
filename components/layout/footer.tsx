@@ -98,7 +98,13 @@ export function Footer() {
           </p>
           <div className="flex flex-wrap items-center gap-x-5">
             <Link href="/privacy" className="inline-block py-2 transition-colors hover:text-primary">
-              Privacy Policy
+              Privacy
+            </Link>
+            <Link href="/terms" className="inline-block py-2 transition-colors hover:text-primary">
+              Terms
+            </Link>
+            <Link href="/accessibility" className="inline-block py-2 transition-colors hover:text-primary">
+              Accessibility
             </Link>
             <Link href="/faq" className="inline-block py-2 transition-colors hover:text-primary">
               FAQ

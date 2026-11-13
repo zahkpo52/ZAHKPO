@@ -20,6 +20,7 @@ import { servicesBySlug } from "@/content/services";
 import { homeFaqs } from "@/content/home";
 import { founders } from "@/content/team";
 import { clientTestimonials } from "@/content/testimonials";
+import { gdprHeadlines } from "@/content/trust";
 
 export const metadata: Metadata = buildMetadata({
   title: "ZAH KPO | Accounting Outsourcing for UK Accountancy Firms",
@@ -90,6 +91,11 @@ const industries: [string, string][] = [
   ["Owner-managed companies", "Bookkeeping, payroll, year-end and corporation tax."],
 ];
 
+const trustExtras = [
+  { title: "Encrypted company laptops", text: "Two-step login everywhere, USB storage blocked and screens that lock themselves." },
+  { title: "Breach notice within 24 hours", text: "Where practicable, with everything you need to decide on any report to the ICO." },
+];
+
 const engagementModels = [
   {
     title: "Pay per hour",
@@ -139,7 +145,7 @@ export default function HomePage() {
               href="/services"
               className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-foreground underline decoration-white/30 underline-offset-[6px] hover:decoration-primary"
             >
-              All 15 services
+              All 14 services
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
             </Link>
           </Reveal>
@@ -346,13 +352,61 @@ export default function HomePage() {
                   <span className="text-white/60"> - {t.role}</span>
                 </figcaption>
               </figure>
+              <Link
+                href="/case-study"
+                className="group mt-10 inline-flex items-center gap-2 text-sm font-semibold text-white underline decoration-white/30 underline-offset-[6px] hover:decoration-[#e5b84a]"
+              >
+                Read the case study
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+              </Link>
             </Reveal>
           ))}
         </Container>
       </section>
 
-      {/* Industries */}
+      {/* GDPR and security */}
       <Section>
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+            <Reveal>
+              <SectionHeading
+                align="left"
+                eyebrow="UK GDPR and security"
+                title="Covered in writing, before you share a single file"
+                description="Outsourcing to India is lawful under UK GDPR with the right contracts and safeguards. We provide them all - and the evidence behind our security."
+              />
+              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+                <Button asChild>
+                  <Link href="/gdpr">Our UK GDPR approach</Link>
+                </Button>
+                <Link
+                  href="/security"
+                  className="group inline-flex items-center gap-2 text-sm font-semibold text-foreground underline decoration-foreground/30 underline-offset-[6px] hover:decoration-primary"
+                >
+                  Security controls
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                </Link>
+              </div>
+            </Reveal>
+            <Stagger className="grid gap-x-10 sm:grid-cols-2">
+              {[...gdprHeadlines, ...trustExtras].map((h) => (
+                <StaggerItem key={h.title}>
+                  <div className="flex gap-3 border-t border-border py-5">
+                    <Check className="mt-1 size-4 shrink-0 text-[#2f8a57]" aria-hidden="true" />
+                    <div>
+                      <h3 className="font-semibold text-foreground">{h.title}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{h.text}</p>
+                    </div>
+                  </div>
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Industries */}
+      <Section className="border-y border-border bg-surface">
         <Container className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <Reveal className="lg:sticky lg:top-28 lg:self-start">
             <SectionHeading
@@ -361,6 +415,13 @@ export default function HomePage() {
               title="Experience across the clients UK practices serve"
               description="We already work on these sectors for UK firms, so we know the records, the VAT points and the questions to ask."
             />
+            <Link
+              href="/industries"
+              className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-foreground underline decoration-foreground/30 underline-offset-[6px] hover:decoration-primary"
+            >
+              Sector guides
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+            </Link>
           </Reveal>
           <Stagger className="grid gap-x-10 sm:grid-cols-2">
             {industries.map(([name, detail]) => (
@@ -376,7 +437,7 @@ export default function HomePage() {
       </Section>
 
       {/* Engagement models */}
-      <Section className="border-y border-border bg-surface">
+      <Section>
         <Container>
           <Reveal>
             <SectionHeading
@@ -427,7 +488,7 @@ export default function HomePage() {
           publisher: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url },
         }}
       />
-      <Section>
+      <Section className="border-y border-border bg-surface">
         <Container className="grid items-center gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
           <Reveal>
             <SectionHeading
@@ -476,7 +537,7 @@ export default function HomePage() {
       </Section>
 
       {/* Inside ZAH */}
-      <Section className="border-y border-border bg-surface">
+      <Section>
         <Container>
           <Reveal>
             <SectionHeading
@@ -502,7 +563,7 @@ export default function HomePage() {
       </Section>
 
       {/* Leadership */}
-      <Section>
+      <Section className="border-y border-border bg-surface">
         <Container>
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
             <Reveal>
@@ -564,7 +625,7 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section className="border-t border-border bg-surface">
+      <Section>
         <Container>
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
             <Reveal>

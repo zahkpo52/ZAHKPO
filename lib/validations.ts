@@ -10,6 +10,7 @@ export type NewsletterValues = z.infer<typeof newsletterSchema>;
 
 export const contactTopics = [
   "General enquiry",
+  "Free trial - 3 jobs",
   "Accounting",
   "Tax",
   "Company secretarial",
