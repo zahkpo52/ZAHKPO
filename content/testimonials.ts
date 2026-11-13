@@ -23,4 +23,12 @@ export const testimonials: Testimonial[] = [
  * Only add real client quotes the client has approved in writing.
  * The home-page section is hidden while this list is empty.
  */
-export const clientTestimonials: Testimonial[] = [];
+export const clientTestimonials: Testimonial[] = [
+  {
+    quote:
+      "ZAH KPO has become a dependable extension of our practice. The team is proactive - they raise queries early instead of waiting to be chased - and their turnaround is very good. What I value most is that they learn from their mistakes: once a review point is raised, we do not see it again.",
+    author: "Juzer Kimti",
+    role: "Director, Kimti and Co Accountants",
+    company: "Kimti and Co Accountants",
+  },
+];

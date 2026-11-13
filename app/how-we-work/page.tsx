@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CalendarCheck, CircleDot, ClipboardList, KeyRound, ListChecks, Users, Workflow } from "lucide-react";
+import { ArrowRight, CalendarCheck, CircleDot, ClipboardList, Clock, KeyRound, ListChecks, Users, Workflow } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -16,7 +16,7 @@ import { buildMetadata, breadcrumbSchema, faqSchema } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "How Outsourcing With ZAH Works",
   description:
-    "How UK firms work with ZAH: discovery call, pilot batch, secure set-up in your systems and reviewed delivery - pay as you use or with a dedicated team.",
+    "How UK firms work with ZAH: discovery call, pilot batch, secure set-up in your systems and reviewed delivery - pay per hour, per job or with a dedicated team.",
   path: "/how-we-work",
   keywords: ["how accounting outsourcing works", "dedicated offshore accountant", "outsourcing engagement model"],
 });
@@ -34,10 +34,16 @@ const steps = [
 
 const models = [
   {
+    icon: Clock,
+    title: "Pay per hour",
+    text: "Buy a block of hours and use them on whatever you need. The simplest way to try us without handing over a whole workload.",
+    points: ["Ideal for a first trial", "Ad-hoc and overflow work", "Pay only for time used"],
+  },
+  {
     icon: ClipboardList,
-    title: "Pay as you use",
-    text: "Send jobs as you need them - a VAT quarter, a batch of year-ends, monthly bookkeeping for a set of clients. Cost follows the volume of work.",
-    points: ["Ideal for seasonal peaks", "Start with a single service", "No long-term commitment to headcount"],
+    title: "Pay per job",
+    text: "A fixed price per job - a VAT quarter, a set of year-end accounts, monthly bookkeeping for a client. Cost follows the volume of work.",
+    points: ["Known cost before we start", "Ideal for seasonal peaks", "Start with a single service"],
   },
   {
     icon: Users,
@@ -58,7 +64,9 @@ const faqs = [
   { question: "How long does it take to get started?", answer: "Once the scope is agreed and secure access is set up, we can start on a pilot batch. The pace after that is up to you." },
   { question: "Do we have to commit to a minimum volume?", answer: "No. Many firms start with a small pilot batch or a single service and add more once they are happy with the quality." },
   { question: "Who talks to our clients?", answer: "Usually your firm does. We send our queries to you in one consolidated list, and you decide what goes to the client." },
-  { question: "Can we switch between pay-as-you-use and a dedicated team?", answer: "Yes. Many firms start pay-as-you-use and move to a dedicated team once their volume is steady." },
+  { question: "How is your pricing structured?", answer: "It is flexible. You can pay per hour, pay a fixed price per job, or take a dedicated accountant or team for a monthly fee. We quote once we understand your work and volumes." },
+  { question: "Can we start with just a few hours?", answer: "Yes. Many practices do not hand over all their work at the start. You can begin with a small block of hours or a handful of jobs and scale up when you are comfortable." },
+  { question: "Can we switch between models?", answer: "Yes. Many firms start per hour or per job and move to a dedicated team once their volume is steady." },
 ];
 
 export default function HowWeWorkPage() {
@@ -68,7 +76,7 @@ export default function HowWeWorkPage() {
       <PageHero
         eyebrow="How we work"
         title="A simple, low-risk way to add capacity"
-        description="From the first call to regular delivery, here is exactly how working with ZAH works - and the two ways firms choose to engage us."
+        description="From the first call to regular delivery, here is exactly how working with ZAH works - and the three ways firms choose to engage us."
         crumbs={crumbs}
       >
         <Button asChild size="lg">
@@ -101,9 +109,13 @@ export default function HowWeWorkPage() {
       <Section className="border-y border-border bg-surface">
         <Container>
           <Reveal>
-            <SectionHeading eyebrow="Engagement models" title="Two ways to work with us" />
+            <SectionHeading
+              eyebrow="Engagement models and pricing"
+              title="Three ways to work with us"
+              description="Our pricing is flexible. Most firms start small - by the hour or by the job - and move to a dedicated team once the volume is steady."
+            />
           </Reveal>
-          <Stagger className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-2">
+          <Stagger className="mt-12 grid gap-5 md:grid-cols-3">
             {models.map((m) => (
               <StaggerItem key={m.title} className="h-full">
                 <Card className="h-full p-8">
@@ -134,6 +146,12 @@ export default function HowWeWorkPage() {
               title="One workspace for your UK team and ours"
               description="We run every job through ZAH Nexus, our in-house workflow platform. Each job has a status, an owner, a service checklist and a deadline - and your UK team logs in to see progress, review the work and raise review points in the same place."
             />
+            <Button asChild variant="secondary" className="mt-8">
+              <Link href="/nexus">
+                More about ZAH Nexus
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </Button>
           </Reveal>
           <Stagger className="grid gap-4 sm:grid-cols-2">
             {[

@@ -5,20 +5,18 @@ import {
   ArrowRight,
   BadgeCheck,
   ClipboardCheck,
-  Cloud,
+  Clock,
   Quote,
-  ShieldCheck,
-  Star,
   UserCheck,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Container, Section, SectionHeading } from "@/components/ui/section";
-import { AnimatedCounter, Reveal, Stagger, StaggerItem } from "@/components/motion";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion";
 import { HomeHero } from "@/components/marketing/home-hero";
 import { LogoCloud } from "@/components/marketing/logo-cloud";
-import { OfferingCard } from "@/components/marketing/offering-card";
+import { NexusBridge, nexusPoints } from "@/components/marketing/nexus";
 import { CTASection } from "@/components/marketing/cta-section";
 import { IconTile } from "@/components/marketing/icon-tile";
 import { Icon } from "@/components/layout/social-links";
@@ -31,7 +29,6 @@ import { securityFeatures } from "@/content/about";
 import { challenges, homeFaqs } from "@/content/home";
 import { founders } from "@/content/team";
 import { clientTestimonials } from "@/content/testimonials";
-import { deliveryMetrics, deliveryStandards } from "@/content/stats";
 
 export const metadata: Metadata = buildMetadata({
   title: "ZAH KPO | Accounting Outsourcing for UK Accountancy Firms",
@@ -50,10 +47,9 @@ export const metadata: Metadata = buildMetadata({
 const featuredServices = [
   "bookkeeping",
   "year-end-accounts",
-  "management-accounts",
   "vat-returns",
-  "cfo-advisory",
-  "audit-support",
+  "payroll",
+  "management-accounts",
 ].map((slug) => servicesBySlug[slug]);
 
 const howWeWork = [
@@ -75,7 +71,26 @@ const howWeWork = [
   },
 ];
 
-const standardIcons = [ShieldCheck, UserCheck, ClipboardCheck, Cloud];
+const engagementModels = [
+  {
+    icon: Clock,
+    title: "Pay per hour",
+    best: "Best for getting started",
+    text: "Buy a block of hours and use them on whatever you need. Ideal for a first trial, ad-hoc work or overflow in busy weeks.",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Pay per job",
+    best: "Best for defined work",
+    text: "A fixed price per VAT return, set of year-end accounts or monthly bookkeeping client - so you know the cost before we start.",
+  },
+  {
+    icon: UserCheck,
+    title: "Dedicated team",
+    best: "Best for steady volume",
+    text: "A ZAH accountant or team works on your clients every day, learns your processes and becomes part of your practice.",
+  },
+];
 
 export default function HomePage() {
   return (
@@ -85,7 +100,7 @@ export default function HomePage() {
 
       <section className="border-b border-border bg-background py-12">
         <Container>
-          <LogoCloud label="Platforms we work in" />
+          <LogoCloud label="Working in the software your clients already use" />
           <p className="mt-8 text-center">
             <Link href="/software" className="text-sm font-medium text-primary hover:underline">
               How we work in each platform →
@@ -113,24 +128,81 @@ export default function HomePage() {
               </Link>
             </Button>
           </div>
-          <Stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredServices.map((s) => (
-              <StaggerItem key={s.slug} className="h-full">
-                <OfferingCard
+          <Stagger className="mt-12 grid gap-4 md:grid-cols-3 md:gap-5">
+            {featuredServices.map((s, i) => (
+              <StaggerItem key={s.slug} className={i === 0 ? "md:row-span-2" : undefined}>
+                <Link
                   href={`/services/${s.slug}`}
-                  title={s.title}
-                  summary={s.summary}
-                  icon={s.icon}
-                  className="h-full"
-                />
+                  className={
+                    "group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card p-7 transition-colors hover:border-primary/40 " +
+                    (i === 0 ? "min-h-[20rem] justify-end" : "")
+                  }
+                >
+                  {i === 0 ? (
+                    <>
+                      <Image
+                        src="/images/office-workstations.webp"
+                        alt=""
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover opacity-35 transition-opacity duration-300 group-hover:opacity-45"
+                      />
+                      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#061c3a] via-[#061c3a]/70 to-transparent" />
+                    </>
+                  ) : null}
+                  <div className="relative">
+                    <s.icon className="size-6 text-primary" aria-hidden="true" />
+                    <h3 className="mt-5 text-xl font-semibold text-white">{s.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.summary}</p>
+                    <span className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-primary">
+                      Learn more
+                      <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                    </span>
+                  </div>
+                </Link>
               </StaggerItem>
             ))}
           </Stagger>
         </Container>
       </Section>
 
-      {/* How we work */}
+      {/* ZAH Nexus */}
       <Section className="border-y border-border bg-surface">
+        <Container>
+          <Reveal>
+            <SectionHeading
+              eyebrow="ZAH Nexus"
+              title="Bridging your UK team and ours"
+              description="Distance is the biggest worry with offshore support. ZAH Nexus, our in-house platform, puts both teams in one workspace - every job, checklist, review point and deadline in one place."
+            />
+          </Reveal>
+          <Reveal delay={0.05} className="mt-12">
+            <NexusBridge />
+          </Reveal>
+          <Stagger className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {nexusPoints.map((p) => (
+              <StaggerItem key={p.title} className="h-full">
+                <div className="h-full rounded-2xl border border-border bg-background p-6">
+                  <p.icon className="size-6 text-primary" aria-hidden="true" />
+                  <h3 className="mt-4 font-semibold text-white">{p.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
+          <div className="mt-10 text-center">
+            <Button asChild variant="secondary">
+              <Link href="/nexus">
+                See how ZAH Nexus works
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </Button>
+          </div>
+        </Container>
+      </Section>
+
+      {/* How we work */}
+      <Section>
         <Container>
           <Reveal>
             <SectionHeading
@@ -142,7 +214,7 @@ export default function HomePage() {
           <Stagger className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
             {howWeWork.map((step, i) => (
               <StaggerItem key={step.title} className="h-full">
-                <div className="h-full bg-surface p-7">
+                <div className="h-full bg-background p-7">
                   <span className="text-sm font-semibold tabular-nums text-primary">
                     {String(i + 1).padStart(2, "0")}
                   </span>
@@ -157,100 +229,39 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* Numbers */}
-      <Section>
-        <Container>
-          <Reveal>
-            <SectionHeading
-              eyebrow="Why firms trust ZAH"
-              title="Our delivery in numbers"
-              description="Real results from live engagements - measured on the work, not promised in a pitch."
-            />
-          </Reveal>
-          <Reveal delay={0.05} className="mt-14">
-            <div className="overflow-hidden rounded-2xl border border-border bg-card">
-              <dl className="grid divide-y divide-border sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-                {deliveryMetrics.map((m) => (
-                  <div key={m.label} className="px-6 py-10 text-center">
-                    <dd className="text-5xl font-semibold tracking-tight text-primary md:text-6xl">
-                      <AnimatedCounter value={m.value} prefix={m.prefix} suffix={m.suffix} />
-                    </dd>
-                    <dt className="mt-3 text-sm text-muted-foreground">{m.label}</dt>
-                  </div>
-                ))}
-              </dl>
-              <ul className="grid gap-px border-t border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
-                {deliveryStandards.map((s, i) => {
-                  const StandardIcon = standardIcons[i] ?? BadgeCheck;
-                  return (
-                    <li key={s.value} className="flex items-start gap-3 bg-card px-6 py-6">
-                      <StandardIcon className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden="true" />
-                      <div>
-                        <p className="font-semibold text-white">{s.value}</p>
-                        <p className="mt-1 text-sm leading-snug text-muted-foreground">{s.label}</p>
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </Reveal>
-        </Container>
-      </Section>
-
-      {/* Challenges */}
+      {/* Engagement models */}
       <Section className="border-y border-border bg-surface">
         <Container>
-          <div>
-            <Reveal>
-              <SectionHeading
-                eyebrow="Challenges we understand"
-                title="The pressures UK practices face - and how we help"
-                description="Every firm we speak to describes the same problems. Here is how ZAH takes each one off your plate."
-              />
-            </Reveal>
-            <Stagger className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-              {challenges.map((c) => (
-                <StaggerItem key={c.challenge} className="h-full">
-                  <div className="h-full bg-surface px-6 py-5">
-                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                      {c.challenge}
-                    </p>
-                    <p className="mt-2 flex items-start gap-2 font-medium text-white">
-                      <BadgeCheck className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
-                      {c.solution}
-                    </p>
-                  </div>
-                </StaggerItem>
-              ))}
-            </Stagger>
-          </div>
-        </Container>
-      </Section>
-
-      {/* Security */}
-      <Section>
-        <Container>
           <Reveal>
             <SectionHeading
-              eyebrow="Security first"
-              title="Your clients' data, protected"
-              description="Security is the foundation of how we work. Here is how we keep every file you share safe."
+              eyebrow="Flexible pricing"
+              title="Start small. Scale when you are ready."
+              description="You do not have to hand over everything on day one. Begin with a few hours or a handful of jobs, and move to a dedicated team once you trust the quality."
             />
           </Reveal>
-          <Stagger className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {securityFeatures.map((f) => (
-              <StaggerItem key={f.title} className="h-full">
-                <Card className="h-full p-7">
-                  <IconTile icon={f.icon} />
-                  <h3 className="mt-5 font-semibold text-white">{f.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {f.description}
-                  </p>
+          <Stagger className="mt-12 grid gap-5 md:grid-cols-3">
+            {engagementModels.map((m) => (
+              <StaggerItem key={m.title} className="h-full">
+                <Card className="flex h-full flex-col p-7">
+                  <IconTile icon={m.icon} />
+                  <h3 className="mt-5 text-xl font-semibold text-white">{m.title}</h3>
+                  <p className="mt-1 text-sm font-medium text-primary">{m.best}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{m.text}</p>
                 </Card>
               </StaggerItem>
             ))}
           </Stagger>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <Button asChild>
+              <Link href="/contact">
+                Get a quote
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </Button>
+            <Button asChild variant="secondary">
+              <Link href="/how-we-work">How engagements work</Link>
+            </Button>
+          </div>
         </Container>
       </Section>
 
@@ -276,7 +287,7 @@ export default function HomePage() {
               align="left"
               eyebrow="Meet ZAH KPO"
               title="Who we are, in under a minute"
-              description="Hear from our leadership about how we work with UK accountancy firms - and why practices trust us with their clients' work."
+              description="Hear from our co-founder, Mustafa, about how we work with UK accountancy firms - and why practices trust us with their clients' work."
             />
             <ul className="mt-8 space-y-4">
               {[
@@ -317,8 +328,103 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* Inside ZAH */}
+      {/* Client voice */}
+      {clientTestimonials.length > 0 ? (
+        <Section className="border-y border-border bg-surface">
+          <Container>
+            <Reveal>
+              <SectionHeading eyebrow="Client voices" title="What UK firms say about working with us" />
+            </Reveal>
+            <Stagger className="mx-auto mt-12 grid max-w-4xl gap-5">
+              {clientTestimonials.map((t) => (
+                <StaggerItem key={t.author}>
+                  <Card className="relative p-8 md:p-12">
+                    <Quote className="size-9 text-primary/60" aria-hidden="true" />
+                    <blockquote className="mt-6 text-pretty text-xl leading-relaxed text-white md:text-2xl md:leading-relaxed">
+                      &ldquo;{t.quote}&rdquo;
+                    </blockquote>
+                    <div className="mt-8 flex items-center gap-4 border-t border-border pt-6">
+                      <span
+                        aria-hidden="true"
+                        className="grid size-12 shrink-0 place-items-center rounded-full bg-primary/15 text-base font-semibold text-primary"
+                      >
+                        {t.author
+                          .split(" ")
+                          .map((w) => w[0])
+                          .join("")
+                          .slice(0, 2)}
+                      </span>
+                      <div>
+                        <p className="font-semibold text-white">{t.author}</p>
+                        <p className="text-sm text-muted-foreground">{t.role}</p>
+                      </div>
+                    </div>
+                  </Card>
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </Container>
+        </Section>
+      ) : null}
+
+      {/* Challenges */}
+      <Section>
+        <Container>
+          <div>
+            <Reveal>
+              <SectionHeading
+                eyebrow="Challenges we understand"
+                title="The pressures UK practices face - and how we help"
+                description="Every firm we speak to describes the same problems. Here is how ZAH takes each one off your plate."
+              />
+            </Reveal>
+            <Stagger className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+              {challenges.map((c) => (
+                <StaggerItem key={c.challenge} className="h-full">
+                  <div className="h-full bg-background px-6 py-5">
+                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                      {c.challenge}
+                    </p>
+                    <p className="mt-2 flex items-start gap-2 font-medium text-white">
+                      <BadgeCheck className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+                      {c.solution}
+                    </p>
+                  </div>
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Security */}
       <Section className="border-y border-border bg-surface">
+        <Container>
+          <Reveal>
+            <SectionHeading
+              eyebrow="Security first"
+              title="Your clients' data, protected"
+              description="Security is the foundation of how we work. Here is how we keep every file you share safe."
+            />
+          </Reveal>
+          <Stagger className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {securityFeatures.map((f) => (
+              <StaggerItem key={f.title} className="h-full">
+                <Card className="h-full p-7">
+                  <IconTile icon={f.icon} />
+                  <h3 className="mt-5 font-semibold text-white">{f.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {f.description}
+                  </p>
+                </Card>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </Container>
+      </Section>
+
+      {/* Inside ZAH */}
+      <Section>
         <Container>
           <Reveal>
             <SectionHeading
@@ -366,7 +472,7 @@ export default function HomePage() {
       </Section>
 
       {/* Leadership */}
-      <Section>
+      <Section className="border-y border-border bg-surface">
         <Container>
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
             <Reveal>
@@ -390,11 +496,11 @@ export default function HomePage() {
                 <Card className="flex h-full flex-col gap-6 p-7 sm:flex-row">
                   <div className="relative size-28 shrink-0 overflow-hidden rounded-2xl border border-border">
                     <Image
-                      src={f.image.src}
+                      src={f.headshot}
                       alt={f.image.alt}
                       fill
                       sizes="112px"
-                      className="object-cover object-top"
+                      className="object-cover"
                     />
                   </div>
                   <div className="flex flex-1 flex-col">
@@ -428,36 +534,7 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {clientTestimonials.length > 0 ? (
-        <Section className="border-y border-border bg-surface">
-          <Container>
-            <Reveal>
-              <SectionHeading eyebrow="Client voices" title="What our clients say" />
-            </Reveal>
-            <Stagger className="mt-12 grid gap-5 lg:grid-cols-2">
-              {clientTestimonials.slice(0, 2).map((t) => (
-                <StaggerItem key={t.author} className="h-full">
-                  <Card className="relative h-full p-8">
-                    <Quote className="absolute right-7 top-7 size-6 text-primary/50" aria-hidden="true" />
-                    <div className="flex gap-1" aria-label={`${t.rating || 5} out of 5 stars`}>
-                      {Array.from({ length: t.rating || 5 }, (_, i) => (
-                        <Star key={i} className="size-4 fill-primary text-primary" aria-hidden="true" />
-                      ))}
-                    </div>
-                    <blockquote className="mt-6 text-lg leading-relaxed text-white">
-                      &ldquo;{t.quote}&rdquo;
-                    </blockquote>
-                    <p className="mt-6 font-semibold text-white">{t.author}</p>
-                    <p className="text-sm text-muted-foreground">{t.role}</p>
-                  </Card>
-                </StaggerItem>
-              ))}
-            </Stagger>
-          </Container>
-        </Section>
-      ) : null}
-
-      <Section className="border-t border-border bg-surface">
+      <Section>
         <Container>
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
             <Reveal>

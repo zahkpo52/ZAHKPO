@@ -4,6 +4,8 @@ export interface Founder {
   credential: string;
   bio: string;
   image: { src: string; alt: string };
+  /** Square face crop for small avatars */
+  headshot: string;
   expertise: string[];
   linkedin : string;
 }
@@ -18,6 +20,7 @@ export const founders: Founder[] = [
       src: "/team/husain-sangam.webp",
       alt: "Husain Sangam, Co-Founder & Director of ZAH KPO",
     },
+    headshot: "/team/husain-sangam-headshot.webp",
     expertise: ["IFRS Reporting", "Audit & Assurance", "Year-End Accounts", "Process Improvement"],
     linkedin: "https://www.linkedin.com/in/ca-husain-sangam/",
   },
@@ -30,6 +33,7 @@ export const founders: Founder[] = [
       src: "/team/mustafa-bag.webp",
       alt: "Mustafa Bag, Co-Founder & Director of ZAH KPO",
     },
+    headshot: "/team/mustafa-bag-headshot.webp",
     expertise: ["UK Accounting", "Management Accounts", "Tax Compliance", "KPO Operations"],
     linkedin: "https://www.linkedin.com/in/mustafa-bag-764449228/",
   },
