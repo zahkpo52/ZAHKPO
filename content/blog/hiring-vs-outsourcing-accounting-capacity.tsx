@@ -19,7 +19,9 @@ export default function Body() {
       <p>
         Most UK practices are not short of work - they are short of people to do it. When the backlog
         builds, the instinct is to recruit. Sometimes that is right, but it is not the only option.
-        Here is how hiring and outsourcing compare.
+        Here is how hiring and outsourcing compare. To put numbers on your own practice, try our{" "}
+        <Link href="/in-house-cost-calculator">in-house vs outsourcing cost calculator</Link> and the{" "}
+        <Link href="/pricing-calculator">outsourcing pricing calculator</Link>.
       </p>
 
       <h2>Speed</h2>

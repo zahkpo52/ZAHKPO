@@ -190,6 +190,17 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
   //   links: specialtyLinks.map(({ label, href }) => ({ label, href })),
   // },
   {
+    title: "Free tools",
+    links: [
+      { label: "Pricing calculator", href: "/pricing-calculator" },
+      { label: "In-house vs outsourcing", href: "/in-house-cost-calculator" },
+      { label: "Sample working papers", href: "/sample-working-papers" },
+      { label: "UK tax deadlines", href: "/uk-tax-deadlines" },
+      { label: "Case study", href: "/case-study" },
+      { label: "Industries", href: "/industries" },
+    ],
+  },
+  {
     title: "Company",
     links: [
       { label: "About", href: "/about" },

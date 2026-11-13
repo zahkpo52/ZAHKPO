@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { founders } from "@/content/team";
 import { services } from "@/content/services";
+import { DEDICATED, HOURLY, servicePrices } from "@/content/pricing";
 import { siteConfig } from "./site";
 
 /** Default branded share card (1200×630) used on every page. */
@@ -141,12 +142,52 @@ export function organizationSchema() {
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Outsourced accounting services for UK accountancy firms",
-      itemListElement: services.map((s) => ({
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: s.title, url: `${siteConfig.url}/services/${s.slug}/` },
-      })),
+      itemListElement: services.map((s) => {
+        const p = servicePrices[s.slug];
+        return {
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: s.title, url: `${siteConfig.url}/services/${s.slug}/` },
+          ...(p
+            ? {
+                priceSpecification: {
+                  "@type": "PriceSpecification",
+                  minPrice: p.lo,
+                  maxPrice: p.hi,
+                  priceCurrency: "GBP",
+                  description: `Indicative, ${p.unit}`,
+                },
+              }
+            : {}),
+        };
+      }),
     },
-    makesOffer: {
+    priceRange: `£${HOURLY.lo}-£${HOURLY.hi} per hour`,
+    makesOffer: [
+      {
+        "@type": "Offer",
+        name: "Outsourced accounting by the hour",
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          minPrice: HOURLY.lo,
+          maxPrice: HOURLY.hi,
+          priceCurrency: "GBP",
+          unitText: "hour",
+        },
+        url: `${siteConfig.url}/pricing-calculator/`,
+      },
+      {
+        "@type": "Offer",
+        name: "Dedicated accountant for your practice",
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          minPrice: DEDICATED.lo,
+          maxPrice: DEDICATED.hi,
+          priceCurrency: "GBP",
+          unitText: "month",
+        },
+        url: `${siteConfig.url}/how-we-work/`,
+      },
+      {
       "@type": "Offer",
       name: "Three free trial jobs",
       description:
@@ -156,7 +197,8 @@ export function organizationSchema() {
       eligibleCustomerType: "Business",
       areaServed: { "@type": "Country", name: "United Kingdom" },
       url: `${siteConfig.url}/terms/#free-trial`,
-    },
+      },
+    ],
     sameAs: [siteConfig.companyLinkedIn, siteConfig.googleBusinessProfile].filter(Boolean),
   };
 }
@@ -191,10 +233,12 @@ export function serviceSchema({
   name,
   description,
   path,
+  price,
 }: {
   name: string;
   description: string;
   path: string;
+  price?: { lo: number; hi: number; unit: string };
 }) {
   return {
     "@context": "https://schema.org",
@@ -206,6 +250,21 @@ export function serviceSchema({
     areaServed: { "@type": "Country", name: "United Kingdom" },
     audience: { "@type": "BusinessAudience", audienceType: "UK accountancy firms" },
     url: absoluteUrl(path),
+    ...(price
+      ? {
+          offers: {
+            "@type": "Offer",
+            priceSpecification: {
+              "@type": "PriceSpecification",
+              minPrice: price.lo,
+              maxPrice: price.hi,
+              priceCurrency: "GBP",
+              description: `Indicative, ${price.unit}. Exact quote after a short call; first three jobs free for new firms.`,
+            },
+            url: absoluteUrl("/pricing-calculator"),
+          },
+        }
+      : {}),
   };
 }
 

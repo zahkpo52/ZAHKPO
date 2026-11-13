@@ -77,10 +77,35 @@ export const faqs: Faq[] = [
     answer:
       "Together they fuel growth: organised, accurate finances on one side and a steady pipeline of new clients and revenue on the other - both managed by one partner.",
   },
+  {
+    category: "Pricing",
+    question: "How much does outsourcing to ZAH KPO cost?",
+    answer:
+      "As a guide, £10 to £16 an hour, or a fixed price per job - for example £25 to £60 for a VAT return, £150 to £350 for small-company year-end accounts with the CT600, and £50 to £120 for a Self Assessment return. A dedicated full-time accountant is £1,100 to £1,800 a month. Use the pricing calculator on our website for your mix of work.",
+  },
+  {
+    category: "Pricing",
+    question: "Can we try ZAH KPO before paying?",
+    answer:
+      "Yes. UK accounting firms new to ZAH KPO get their first three jobs free, on any service, so you can judge the quality and turnaround first.",
+  },
+  {
+    category: "Pricing",
+    question: "Can we see a sample of your working papers?",
+    answer:
+      "Yes. Our sample VAT return working paper, bank reconciliation and year-end lead schedule can be downloaded free from the sample working papers page - fictional client, real format.",
+  },
+  {
+    category: "Pricing",
+    question: "Is it cheaper to outsource than to hire?",
+    answer:
+      "Usually, for seasonal or variable work. A new hire costs 30 to 40 per cent more than salary once employer NIC, pension, recruitment and equipment are added, and you pay it all year. Our in-house vs outsourcing calculator shows the figures for your practice.",
+  },
 ];
 
 export const faqCategories = [
   "Getting started",
+  "Pricing",
   "Security",
   "Services",
   "AI & technology",

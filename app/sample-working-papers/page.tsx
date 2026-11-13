@@ -70,7 +70,28 @@ const standards = [
 export default function SampleWorkingPapersPage() {
   return (
     <>
-      <JsonLd data={[breadcrumbSchema(crumbs)]} />
+      <JsonLd
+        data={[
+          breadcrumbSchema(crumbs),
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "Sample accounting working papers from ZAH KPO",
+            itemListElement: papers.map((p, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              item: {
+                "@type": "DigitalDocument",
+                name: p.title,
+                description: p.text,
+                encodingFormat: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                url: `https://www.zahkpo.com${p.file}`,
+                isAccessibleForFree: true,
+              },
+            })),
+          },
+        ]}
+      />
       <PageHero
         eyebrow="Free download"
         title="See the working papers before you send a job"

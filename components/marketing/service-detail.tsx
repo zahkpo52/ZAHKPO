@@ -7,6 +7,7 @@ import { Container, Section, SectionHeading } from "@/components/ui/section";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion";
 import { siteConfig } from "@/lib/site";
 import type { OfferingBase } from "@/types/content";
+import { HOURLY, fmtRange, servicePrices } from "@/content/pricing";
 import { PageHero } from "./page-hero";
 import { DeliverablesGrid } from "./deliverables-grid";
 import { ProcessTimeline } from "./process-timeline";
@@ -40,6 +41,7 @@ export function ServiceDetail({
   related: RelatedItem[];
   reading?: ReadingItem[];
 }) {
+  const price = servicePrices[offering.slug];
   return (
     <>
       <PageHero
@@ -162,6 +164,42 @@ export function ServiceDetail({
           </Container>
         </Section>
       ) : null}
+
+      <Section className="border-t border-border bg-surface">
+        <Container>
+          <div className="grid gap-5 md:grid-cols-3">
+            <div className="theme-navy rounded-2xl border border-[#e5b84a]/30 bg-[#061c3a] p-6 text-white">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#e5b84a]">Indicative price</p>
+              {price ? (
+                <>
+                  <p className="mt-3 font-serif text-3xl font-medium text-white">{fmtRange(price)}</p>
+                  <p className="mt-1 text-sm text-white/70">{price.unit} · or £{HOURLY.lo} - £{HOURLY.hi} an hour</p>
+                </>
+              ) : (
+                <>
+                  <p className="mt-3 font-serif text-3xl font-medium text-white">£{HOURLY.lo} - £{HOURLY.hi}</p>
+                  <p className="mt-1 text-sm text-white/70">an hour, or a fixed price per job</p>
+                </>
+              )}
+              <Link href="/pricing-calculator" className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[#e5b84a] hover:text-[#f3d27a]">
+                Estimate your cost <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </div>
+            <Link href="/sample-working-papers" className="group rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/40">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">See the output</p>
+              <p className="mt-3 font-serif text-xl font-medium text-foreground">Sample working papers</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Download the VAT, bank reconciliation and year-end files we hand back.</p>
+              <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">Download samples <ArrowRight className="size-4" aria-hidden="true" /></span>
+            </Link>
+            <Link href="/contact?offer=free-trial" className="group rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/40">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">Try us first</p>
+              <p className="mt-3 font-serif text-xl font-medium text-foreground">Your first 3 jobs are free</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Prepared, reviewed twice and tracked in ZAH Nexus - judge the quality before you pay.</p>
+              <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">Claim the free trial <ArrowRight className="size-4" aria-hidden="true" /></span>
+            </Link>
+          </div>
+        </Container>
+      </Section>
 
       {related.length ? (
         <Section>
