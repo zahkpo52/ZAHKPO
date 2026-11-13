@@ -11,6 +11,7 @@ import { HomeHero } from "@/components/marketing/home-hero";
 import { LogoCloud } from "@/components/marketing/logo-cloud";
 import { NexusMock, nexusPoints } from "@/components/marketing/nexus";
 import { CTASection } from "@/components/marketing/cta-section";
+import { FreeToolsGrid } from "@/components/marketing/free-tools-grid";
 import { Icon } from "@/components/layout/social-links";
 import { buildMetadata, faqSchema } from "@/lib/seo";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -171,6 +172,23 @@ export default function HomePage() {
               </StaggerItem>
             ))}
           </Stagger>
+        </Container>
+      </Section>
+
+      {/* Free tools */}
+      <Section className="border-t border-border bg-surface">
+        <Container>
+          <Reveal>
+            <SectionHeading
+              align="left"
+              eyebrow="Free tools"
+              title="Free tools for UK practices"
+              description="Deadlines, a year-end calculator, the true cost of a hire and the working papers we hand back - free to use, no sign-up."
+            />
+          </Reveal>
+          <div className="mt-10">
+            <FreeToolsGrid />
+          </div>
         </Container>
       </Section>
 

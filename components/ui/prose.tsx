@@ -14,7 +14,7 @@ export function Prose({ className, ...props }: React.HTMLAttributes<HTMLDivEleme
         "[&_ul]:my-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:marker:text-primary",
         "[&_ol]:my-5 [&_ol]:list-decimal [&_ol]:pl-6",
         "[&_li]:my-2",
-        "[&_a]:font-medium [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-4",
+        "[&_a]:font-medium [&_a]:text-[color:var(--primary-ink)] [&_a]:underline [&_a]:decoration-[#e5b84a] [&_a]:underline-offset-4",
         "[&_strong]:font-semibold [&_strong]:text-foreground",
         "[&_blockquote]:my-6 [&_blockquote]:border-l-2 [&_blockquote]:border-primary [&_blockquote]:pl-5 [&_blockquote]:italic [&_blockquote]:text-foreground",
         "[&_code]:rounded [&_code]:bg-surface-2 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-[0.9em]",

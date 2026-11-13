@@ -6,7 +6,11 @@ import { usePathname } from "next/navigation";
 import { ArrowRight, Gift, X } from "lucide-react";
 
 const SEEN_KEY = "zah-trial-offer-seen";
-const SHOW_AGAIN_AFTER_DAYS = 7;
+const SHOW_AGAIN_AFTER_DAYS = 3;
+const START_KEY = "zah-visit-start";
+/** Let visitors look around first: open after this much browsing time (across pages), half the page scrolled, or on exit intent. */
+const ENGAGED_AFTER_MS = 25_000;
+const MIN_BEFORE_EXIT_MS = 8_000;
 const HIDDEN_ON = ["/contact", "/privacy", "/terms", "/accessibility", "/thank-you"];
 
 function shouldShow() {
@@ -130,8 +134,9 @@ function runFireworks(canvas: HTMLCanvasElement) {
 }
 
 /**
- * Welcome offer: fireworks and "3 free trial jobs unlocked" on a visitor's first
- * visit (and again after a week). Static card for reduced-motion users.
+ * Welcome offer: fireworks and "3 free trial jobs unlocked" once the visitor has had a
+ * look round (and again after a few days). A floating "3 free trial jobs" button keeps
+ * the offer one click away for returning visitors. Static card for reduced-motion users.
  */
 export function TrialOffer() {
   const pathname = usePathname();
@@ -139,12 +144,41 @@ export function TrialOffer() {
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
   const claimRef = React.useRef<HTMLAnchorElement>(null);
 
+  const hidden = HIDDEN_ON.some((p) => pathname?.startsWith(p));
+
   React.useEffect(() => {
-    if (HIDDEN_ON.some((p) => pathname?.startsWith(p))) return;
-    if (!shouldShow()) return;
-    const id = window.setTimeout(() => setOpen(true), 1400);
-    return () => window.clearTimeout(id);
-  }, [pathname]);
+    if (hidden || !shouldShow()) return;
+    let start = Date.now();
+    try {
+      start = Number(window.sessionStorage.getItem(START_KEY)) || start;
+      window.sessionStorage.setItem(START_KEY, String(start));
+    } catch {
+      /* ignore */
+    }
+    let done = false;
+    const fire = () => {
+      if (done || !shouldShow()) return;
+      done = true;
+      setOpen(true);
+      cleanup();
+    };
+    const timer = window.setTimeout(fire, Math.max(1500, ENGAGED_AFTER_MS - (Date.now() - start)));
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (max > 0 && window.scrollY / max > 0.55 && Date.now() - start > MIN_BEFORE_EXIT_MS) fire();
+    };
+    const onLeave = (e: MouseEvent) => {
+      if (!e.relatedTarget && e.clientY <= 0 && Date.now() - start > MIN_BEFORE_EXIT_MS) fire();
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    document.addEventListener("mouseout", onLeave);
+    function cleanup() {
+      window.clearTimeout(timer);
+      window.removeEventListener("scroll", onScroll);
+      document.removeEventListener("mouseout", onLeave);
+    }
+    return cleanup;
+  }, [hidden]);
 
   React.useEffect(() => {
     if (!open) return;
@@ -160,7 +194,22 @@ export function TrialOffer() {
     };
   }, [open]);
 
-  if (!open) return null;
+  if (!open) {
+    if (hidden) return null;
+    return (
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className="trial-pill fixed bottom-[6.25rem] left-5 z-50 inline-flex items-center gap-2 rounded-full border border-[#e5b84a]/50 bg-[#061c3a] py-2 pl-2 pr-4 text-sm font-semibold text-white shadow-[0_14px_40px_-12px_rgba(6,28,58,0.7)] transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e5b84a]"
+      >
+        <span className="relative grid size-8 place-items-center rounded-full bg-[#e5b84a] text-[#0b1a33]">
+          <Gift className="size-4" aria-hidden="true" />
+          <span aria-hidden="true" className="absolute -right-0.5 -top-0.5 size-2.5 rounded-full bg-[#e5b84a] ring-2 ring-[#061c3a] live-ping" />
+        </span>
+        3 free trial jobs
+      </button>
+    );
+  }
 
   return (
     <div className="fixed inset-0 z-[90] flex items-center justify-center p-4">
