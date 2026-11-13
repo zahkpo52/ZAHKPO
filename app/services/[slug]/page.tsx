@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { servicePrices } from "@/content/pricing";
 import { notFound } from "next/navigation";
 
 import { ServiceDetail, type RelatedItem } from "@/components/marketing/service-detail";
@@ -60,6 +61,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             name: service.title,
             description: service.metaDescription,
             path: `/services/${slug}`,
+            price: servicePrices[slug],
           }),
           breadcrumbSchema(crumbs),
           ...(service.faqs?.length ? [faqSchema(service.faqs)] : []),

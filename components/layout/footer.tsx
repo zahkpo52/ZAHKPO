@@ -20,7 +20,7 @@ export function Footer() {
   return (
     <footer className="theme-navy border-t border-border bg-[#031833]">
       <Container className="py-16 md:py-20">
-        <div className="grid gap-12 lg:grid-cols-[1.3fr_0.8fr_0.8fr_1.3fr]">
+        <div className="grid gap-12 sm:grid-cols-3 lg:grid-cols-[1.3fr_0.8fr_0.8fr_0.8fr_1.3fr]">
           <div className="flex flex-col gap-6">
             <Logo />
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">

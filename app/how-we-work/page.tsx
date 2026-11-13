@@ -64,7 +64,7 @@ const faqs = [
   { question: "How long does it take to get started?", answer: "Once the scope is agreed and secure access is set up, we can start on a pilot batch. The pace after that is up to you." },
   { question: "Do we have to commit to a minimum volume?", answer: "No. Many firms start with a small pilot batch or a single service and add more once they are happy with the quality." },
   { question: "Who talks to our clients?", answer: "Usually your firm does. We send our queries to you in one consolidated list, and you decide what goes to the client." },
-  { question: "How is your pricing structured?", answer: "It is flexible. You can pay per hour, pay a fixed price per job, or take a dedicated accountant or team for a monthly fee. We quote once we understand your work and volumes." },
+  { question: "How is your pricing structured?", answer: "It is flexible. You can pay per hour (as a guide £10 to £16 an hour), pay a fixed price per job, or take a dedicated accountant for £1,100 to £1,800 a month. The pricing calculator gives a range for your mix of work; we confirm a fixed quote once we understand your volumes." },
   { question: "Can we start with just a few hours?", answer: "Yes. Many practices do not hand over all their work at the start. You can begin with a small block of hours or a handful of jobs and scale up when you are comfortable." },
   { question: "Can we switch between models?", answer: "Yes. Many firms start per hour or per job and move to a dedicated team once their volume is steady." },
 ];
