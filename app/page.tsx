@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  BadgeCheck,
-} from "lucide-react";
+import { ArrowRight, BadgeCheck, Check } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Container, Section, SectionHeading } from "@/components/ui/section";
-import { Reveal, Stagger, StaggerItem } from "@/components/motion";
+import { AnimatedCounter, Reveal, Stagger, StaggerItem } from "@/components/motion";
 import { HomeHero } from "@/components/marketing/home-hero";
 import { LogoCloud } from "@/components/marketing/logo-cloud";
 import { NexusMock, nexusPoints } from "@/components/marketing/nexus";
@@ -20,7 +17,6 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/lib/site";
 import { FaqAccordion } from "@/components/marketing/faq-section";
 import { servicesBySlug } from "@/content/services";
-import { securityFeatures } from "@/content/about";
 import { homeFaqs } from "@/content/home";
 import { founders } from "@/content/team";
 import { clientTestimonials } from "@/content/testimonials";
@@ -65,6 +61,33 @@ const howWeWork = [
     title: "Reviewed delivery",
     description: "Every job is checked before it reaches you, with queries sent back in one clear list.",
   },
+];
+
+const comparison: [string, string, string][] = [
+  ["Time to start", "Advertising, interviews and notice periods often take months.", "A pilot batch as soon as secure access is set up."],
+  ["Cost", "Salary, employer NI, pension, equipment, software and office space.", "Pay per hour, per job or for a dedicated team - nothing else."],
+  ["Busy season", "Overtime, temps or work that slips past the deadline.", "Scale hours up for January or year-end, and back down after."],
+  ["Holiday and sickness", "Work waits until the person is back.", "Cover from within our team, so deadlines still hold."],
+  ["Quality checks", "Depends on how much time your seniors have to review.", "Prepared, then reviewed by a second ZAH accountant before it reaches you."],
+  ["Visibility", "Status lives in emails, spreadsheets and people's heads.", "Every job, review point and deadline tracked in ZAH Nexus."],
+];
+
+const results = [
+  { value: 100, suffix: "%", label: "VAT returns submitted on time" },
+  { value: 0, suffix: "", label: "Penalties on returns we prepared" },
+  { value: 35, suffix: "%", label: "Less processing time for a UK client firm" },
+  { value: 24, suffix: "hr", label: "Typical response time to your queries" },
+];
+
+const industries: [string, string][] = [
+  ["Construction and CIS", "CIS returns, subcontractor records and the domestic reverse charge."],
+  ["Restaurants and takeaways", "Daily takings, card and delivery-app payouts, and VAT."],
+  ["Property and landlords", "Rental accounts, MTD for Income Tax and Self Assessment."],
+  ["Transport and chauffeur firms", "Payroll journals, vehicle costs and quarterly VAT."],
+  ["Retail and fashion", "Supplier balances, stock and monthly management accounts."],
+  ["Creative and media agencies", "Project income, VAT and year-end accounts."],
+  ["Charities", "Annual charity accounts and fund reporting."],
+  ["Owner-managed companies", "Bookkeeping, payroll, year-end and corporation tax."],
 ];
 
 const engagementModels = [
@@ -229,6 +252,129 @@ export default function HomePage() {
         </Container>
       </Section>
 
+      {/* In-house vs ZAH */}
+      <Section className="border-y border-border bg-surface">
+        <Container>
+          <Reveal>
+            <SectionHeading
+              align="left"
+              eyebrow="Why outsource"
+              title="Hiring another accountant, or working with ZAH"
+              description="Both add capacity. Here is how they compare for a UK practice that needs reliable help through the year."
+            />
+          </Reveal>
+          <Reveal delay={0.05} className="mt-12 overflow-hidden rounded-2xl border border-border bg-card">
+            <ul className="divide-y divide-border md:hidden">
+              {comparison.map(([topic, inHouse, zah]) => (
+                <li key={topic} className="p-5">
+                  <p className="font-semibold text-foreground">{topic}</p>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    <span className="font-medium text-foreground/70">In-house: </span>
+                    {inHouse}
+                  </p>
+                  <p className="mt-2 flex items-start gap-2 text-sm text-foreground">
+                    <Check className="mt-0.5 size-4 shrink-0 text-[#2f8a57]" aria-hidden="true" />
+                    <span>
+                      <span className="font-semibold">ZAH: </span>
+                      {zah}
+                    </span>
+                  </p>
+                </li>
+              ))}
+            </ul>
+            <table className="hidden w-full border-collapse text-left text-sm md:table">
+              <caption className="sr-only">Comparison of hiring in-house and outsourcing to ZAH KPO</caption>
+              <thead>
+                <tr className="border-b border-border">
+                  <th scope="col" className="w-[26%] px-5 py-4 text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground md:px-7">
+                    &nbsp;
+                  </th>
+                  <th scope="col" className="w-[37%] px-5 py-4 text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground md:px-7">
+                    Hiring in-house
+                  </th>
+                  <th scope="col" className="w-[37%] bg-[#031833] px-5 py-4 text-xs font-semibold uppercase tracking-[0.12em] text-[#e5b84a] md:px-7">
+                    Working with ZAH
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparison.map(([topic, inHouse, zah]) => (
+                  <tr key={topic} className="border-b border-border last:border-0">
+                    <th scope="row" className="px-5 py-4 align-top font-semibold text-foreground md:px-7 md:py-5">
+                      {topic}
+                    </th>
+                    <td className="px-5 py-4 align-top text-muted-foreground md:px-7 md:py-5">{inHouse}</td>
+                    <td className="bg-[#031833]/[0.03] px-5 py-4 align-top text-foreground md:px-7 md:py-5">
+                      <span className="flex items-start gap-2.5">
+                        <Check className="mt-0.5 size-4 shrink-0 text-[#2f8a57]" aria-hidden="true" />
+                        {zah}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </Reveal>
+        </Container>
+      </Section>
+
+      {/* Results */}
+      <section className="theme-navy relative overflow-hidden bg-[#031833] py-20 md:py-28">
+        <div aria-hidden="true" className="absolute inset-0 bg-dotted opacity-20 mask-fade-b" />
+        <Container className="relative">
+          <Reveal>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#e5b84a]">Results from live engagements</p>
+          </Reveal>
+          <dl className="mt-10 grid grid-cols-2 gap-y-10 border-t border-white/15 pt-10 lg:grid-cols-4">
+            {results.map((r, i) => (
+              <div key={r.label} className={i % 2 === 1 ? "border-l border-white/15 pl-6 lg:pl-8" : i === 2 ? "pr-6 lg:border-l lg:border-white/15 lg:pl-8" : "pr-6 lg:pr-8"}>
+                <dd className="font-serif text-5xl font-medium text-white md:text-6xl">
+                  <AnimatedCounter value={r.value} suffix={r.suffix} duration={2} />
+                </dd>
+                <dt className="mt-3 max-w-[14rem] text-sm leading-snug text-white/65">{r.label}</dt>
+              </div>
+            ))}
+          </dl>
+          {clientTestimonials.slice(0, 1).map((t) => (
+            <Reveal key={t.author} className="mt-16 md:mt-20">
+              <figure className="max-w-4xl border-l-2 border-[#e5b84a] pl-6 md:pl-10">
+                <blockquote className="text-pretty font-serif text-2xl font-normal leading-snug text-white md:text-[2rem] md:leading-[1.3]">
+                  &ldquo;{t.quote}&rdquo;
+                </blockquote>
+                <figcaption className="mt-8 text-sm">
+                  <span className="font-semibold text-white">{t.author}</span>
+                  <span className="text-white/60"> - {t.role}</span>
+                </figcaption>
+              </figure>
+            </Reveal>
+          ))}
+        </Container>
+      </section>
+
+      {/* Industries */}
+      <Section>
+        <Container className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <Reveal className="lg:sticky lg:top-28 lg:self-start">
+            <SectionHeading
+              align="left"
+              eyebrow="Sectors we know"
+              title="Experience across the clients UK practices serve"
+              description="We already work on these sectors for UK firms, so we know the records, the VAT points and the questions to ask."
+            />
+          </Reveal>
+          <Stagger className="grid gap-x-10 sm:grid-cols-2">
+            {industries.map(([name, detail]) => (
+              <StaggerItem key={name}>
+                <div className="border-t border-border py-5">
+                  <h3 className="font-serif text-xl font-medium text-foreground">{name}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{detail}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </Container>
+      </Section>
+
       {/* Engagement models */}
       <Section className="border-y border-border bg-surface">
         <Container>
@@ -326,58 +472,6 @@ export default function HomePage() {
               </video>
             </div>
           </Reveal>
-        </Container>
-      </Section>
-
-      {/* Client voice */}
-      {clientTestimonials.length > 0 ? (
-        <Section className="border-y border-border bg-surface">
-          <Container>
-            {clientTestimonials.slice(0, 1).map((t) => (
-              <Reveal key={t.author}>
-                <figure className="mx-auto max-w-4xl border-l-2 border-primary pl-6 md:pl-10">
-                  <blockquote className="text-pretty font-serif text-2xl font-normal leading-snug text-foreground md:text-[2.1rem] md:leading-[1.3]">
-                    &ldquo;{t.quote}&rdquo;
-                  </blockquote>
-                  <figcaption className="mt-8 text-sm">
-                    <span className="font-semibold text-foreground">{t.author}</span>
-                    <span className="text-muted-foreground"> - {t.role}</span>
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
-          </Container>
-        </Section>
-      ) : null}
-
-      {/* Security */}
-      <Section>
-        <Container className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-          <Reveal>
-            <SectionHeading
-              align="left"
-              eyebrow="Security"
-              title="Your clients' data stays protected"
-              description="We work inside your systems, under NDA, with access limited to the people on your account."
-            />
-            <Link
-              href="/security"
-              className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-foreground underline decoration-white/30 underline-offset-[6px] hover:decoration-primary"
-            >
-              Security and quality in detail
-              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-            </Link>
-          </Reveal>
-          <Stagger className="grid gap-x-10 sm:grid-cols-2">
-            {securityFeatures.map((f) => (
-              <StaggerItem key={f.title}>
-                <div className="border-t border-border py-5">
-                  <h3 className="font-semibold text-foreground">{f.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{f.description}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </Stagger>
         </Container>
       </Section>
 
