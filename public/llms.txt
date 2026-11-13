@@ -1,0 +1,48 @@
+# ZAH KPO
+
+> ZAH KPO (Zah Professional Services Private Limited) is an outsourcing partner for UK accountancy firms. Qualified accountants in Khargone, India prepare bookkeeping, year-end accounts, VAT returns, payroll, CIS, corporation tax and Self Assessment work inside the firm's own software. Every job is prepared, then reviewed by a second accountant, and tracked in ZAH Nexus, ZAH's own workflow platform where the UK team can log in. Founded 2025; founder-led by Husain Sangam (Chartered Accountant) and Mustafa Bag (B.Com, ACCA part-qualified).
+
+Key facts:
+- Who it serves: UK accountancy practices and bookkeeping firms (not businesses directly).
+- Services: bookkeeping, year-end accounts (FRS 102 / FRS 105), management accounts, VAT returns (Making Tax Digital), payroll, CIS returns, corporation tax (CT600), personal tax / Self Assessment, MTD for Income Tax, iXBRL tagging, audit support, CFO advisory.
+- Software: Xero, QuickBooks, Sage, FreeAgent, Dext, Hubdoc, Power BI.
+- Pricing: flexible - pay per hour, a fixed price per job, or a dedicated team. No public price list; quotes on enquiry, usually after a short discovery call.
+- Free trial: UK accounting firms new to ZAH KPO get their first three jobs free, any service.
+- Quality: two-level review (preparer and independent reviewer) and founder review; service checklists; review points logged and closed in ZAH Nexus.
+- Results published on the site: 5,000+ hours delivered for UK firms, 99% of jobs on time, 100% of VAT returns submitted on time and no penalties on returns prepared.
+- UK GDPR: Article 28 data processing agreement, the ICO International Data Transfer Agreement or UK Addendum, a UK-to-India transfer risk assessment, sub-processor schedule and a Client Assurance Pack shared under NDA. Breach notice to the firm within 24 hours where practicable.
+- Security: named accounts and MFA, encrypted company laptops only, USB storage blocked, Microsoft 365 with SPF/DKIM/DMARC and audit logs kept 180 days, client data never put into free AI tools.
+- Contact: info@zahkpo.com; WhatsApp +44 784 842 6766 (messages only); India office +91 88899 84419. UK correspondence address: 5 Ruislip Road, Greenford, England, UB6 9QD. Delivery centre: GF 178, New Radhavallabh Market, Khargone, Madhya Pradesh 451001, India.
+
+## Main pages
+- [Home](https://www.zahkpo.com/): overview, services, ZAH Nexus, results, sectors and FAQ
+- [Services](https://www.zahkpo.com/services/): all outsourced services for UK practices
+- [How we work and pricing models](https://www.zahkpo.com/how-we-work/): process, per hour / per job / dedicated team
+- [ZAH Nexus](https://www.zahkpo.com/nexus/): the shared workflow platform for UK and India teams
+- [UK GDPR](https://www.zahkpo.com/gdpr/): DPA, IDTA/UK Addendum, transfer risk assessment, assurance pack
+- [Security and quality](https://www.zahkpo.com/security/): security controls and review process
+- [Case study](https://www.zahkpo.com/case-study/): clearing a UK practice's bookkeeping and VAT backlog
+- [Industries](https://www.zahkpo.com/industries/): construction and CIS, restaurants, property and landlords, charities
+- [About](https://www.zahkpo.com/about/): company and founders
+- [Contact](https://www.zahkpo.com/contact/): enquiries and the free trial
+
+## Services
+- [Bookkeeping](https://www.zahkpo.com/services/bookkeeping/)
+- [Year-end accounts](https://www.zahkpo.com/services/year-end-accounts/)
+- [Management accounts](https://www.zahkpo.com/services/management-accounts/)
+- [VAT returns](https://www.zahkpo.com/services/vat-returns/)
+- [Payroll](https://www.zahkpo.com/services/payroll/)
+- [CIS returns](https://www.zahkpo.com/services/cis-returns/)
+- [Corporation tax](https://www.zahkpo.com/services/corporation-tax/)
+- [Personal tax](https://www.zahkpo.com/services/personal-tax/)
+- [iXBRL tagging](https://www.zahkpo.com/services/ixbrl-tagging/)
+- [Audit support](https://www.zahkpo.com/services/audit-support/)
+
+## Resources
+- [UK tax deadlines calendar](https://www.zahkpo.com/uk-tax-deadlines/): live countdown and company year-end calculator
+- [UK GDPR checklist for outsourcing to India](https://www.zahkpo.com/blog/outsourcing-accounting-to-india-uk-gdpr-checklist/)
+- [How to outsource year-end accounts](https://www.zahkpo.com/blog/how-to-outsource-year-end-accounts/)
+- [MTD for Income Tax: what practices need to do](https://www.zahkpo.com/blog/making-tax-digital-income-tax-what-practices-need-to-do/)
+- [Hiring vs outsourcing accounting capacity](https://www.zahkpo.com/blog/hiring-vs-outsourcing-accounting-capacity/)
+- [Blog](https://www.zahkpo.com/blog/)
+- [FAQ](https://www.zahkpo.com/faq/)

@@ -10,12 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { FieldError } from "@/components/ui/field-error";
 
-// Newsletter sign-ups go to the same Formspree inbox as the contact form,
-// tagged so they can be filtered. Override with NEXT_PUBLIC_FORMSPREE_NEWSLETTER_ID.
-const newsletterFormId =
-  process.env.NEXT_PUBLIC_FORMSPREE_NEWSLETTER_ID ??
-  process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID ??
-  "xgaadgro";
+// Sign-ups open the visitor's email app with a subscribe request to info@zahkpo.com (no third-party form service).
 
 export function NewsletterForm() {
   const [submitted, setSubmitted] = React.useState(false);
@@ -30,25 +25,14 @@ export function NewsletterForm() {
     defaultValues: { email: "", website: "" },
   });
 
-  async function onSubmit(values: NewsletterValues) {
+  function onSubmit(values: NewsletterValues) {
     if (values.website) return; // honeypot tripped
     setFailed(false);
-    try {
-      const res = await fetch(`https://formspree.io/f/${newsletterFormId}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          email: values.email,
-          _subject: "Newsletter sign-up (zahkpo.com)",
-          formType: "newsletter",
-        }),
-      });
-      if (!res.ok) throw new Error(`Formspree ${res.status}`);
-      setSubmitted(true);
-      reset();
-    } catch {
-      setFailed(true);
-    }
+    const subject = "Subscribe me to ZAH KPO updates";
+    const body = `Please add ${values.email} to your practical outsourcing and compliance tips.`;
+    window.location.assign(`mailto:info@zahkpo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+    setSubmitted(true);
+    reset();
   }
 
   if (submitted) {
@@ -58,7 +42,7 @@ export function NewsletterForm() {
         className="flex w-full max-w-sm items-center gap-2 rounded-lg border border-success/30 bg-success/10 px-3.5 py-3 text-sm font-medium text-success"
       >
         <CheckCircle2 className="size-4 shrink-0" aria-hidden="true" />
-        Thanks - you&apos;re on the list.
+        Your email app has opened - press Send to subscribe.
       </div>
     );
   }

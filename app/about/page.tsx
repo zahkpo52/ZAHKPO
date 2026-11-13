@@ -36,6 +36,19 @@ export const metadata: Metadata = buildMetadata({
 
 const crumbs = [{ label: "Home", href: "/" }, { label: "About" }];
 
+const glance: [string, string][] = [
+  ["Company", "Zah Professional Services Private Limited, trading as ZAH KPO. Founded 2025."],
+  ["Who we serve", "UK accountancy practices and bookkeeping firms."],
+  ["Where we work", "Delivery centre in Khargone, India, working inside your UK software."],
+  ["Leadership", "Husain Sangam (Chartered Accountant) and Mustafa Bag (B.Com, ACCA part-qualified)."],
+  ["Services", "Bookkeeping, year-end accounts, VAT, payroll, CIS, corporation tax, Self Assessment and MTD."],
+  ["Software", "Xero, QuickBooks, Sage, FreeAgent, Dext, Hubdoc and Power BI."],
+  ["Pricing", "Per hour, per job or a dedicated team. Quotes on enquiry; first three jobs free for new firms."],
+  ["Quality", "Two-level review on every job, tracked in our own platform, ZAH Nexus."],
+  ["Data protection", "Article 28 DPA and the ICO's IDTA or UK Addendum with every firm."],
+  ["Contact", "info@zahkpo.com or WhatsApp +44 784 842 6766."],
+];
+
 export default function AboutPage() {
   return (
     <>
@@ -236,6 +249,28 @@ export default function AboutPage() {
           </Reveal>
         </Container>
       </Section> */}
+
+      {/* At a glance - short, factual summary (also what AI answers quote) */}
+      <Section className="border-t border-border">
+        <Container className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <Reveal>
+            <SectionHeading
+              align="left"
+              eyebrow="At a glance"
+              title="ZAH KPO in brief"
+              description="The key facts about who we are and how we work with UK accountancy firms."
+            />
+          </Reveal>
+          <dl className="grid gap-x-10 sm:grid-cols-2">
+            {glance.map(([k, v]) => (
+              <div key={k} className="border-t border-border py-4">
+                <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">{k}</dt>
+                <dd className="mt-1.5 text-sm leading-relaxed text-foreground">{v}</dd>
+              </div>
+            ))}
+          </dl>
+        </Container>
+      </Section>
 
       <CTASection />
     </>

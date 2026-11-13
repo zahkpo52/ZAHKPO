@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { founders } from "@/content/team";
+import { services } from "@/content/services";
 import { siteConfig } from "./site";
 
 /** Default branded share card (1200×630) used on every page. */
@@ -126,6 +127,36 @@ export function organizationSchema() {
       },
     ],
     founder: founders.map((f) => ({ "@id": personId(f.name) })),
+    foundingDate: String(siteConfig.founded),
+    knowsAbout: [
+      "Outsourced bookkeeping for UK accountancy firms",
+      "Year-end accounts (FRS 102 and FRS 105)",
+      "VAT returns and Making Tax Digital",
+      "MTD for Income Tax",
+      "Payroll and CIS returns",
+      "Corporation tax and Self Assessment",
+      "UK GDPR for outsourcing to India",
+      "Xero, QuickBooks, Sage and FreeAgent",
+    ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Outsourced accounting services for UK accountancy firms",
+      itemListElement: services.map((s) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: s.title, url: `${siteConfig.url}/services/${s.slug}/` },
+      })),
+    },
+    makesOffer: {
+      "@type": "Offer",
+      name: "Three free trial jobs",
+      description:
+        "UK accounting firms new to ZAH KPO get their first three jobs free - any service - before committing.",
+      price: "0",
+      priceCurrency: "GBP",
+      eligibleCustomerType: "Business",
+      areaServed: { "@type": "Country", name: "United Kingdom" },
+      url: `${siteConfig.url}/terms/#free-trial`,
+    },
     sameAs: [siteConfig.companyLinkedIn, siteConfig.googleBusinessProfile].filter(Boolean),
   };
 }
