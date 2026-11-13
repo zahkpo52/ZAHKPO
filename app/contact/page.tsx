@@ -103,13 +103,22 @@ export default function ContactPage() {
                 </div>
               ) : null}
 
-              <iframe 
-                title="ZAH KPO head office location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.17706230506!2d-0.3595827234556403!3d51.528312171818094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487612bc4fefde6f%3A0x309f7b635830f489!2s5%20Ruislip%20Rd%2C%20Greenford%20UB6%209QD%2C%20UK!5e0!3m2!1sen!2sin!4v1785865089630!5m2!1sen!2sin" 
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="h-56 w-full rounded-2xl border border-border" 
-              />
+              <div className="rounded-2xl border border-border bg-surface p-6">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Quickest replies</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  Email <a href="mailto:info@zahkpo.com" className="font-semibold text-foreground underline underline-offset-4">info@zahkpo.com</a>{" "}
+                  or message us on WhatsApp. We reply within one working day, usually much sooner.
+                </p>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Radhavallabh+Market+Khargone+Madhya+Pradesh+451001"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-foreground underline decoration-foreground/30 underline-offset-4 hover:decoration-primary"
+                >
+                  <MapPin className="size-4 text-primary" aria-hidden="true" />
+                  Delivery centre on Google Maps
+                </a>
+              </div>
             </div>
           </div>
         </Container>

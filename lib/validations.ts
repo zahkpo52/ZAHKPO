@@ -11,10 +11,11 @@ export type NewsletterValues = z.infer<typeof newsletterSchema>;
 export const contactTopics = [
   "General enquiry",
   "Free trial - 3 jobs",
-  "Accounting",
-  "Tax",
-  "Company secretarial",
-  "Industries (cloud, AI, MTD)",
+  "Bookkeeping and VAT",
+  "Year-end accounts and tax",
+  "Payroll and CIS",
+  "Dedicated team",
+  "GDPR and assurance pack",
   "Careers",
 ] as const;
 
