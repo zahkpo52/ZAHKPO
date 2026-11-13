@@ -4,7 +4,7 @@
  * content changes, so search engines get an honest freshness signal.
  * Blog posts use their own `date` (or `updated`) from the post meta.
  */
-export const SITE_CONTENT_DATE = "2026-11-11";
+export const SITE_CONTENT_DATE = "2026-11-13";
 
 export const pageDates: Record<string, string> = {
   "/": SITE_CONTENT_DATE,
@@ -15,7 +15,7 @@ export const pageDates: Record<string, string> = {
   "/faq": SITE_CONTENT_DATE,
   "/careers": SITE_CONTENT_DATE,
   "/contact": SITE_CONTENT_DATE,
-  "/privacy": "2026-11-05",
+  "/privacy": "2026-11-13",
 };
 
 export function lastModifiedFor(path: string): string {

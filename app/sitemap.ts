@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/how-we-work",
     "/security",
     "/nexus",
+    "/gdpr",
   ];
 
   const staticEntries: MetadataRoute.Sitemap = staticPaths.map((path) => ({

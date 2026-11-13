@@ -153,6 +153,7 @@ export const serviceMenuColumns: MegaGroup[][] = [
 export const resourceLinks: NavLink[] = [
   { label: "Blog", href: "/blog", description: "Guides on outsourcing, tax and cloud." },
   { label: "ZAH Nexus", href: "/nexus", description: "One workspace for your UK team and ours." },
+  { label: "UK GDPR", href: "/gdpr", description: "DPA, IDTA and our client assurance pack." },
   { label: "FAQ", href: "/faq", description: "Answers to common outsourcing questions." },
 ];
 
@@ -188,6 +189,7 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
       { label: "How we work", href: "/how-we-work" },
       { label: "ZAH Nexus", href: "/nexus" },
       { label: "Security & quality", href: "/security" },
+      { label: "UK GDPR", href: "/gdpr" },
       { label: "Software we use", href: "/software" },
       { label: "Careers", href: "/careers" },
       { label: "Blog", href: "/blog" },
