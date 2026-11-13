@@ -25,7 +25,7 @@ export function CTASection({
   return (
     <section className="pb-20 pt-4 md:pb-24">
       <Container>
-        <div className="relative overflow-hidden rounded-3xl border border-primary/20 bg-[#0a2243] px-6 py-14 text-center text-white md:px-16 md:py-20">
+        <div className="theme-navy relative overflow-hidden rounded-3xl border border-primary/20 bg-[#0a2243] px-6 py-14 text-center text-foreground md:px-16 md:py-20">
           <Image
             src="/images/city-skyline.webp"
             alt=""
@@ -39,10 +39,10 @@ export function CTASection({
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(229,184,74,0.16),transparent_60%),linear-gradient(180deg,rgba(10,34,67,0.88),rgba(5,26,55,0.96))]"
           />
           <div className="relative mx-auto max-w-2xl">
-            <h2 className="text-balance text-3xl font-semibold tracking-tight md:text-[2.5rem] md:leading-[1.15]">
+            <h2 className="text-balance text-3xl font-medium tracking-[-0.01em] md:text-[2.5rem] md:leading-[1.15] font-serif">
               {title}
             </h2>
-            <p className="mt-4 text-pretty text-lg text-white/75">{description}</p>
+            <p className="mt-4 text-pretty text-lg text-foreground/75">{description}</p>
             <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
               <Button asChild size="lg">
                 <Link href={primaryHref}>
@@ -57,7 +57,7 @@ export function CTASection({
                 </a>
               </Button>
             </div>
-            <p className="mt-4 text-xs text-white/50">Our UK number is for WhatsApp messages only.</p>
+            <p className="mt-4 text-xs text-foreground/50">Our UK number is for WhatsApp messages only.</p>
           </div>
         </div>
       </Container>

@@ -97,7 +97,7 @@ export default function HowWeWorkPage() {
               <StaggerItem key={s.title} className="h-full">
                 <div className="h-full bg-background p-7">
                   <span className="text-sm font-semibold tabular-nums text-primary">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="mt-4 text-lg font-semibold text-white">{s.title}</h3>
+                  <h3 className="mt-4 text-lg font-semibold text-foreground">{s.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
                 </div>
               </StaggerItem>
@@ -120,11 +120,11 @@ export default function HowWeWorkPage() {
               <StaggerItem key={m.title} className="h-full">
                 <Card className="h-full p-8">
                   <IconTile icon={m.icon} />
-                  <h3 className="mt-5 text-xl font-semibold text-white">{m.title}</h3>
+                  <h3 className="mt-5 text-xl font-semibold text-foreground">{m.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{m.text}</p>
                   <ul className="mt-5 space-y-2">
                     {m.points.map((p) => (
-                      <li key={p} className="flex items-center gap-2 text-sm text-white/85">
+                      <li key={p} className="flex items-center gap-2 text-sm text-foreground/85">
                         <CircleDot className="size-3.5 text-primary" aria-hidden="true" />
                         {p}
                       </li>
@@ -167,7 +167,7 @@ export default function HowWeWorkPage() {
                 <StaggerItem key={t as string} className="h-full">
                   <Card className="h-full p-6">
                     <Icon className="size-5 text-primary" aria-hidden="true" />
-                    <h3 className="mt-3 font-semibold text-white">{t as string}</h3>
+                    <h3 className="mt-3 font-semibold text-foreground">{t as string}</h3>
                     <p className="mt-1 text-sm text-muted-foreground">{d as string}</p>
                   </Card>
                 </StaggerItem>
@@ -183,7 +183,7 @@ export default function HowWeWorkPage() {
             <SectionHeading align="left" eyebrow="Getting ready" title="What we need from you" />
             <ul className="mt-8 space-y-3">
               {needs.map((n) => (
-                <li key={n} className="flex items-start gap-3 text-white/85">
+                <li key={n} className="flex items-start gap-3 text-foreground/85">
                   <CircleDot className="mt-1 size-4 shrink-0 text-primary" aria-hidden="true" />
                   {n}
                 </li>

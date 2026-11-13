@@ -63,7 +63,7 @@ export function NexusMock({ className }: { className?: string }) {
     <div className={cn("relative isolate", className)}>
       <div
         aria-hidden="true"
-        className="nexus-glow absolute -inset-x-6 -inset-y-8 -z-10 rounded-[3rem] bg-[radial-gradient(closest-side,rgba(229,184,74,0.5),rgba(56,189,248,0.18)_55%,transparent)] blur-3xl"
+        className="nexus-glow absolute -inset-x-6 -inset-y-8 -z-10 rounded-[3rem] bg-[radial-gradient(closest-side,rgba(229,184,74,0.22),rgba(56,189,248,0.08)_55%,transparent)] blur-3xl"
       />
 
       <FloatCard className="nexus-float-delay -right-40 top-28">
@@ -71,8 +71,8 @@ export function NexusMock({ className }: { className?: string }) {
           <BellRing className="size-5" aria-hidden="true" />
         </span>
         <span>
-          <span className="block text-xs font-semibold text-white">3 returns with UK team</span>
-          <span className="block text-[11px] text-white/55">Ready for your review</span>
+          <span className="block text-xs font-semibold text-foreground">3 returns with UK team</span>
+          <span className="block text-[11px] text-foreground/55">Ready for your review</span>
         </span>
       </FloatCard>
       <FloatCard className="nexus-float-slow -left-36 bottom-24">
@@ -80,8 +80,8 @@ export function NexusMock({ className }: { className?: string }) {
           <CheckCircle2 className="size-5" aria-hidden="true" />
         </span>
         <span>
-          <span className="block text-xs font-semibold text-white">Review point closed</span>
-          <span className="block text-[11px] text-white/55">Clarified with workings</span>
+          <span className="block text-xs font-semibold text-foreground">Review point closed</span>
+          <span className="block text-[11px] text-foreground/55">Clarified with workings</span>
         </span>
       </FloatCard>
 
@@ -136,7 +136,7 @@ export function NexusMock({ className }: { className?: string }) {
                 </span>
                 Clocked in
               </span>
-              <span className="rounded-md bg-[#3f5a47] px-2.5 py-1 font-semibold text-white">+ Create</span>
+              <span className="rounded-md bg-[#3f5a47] px-2.5 py-1 font-semibold text-foreground">+ Create</span>
             </div>
 
             <div className="p-4 sm:p-5">
@@ -268,8 +268,8 @@ export function NexusBridge() {
       <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-center">
         <p className="text-2xl" aria-hidden="true">🇬🇧</p>
         <p className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#e5b84a]">United Kingdom</p>
-        <p className="mt-2 text-lg font-semibold text-white">Your practice</p>
-        <p className="mt-1 text-sm text-white/55">Review · approve · file</p>
+        <p className="mt-2 text-lg font-semibold text-foreground">Your practice</p>
+        <p className="mt-1 text-sm text-foreground/55">Review · approve · file</p>
       </div>
       <Beam />
       <div className="relative isolate">
@@ -280,10 +280,10 @@ export function NexusBridge() {
               <ShieldCheck className="size-6" aria-hidden="true" />
             </span>
             <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#e5b84a]">ZAH Nexus</p>
-            <p className="mt-2 text-xl font-semibold text-white">One shared workspace</p>
+            <p className="mt-2 text-xl font-semibold text-foreground">One shared workspace</p>
             <div className="mt-4 flex flex-wrap justify-center gap-1.5">
               {["Status", "Checklists", "Review points", "Deadlines"].map((t) => (
-                <span key={t} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] text-white/75">
+                <span key={t} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] text-foreground/75">
                   {t}
                 </span>
               ))}
@@ -295,8 +295,8 @@ export function NexusBridge() {
       <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-center">
         <p className="text-2xl" aria-hidden="true">🇮🇳</p>
         <p className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#e5b84a]">India</p>
-        <p className="mt-2 text-lg font-semibold text-white">ZAH delivery team</p>
-        <p className="mt-1 text-sm text-white/55">Prepare · review · deliver</p>
+        <p className="mt-2 text-lg font-semibold text-foreground">ZAH delivery team</p>
+        <p className="mt-1 text-sm text-foreground/55">Prepare · review · deliver</p>
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ export function Footer() {
   const whatsappHref = `https://wa.me/${ukOffice.phoneHref.replace(/[^0-9]/g, "")}`;
 
   return (
-    <footer className="border-t border-border bg-[#031833]">
+    <footer className="theme-navy border-t border-border bg-[#031833]">
       <Container className="py-16 md:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.3fr_0.8fr_0.8fr_1.3fr]">
           <div className="flex flex-col gap-6">
@@ -33,7 +33,7 @@ export function Footer() {
 
           {footerColumns.map((column) => (
             <div key={column.title}>
-              <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-white">
+              <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground">
                 {column.title}
               </h2>
               <ul className="mt-5 space-y-1.5">
@@ -50,7 +50,7 @@ export function Footer() {
 
           <div className="space-y-8">
             <div>
-              <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-white">
+              <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground">
                 {ukOffice.label}
               </h2>
               <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
@@ -73,7 +73,7 @@ export function Footer() {
               </ul>
             </div>
             <div>
-              <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-white">
+              <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground">
                 {khOffice.label}
               </h2>
               <ul className="mt-5 space-y-3 text-sm text-muted-foreground">

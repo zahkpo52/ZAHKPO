@@ -55,11 +55,11 @@ export default function SoftwareHubPage() {
                           height={tool.height}
                           className={
                             "w-auto " +
-                            (tool.name === "Xero" ? "h-10 opacity-80 grayscale" : "h-7 opacity-80 brightness-0 invert")
+                            (tool.name === "Xero" ? "h-10" : "h-7")
                           }
                         />
                       ) : null}
-                      <h2 className="mt-6 text-xl font-semibold text-white">{s.hero.heading}</h2>
+                      <h2 className="mt-6 text-xl font-semibold text-foreground">{s.hero.heading}</h2>
                       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.summary}</p>
                       <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-medium text-primary">
                         Learn more

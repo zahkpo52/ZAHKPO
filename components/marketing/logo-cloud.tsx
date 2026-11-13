@@ -25,12 +25,12 @@ export function LogoCloud({
               decoding="async"
               className={cn(
                 "w-auto transition duration-300 group-hover:opacity-90",
-                tool.name === "Xero" ? "opacity-60 grayscale" : "opacity-60 brightness-0 invert",
+                "opacity-90",
                 tool.width === tool.height ? "h-9 md:h-10" : "h-6 md:h-7",
               )}
             />
             {tool.showName ? (
-              <span className="text-lg font-semibold tracking-tight text-white/60 transition-colors group-hover:text-white/90">
+              <span className="text-lg font-semibold tracking-tight text-foreground/80 transition-colors group-hover:text-foreground">
                 {tool.name}
               </span>
             ) : null}

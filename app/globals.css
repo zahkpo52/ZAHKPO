@@ -4,33 +4,57 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
   /* Brand constants sampled from the ZAH KPO logo */
   --brand-navy: #031833;
   --brand-gold: #e5b84a;
 
-  --background: #051a37;
-  --surface: #0a2243;
-  --surface-2: #0f2c52;
-  --foreground: #e9eef7;
-  --muted: #0a2243;
-  --muted-foreground: #9fb1cc;
-  --border: rgba(255, 255, 255, 0.09);
-  --input: rgba(255, 255, 255, 0.16);
-  --card: #0a2243;
-  --card-foreground: #e9eef7;
+  --background: #ffffff;
+  --surface: #f5f6f8;
+  --surface-2: #eceff3;
+  --foreground: #0b1f3a;
+  --muted: #f5f6f8;
+  --muted-foreground: #4f5d72;
+  --border: #e1e5eb;
+  --input: #cfd6df;
+  --card: #ffffff;
+  --card-foreground: #0b1f3a;
   --primary: #e5b84a;
   --primary-strong: #c99a2e;
   --primary-foreground: #0b1a33;
+  --primary-ink: #96690f;
   --accent: #e5b84a;
   --accent-foreground: #0b1a33;
-  --ring: #e5b84a;
+  --ring: #c99a2e;
   --success: #059669;
   --warning: #b45309;
   --danger: #dc2626;
 
   --radius: 0.75rem;
+}
+
+/* Navy bands: navbar, heroes, call-to-action, footer, ZAH Nexus showcase */
+.theme-navy {
+  color-scheme: dark;
+  --background: #031833;
+  --surface: #0a2243;
+  --surface-2: #0f2c52;
+  --foreground: #ffffff;
+  --muted: #0a2243;
+  --muted-foreground: #a9b8cf;
+  --border: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.18);
+  --card: #0a2243;
+  --card-foreground: #ffffff;
+  --primary-ink: #e5b84a;
+  --ring: #e5b84a;
+  color: var(--foreground);
+}
+
+/* Gold text needs a deeper tone on white for contrast; fills keep the brand gold. */
+.text-primary {
+  color: var(--primary-ink);
 }
 
 @theme inline {
@@ -55,6 +79,7 @@
   --color-danger: var(--danger);
 
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-display-face), Georgia, "Times New Roman", serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: var(--radius);

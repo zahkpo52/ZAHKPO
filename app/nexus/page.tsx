@@ -99,12 +99,12 @@ export default function NexusPage() {
         </Button>
       </PageHero>
 
-      <section className="relative overflow-hidden bg-[#031833] pb-20 pt-4 md:pb-28">
+      <section className="theme-navy relative overflow-hidden bg-[#031833] pb-20 pt-4 md:pb-28">
         <div aria-hidden="true" className="absolute inset-0 bg-dotted opacity-40 mask-fade-b" />
         <Container className="relative">
           <div className="mx-auto max-w-4xl">
             <NexusMock />
-            <p className="mt-4 text-center text-xs text-white/40">The ZAH Nexus VAT Hub - shown with sample client names</p>
+            <p className="mt-4 text-center text-xs text-foreground/40">The ZAH Nexus VAT Hub - shown with sample client names</p>
           </div>
         </Container>
       </section>
@@ -122,8 +122,8 @@ export default function NexusPage() {
             {gaps.map((g) => (
               <StaggerItem key={g.worry} className="h-full">
                 <Card className="h-full p-7">
-                  <p className="text-lg font-medium italic text-white/60">{g.worry}</p>
-                  <p className="mt-4 flex items-start gap-2.5 text-white">
+                  <p className="text-lg font-medium italic text-foreground/60">{g.worry}</p>
+                  <p className="mt-4 flex items-start gap-2.5 text-foreground">
                     <BadgeCheck className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden="true" />
                     {g.answer}
                   </p>
@@ -161,7 +161,7 @@ export default function NexusPage() {
               <StaggerItem key={f.title} className="h-full">
                 <Card className="h-full p-6">
                   <IconTile icon={f.icon} />
-                  <h3 className="mt-5 font-semibold text-white">{f.title}</h3>
+                  <h3 className="mt-5 font-semibold text-foreground">{f.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.text}</p>
                 </Card>
               </StaggerItem>
@@ -180,7 +180,7 @@ export default function NexusPage() {
               <StaggerItem key={s.title} className="h-full">
                 <div className="h-full bg-surface p-6">
                   <span className="text-sm font-semibold tabular-nums text-primary">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="mt-4 font-semibold text-white">{s.title}</h3>
+                  <h3 className="mt-4 font-semibold text-foreground">{s.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
                 </div>
               </StaggerItem>

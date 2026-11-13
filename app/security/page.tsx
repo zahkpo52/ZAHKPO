@@ -61,7 +61,7 @@ export default function SecurityPage() {
               <StaggerItem key={f.title} className="h-full">
                 <Card className="h-full p-7">
                   <IconTile icon={f.icon} />
-                  <h3 className="mt-5 font-semibold text-white">{f.title}</h3>
+                  <h3 className="mt-5 font-semibold text-foreground">{f.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.description}</p>
                 </Card>
               </StaggerItem>
@@ -80,7 +80,7 @@ export default function SecurityPage() {
               <StaggerItem key={q.title} className="h-full">
                 <div className="h-full bg-surface p-7">
                   <q.icon className="size-5 text-primary" aria-hidden="true" />
-                  <h3 className="mt-4 font-semibold text-white">{q.title}</h3>
+                  <h3 className="mt-4 font-semibold text-foreground">{q.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{q.text}</p>
                 </div>
               </StaggerItem>

@@ -37,8 +37,7 @@ export function PageHero({
   return (
     <section
       className={cn(
-        "relative overflow-hidden border-b border-border",
-        withImage && "dark bg-[#031833]",
+        "theme-navy relative overflow-hidden bg-[#031833]",
         className,
       )}
     >
@@ -67,7 +66,7 @@ export function PageHero({
         <>
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-dotted opacity-50 mask-fade-b"
+            className="pointer-events-none absolute inset-0 bg-dotted opacity-30 mask-fade-b"
           />
           <div
             aria-hidden="true"
@@ -82,8 +81,8 @@ export function PageHero({
         ) : null}
         <h1
           className={cn(
-            "mt-3 max-w-3xl text-balance text-4xl font-semibold tracking-tight md:text-5xl",
-            withImage && "text-white",
+            "mt-3 max-w-3xl text-balance font-serif text-4xl font-medium tracking-[-0.01em] md:text-[3.25rem] md:leading-[1.08]",
+            withImage && "text-foreground",
           )}
         >
           <BrandHighlight>{title}</BrandHighlight>
@@ -92,7 +91,7 @@ export function PageHero({
           <p
             className={cn(
               "mt-5 max-w-2xl text-pretty text-lg leading-relaxed",
-              withImage ? "text-white/80" : "text-muted-foreground",
+              withImage ? "text-foreground/80" : "text-muted-foreground",
             )}
           >
             {description}
