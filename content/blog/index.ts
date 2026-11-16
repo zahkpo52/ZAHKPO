@@ -11,6 +11,8 @@ import MtdIncomeTax, { meta as mtdIncomeTaxMeta } from "./making-tax-digital-inc
 import HiringVsOutsourcing, { meta as hiringMeta } from "./hiring-vs-outsourcing-accounting-capacity";
 import CompaniesHouseIdv, { meta as idvMeta } from "./companies-house-identity-verification-guide";
 import ReverseCharge, { meta as reverseChargeMeta } from "./construction-vat-domestic-reverse-charge-guide";
+import VatThreshold, { meta as vatThresholdMeta } from "./vat-registration-threshold-tests-explained";
+import SaJanuary, { meta as saJanuaryMeta } from "./self-assessment-31-january-practice-checklist";
 
 export interface BlogPost {
   meta: BlogMeta;
@@ -28,6 +30,8 @@ export const posts: BlogPost[] = [
   { meta: hiringMeta, Body: HiringVsOutsourcing },
   { meta: idvMeta, Body: CompaniesHouseIdv },
   { meta: reverseChargeMeta, Body: ReverseCharge },
+  { meta: vatThresholdMeta, Body: VatThreshold },
+  { meta: saJanuaryMeta, Body: SaJanuary },
 ].sort((a, b) => b.meta.date.localeCompare(a.meta.date));
 
 export function getPost(slug: string): BlogPost | undefined {
