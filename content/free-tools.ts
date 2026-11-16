@@ -11,7 +11,7 @@ export const freeTools = [
   },
   {
     icon: CalendarClock,
-    title: "UK tax deadlines calendar",
+    title: "UK tax deadline calculator",
     text: "Live countdown to the next UK deadlines, plus a year-end calculator for Companies House and CT600 dates.",
     href: "/uk-tax-deadlines",
     cta: "See the deadlines",
