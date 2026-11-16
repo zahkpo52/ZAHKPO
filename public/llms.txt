@@ -41,7 +41,7 @@ Key facts:
 ## Resources
 - [Free tools](https://www.zahkpo.com/free-tools/): free tools for UK accountancy practices
 - [Pricing calculator](https://www.zahkpo.com/pricing-calculator/): indicative monthly cost of outsourcing work to ZAH KPO
-- [UK tax deadlines calendar](https://www.zahkpo.com/uk-tax-deadlines/): live countdown and company year-end calculator
+- [UK tax deadline calculator](https://www.zahkpo.com/uk-tax-deadlines/): free calculator for Companies House, CT600 and corporation tax dates from a year-end, plus a live UK tax deadline countdown
 - [In-house vs outsourcing cost calculator](https://www.zahkpo.com/in-house-cost-calculator/): the true annual and hourly cost of hiring an accountant in a UK practice
 - [Sample working papers](https://www.zahkpo.com/sample-working-papers/): downloadable sample VAT return working paper, bank reconciliation and year-end lead schedule
 - [UK GDPR checklist for outsourcing to India](https://www.zahkpo.com/blog/outsourcing-accounting-to-india-uk-gdpr-checklist/)
