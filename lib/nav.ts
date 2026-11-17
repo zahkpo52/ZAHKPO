@@ -167,6 +167,7 @@ export const resourceLinks: NavLink[] = [
 export const primaryNav: NavLink[] = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
+  { label: "ZAH Nexus", href: "/nexus" },
   { label: "Why ZAH", href: "/why-zah-kpo" },
   { label: "Free tools", href: "/free-tools" },
   { label: "Careers", href: "/careers" },
