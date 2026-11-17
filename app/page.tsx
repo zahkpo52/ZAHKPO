@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BadgeCheck, Check } from "lucide-react";
+import { ArrowRight, BadgeCheck, CalendarClock, Check, LayoutDashboard, ListChecks, Lock, Monitor, ShieldCheck } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -9,7 +9,7 @@ import { Container, Section, SectionHeading } from "@/components/ui/section";
 import { AnimatedCounter, Reveal, Stagger, StaggerItem } from "@/components/motion";
 import { HomeHero } from "@/components/marketing/home-hero";
 import { LogoCloud } from "@/components/marketing/logo-cloud";
-import { NexusMock, nexusPoints } from "@/components/marketing/nexus";
+import { NexusBridge, NexusMock, nexusPoints } from "@/components/marketing/nexus";
 import { CTASection } from "@/components/marketing/cta-section";
 import { FreeToolsGrid } from "@/components/marketing/free-tools-grid";
 import { Icon } from "@/components/layout/social-links";
@@ -97,6 +97,52 @@ const trustExtras = [
   { title: "Breach notice within 24 hours", text: "Where practicable, with everything you need to decide on any report to the ICO." },
 ];
 
+const extensionReasons = [
+  {
+    icon: LayoutDashboard,
+    title: "You see every job: ZAH Nexus",
+    text: "Your UK team logs in to the same workspace we use. Status, review points and deadlines, without chasing emails.",
+    href: "/nexus",
+    cta: "How ZAH Nexus works",
+    featured: true,
+  },
+  {
+    icon: ShieldCheck,
+    title: "Covered under UK GDPR, in writing",
+    text: "Article 28 DPA, the ICO IDTA or UK Addendum, a transfer risk assessment and a sub-processor schedule - before you share a single file.",
+    href: "/gdpr",
+    cta: "Our UK GDPR approach",
+  },
+  {
+    icon: Lock,
+    title: "Secure by default",
+    text: "Encrypted company laptops, two-step login and USB storage blocked. Breach notice within 24 hours where practicable.",
+    href: "/security",
+    cta: "Security controls",
+  },
+  {
+    icon: Monitor,
+    title: "Your software, your templates",
+    text: "We work in Xero, QuickBooks, Sage and the rest, following your checklists and file formats.",
+    href: "/software",
+    cta: "Software we use",
+  },
+  {
+    icon: ListChecks,
+    title: "Reviewed twice before it reaches you",
+    text: "Prepared by one accountant, reviewed by a second, with queries sent back in one clear list.",
+    href: "/how-we-work",
+    cta: "How we work",
+  },
+  {
+    icon: CalendarClock,
+    title: "Cover that doesn't take holidays",
+    text: "Scale up for January and year-end, and back down after. Holiday and sickness are covered from within our team.",
+    href: "/why-zah-kpo",
+    cta: "Why ZAH",
+  },
+];
+
 const engagementModels = [
   {
     title: "Pay per hour",
@@ -121,6 +167,30 @@ export default function HomePage() {
       <JsonLd data={[faqSchema(homeFaqs)]} />
       <HomeHero />
 
+      {/* The bridge: UK -> ZAH Nexus -> India */}
+      <Section className="theme-navy bg-[#031833] pt-2 pb-20 md:pt-4 md:pb-24 lg:pb-28">
+        <Container>
+          <Reveal>
+            <SectionHeading
+              eyebrow="The bridge"
+              title="Your practice and our delivery team, on the same page"
+            />
+          </Reveal>
+          <Reveal delay={0.05} className="mt-10">
+            <NexusBridge />
+          </Reveal>
+          <p className="mt-8 text-center">
+            <Link
+              href="/nexus"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-foreground underline decoration-white/30 underline-offset-[6px] hover:decoration-[#e5b84a]"
+            >
+              How ZAH Nexus connects our teams
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+            </Link>
+          </p>
+        </Container>
+      </Section>
+
       <section className="border-b border-border bg-background py-12">
         <Container>
           <LogoCloud label="We work in the software your clients already use" marquee />
@@ -132,63 +202,43 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Services */}
-      <Section>
-        <Container className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-          <Reveal className="lg:sticky lg:top-28 lg:self-start">
+      {/* Why it works like your own team */}
+      <Section className="bg-surface">
+        <Container>
+          <Reveal>
             <SectionHeading
-              align="left"
-              eyebrow="What we do"
-              title="One partner for the whole back office"
-              description="Hand over one service or all of them. Every job is prepared in your software, to your templates, and checked before it comes back."
+              eyebrow="Why it works like your own team"
+              title="Six reasons UK practices treat ZAH as part of their team"
             />
-            <Link
-              href="/services"
-              className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-foreground underline decoration-white/30 underline-offset-[6px] hover:decoration-primary"
-            >
-              All 14 services
-              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-            </Link>
           </Reveal>
-          <Stagger className="border-t border-border">
-            {featuredServices.map((s, i) => (
-              <StaggerItem key={s.slug}>
+          <Stagger className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {extensionReasons.map((r) => (
+              <StaggerItem key={r.title} className="h-full">
                 <Link
-                  href={`/services/${s.slug}`}
-                  className="group grid grid-cols-[2.5rem_1fr_auto] items-baseline gap-4 border-b border-border py-6 transition-colors hover:bg-surface md:py-7"
+                  href={r.href}
+                  className={
+                    r.featured
+                      ? "theme-navy group flex h-full flex-col rounded-xl border border-[#e5b84a]/40 bg-[#031833] p-7 transition-colors hover:border-[#e5b84a]"
+                      : "group flex h-full flex-col rounded-xl border border-border bg-background p-7 transition-colors hover:border-primary/50"
+                  }
                 >
-                  <span className="text-sm tabular-nums text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
-                  <span>
-                    <span className="block font-serif text-2xl font-medium text-foreground transition-colors group-hover:text-primary">
-                      {s.title}
-                    </span>
-                    <span className="mt-2 block max-w-lg text-sm leading-relaxed text-muted-foreground">{s.summary}</span>
+                  <r.icon className={r.featured ? "size-6 text-[#e5b84a]" : "size-6 text-primary"} aria-hidden="true" />
+                  <h3 className="mt-5 font-serif text-xl font-medium text-foreground">{r.title}</h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{r.text}</p>
+                  <span className={r.featured ? "mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#e5b84a]" : "mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary"}>
+                    {r.cta}
+                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
                   </span>
-                  <ArrowRight
-                    className="size-5 self-center text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-primary"
-                    aria-hidden="true"
-                  />
                 </Link>
               </StaggerItem>
             ))}
           </Stagger>
-        </Container>
-      </Section>
-
-      {/* Free tools */}
-      <Section className="border-t border-border bg-surface">
-        <Container>
-          <Reveal>
-            <SectionHeading
-              align="left"
-              eyebrow="Free tools"
-              title="Free tools for UK practices"
-              description="Deadlines, a year-end calculator, the true cost of a hire and the working papers we hand back - free to use, no sign-up."
-            />
-          </Reveal>
-          <div className="mt-10">
-            <FreeToolsGrid />
-          </div>
+          <p className="mt-12 text-center text-base text-foreground">
+            Try it on your own work: your first 3 jobs are free.{" "}
+            <Link href="/contact?offer=free-trial" className="font-semibold text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary">
+              Claim the free trial
+            </Link>
+          </p>
         </Container>
       </Section>
 
@@ -229,6 +279,90 @@ export default function HomePage() {
                   <h3 className="font-semibold text-foreground">{p.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
                 </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </Container>
+      </Section>
+
+      {/* GDPR and security */}
+      <Section>
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+            <Reveal>
+              <SectionHeading
+                align="left"
+                eyebrow="UK GDPR and security"
+                title="Covered in writing, before you share a single file"
+                description="Outsourcing to India is lawful under UK GDPR with the right contracts and safeguards. We provide them all - and the evidence behind our security."
+              />
+              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+                <Button asChild>
+                  <Link href="/gdpr">Our UK GDPR approach</Link>
+                </Button>
+                <Link
+                  href="/security"
+                  className="group inline-flex items-center gap-2 text-sm font-semibold text-foreground underline decoration-foreground/30 underline-offset-[6px] hover:decoration-primary"
+                >
+                  Security controls
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                </Link>
+              </div>
+            </Reveal>
+            <Stagger className="grid gap-x-10 sm:grid-cols-2">
+              {[...gdprHeadlines, ...trustExtras].map((h) => (
+                <StaggerItem key={h.title}>
+                  <div className="flex gap-3 border-t border-border py-5">
+                    <Check className="mt-1 size-4 shrink-0 text-[#2f8a57]" aria-hidden="true" />
+                    <div>
+                      <h3 className="font-semibold text-foreground">{h.title}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{h.text}</p>
+                    </div>
+                  </div>
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Services */}
+      <Section className="border-t border-border">
+        <Container className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <Reveal className="lg:sticky lg:top-28 lg:self-start">
+            <SectionHeading
+              align="left"
+              eyebrow="What we do"
+              title="One partner for the whole back office"
+              description="Hand over one service or all of them. Every job is prepared in your software, to your templates, and checked before it comes back."
+            />
+            <Link
+              href="/services"
+              className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-foreground underline decoration-white/30 underline-offset-[6px] hover:decoration-primary"
+            >
+              All 14 services
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+            </Link>
+          </Reveal>
+          <Stagger className="border-t border-border">
+            {featuredServices.map((s, i) => (
+              <StaggerItem key={s.slug}>
+                <Link
+                  href={`/services/${s.slug}`}
+                  className="group grid grid-cols-[2.5rem_1fr_auto] items-baseline gap-4 border-b border-border py-6 transition-colors hover:bg-surface md:py-7"
+                >
+                  <span className="text-sm tabular-nums text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
+                  <span>
+                    <span className="block font-serif text-2xl font-medium text-foreground transition-colors group-hover:text-primary">
+                      {s.title}
+                    </span>
+                    <span className="mt-2 block max-w-lg text-sm leading-relaxed text-muted-foreground">{s.summary}</span>
+                  </span>
+                  <ArrowRight
+                    className="size-5 self-center text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-primary"
+                    aria-hidden="true"
+                  />
+                </Link>
               </StaggerItem>
             ))}
           </Stagger>
@@ -382,43 +516,19 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* GDPR and security */}
+      {/* Free tools */}
       <Section>
         <Container>
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-            <Reveal>
-              <SectionHeading
-                align="left"
-                eyebrow="UK GDPR and security"
-                title="Covered in writing, before you share a single file"
-                description="Outsourcing to India is lawful under UK GDPR with the right contracts and safeguards. We provide them all - and the evidence behind our security."
-              />
-              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-                <Button asChild>
-                  <Link href="/gdpr">Our UK GDPR approach</Link>
-                </Button>
-                <Link
-                  href="/security"
-                  className="group inline-flex items-center gap-2 text-sm font-semibold text-foreground underline decoration-foreground/30 underline-offset-[6px] hover:decoration-primary"
-                >
-                  Security controls
-                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-                </Link>
-              </div>
-            </Reveal>
-            <Stagger className="grid gap-x-10 sm:grid-cols-2">
-              {[...gdprHeadlines, ...trustExtras].map((h) => (
-                <StaggerItem key={h.title}>
-                  <div className="flex gap-3 border-t border-border py-5">
-                    <Check className="mt-1 size-4 shrink-0 text-[#2f8a57]" aria-hidden="true" />
-                    <div>
-                      <h3 className="font-semibold text-foreground">{h.title}</h3>
-                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{h.text}</p>
-                    </div>
-                  </div>
-                </StaggerItem>
-              ))}
-            </Stagger>
+          <Reveal>
+            <SectionHeading
+              align="left"
+              eyebrow="Free tools"
+              title="Free tools for UK practices"
+              description="Deadlines, a year-end calculator, the true cost of a hire and the working papers we hand back - free to use, no sign-up."
+            />
+          </Reveal>
+          <div className="mt-10">
+            <FreeToolsGrid />
           </div>
         </Container>
       </Section>

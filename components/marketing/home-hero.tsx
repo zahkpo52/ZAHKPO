@@ -16,7 +16,7 @@ const facts = [
 export function HomeHero() {
   return (
     <section className="theme-navy bg-[#031833]">
-      <Container className="grid items-center gap-12 py-16 md:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-24">
+      <Container className="grid items-center gap-12 pt-16 pb-10 md:pt-20 md:pb-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pt-24 lg:pb-12">
         <div>
           <p className="text-sm font-medium text-[#e5b84a]">Outsourcing for UK accountancy firms</p>
 
@@ -40,7 +40,22 @@ export function HomeHero() {
               See how it works
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
             </Link>
+            <Link
+              href="/nexus"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-[#e5b84a] underline decoration-[#e5b84a]/40 underline-offset-[6px] transition-colors hover:decoration-[#e5b84a]"
+            >
+              See ZAH Nexus
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+            </Link>
           </div>
+
+          <ul className="mt-6 flex flex-wrap gap-2" aria-label="Why firms trust ZAH">
+            {["ZAH Nexus", "UK GDPR DPA + IDTA", "Reviewed twice"].map((t) => (
+              <li key={t} className="rounded-full border border-[#e5b84a]/40 px-3 py-1 text-xs font-medium text-[#e5b84a]">
+                {t}
+              </li>
+            ))}
+          </ul>
 
           <p className="mt-6 text-sm text-white/70">
             <span className="mr-2 rounded-full bg-[#e5b84a]/15 px-2.5 py-1 text-xs font-semibold text-[#e5b84a]">New firms</span>
