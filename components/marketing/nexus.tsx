@@ -35,6 +35,159 @@ const hangers = Array.from({ length: 19 }, (_, i) => 275 + i * 25).filter((x) =>
 const sideHangers = [90, 130, 170, 210, 790, 830, 870, 910];
 const sideCable = (x: number) => (x < 500 ? 196 - ((x - 60) / 190) * 136 : 60 + ((x - 750) / 190) * 136);
 
+/** The bridge drawing. `compact` is a taller crop for phones, with the flags moved inward and larger labels. */
+function BridgeArt({ compact = false, className }: { compact?: boolean; className?: string }) {
+  const p = compact ? "brm-" : "br-";
+  return (
+    <svg
+      viewBox={compact ? "170 20 660 275" : "0 0 1000 300"}
+      role="img"
+      aria-labelledby={`${p}title`}
+      className={className}
+    >
+      <title id={`${p}title`}>A bridge from your UK practice to the ZAH delivery team in India, with ZAH Nexus at its centre</title>
+      <defs>
+        <linearGradient id={`${p}water`} x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stopColor="#0d3566" stopOpacity="0.9" />
+          <stop offset="1" stopColor="#061c3a" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient id={`${p}gold`} x1="0" x2="1">
+          <stop offset="0" stopColor="#c99a2e" />
+          <stop offset="0.5" stopColor="#f3d27a" />
+          <stop offset="1" stopColor="#c99a2e" />
+        </linearGradient>
+        <linearGradient id={`${p}dawn`} x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stopColor="#061c3a" stopOpacity="0" />
+          <stop offset="0.55" stopColor="#c8743a" stopOpacity="0.18" />
+          <stop offset="1" stopColor="#f3b25a" stopOpacity="0.55" />
+        </linearGradient>
+        <radialGradient id={`${p}sun`}>
+          <stop offset="0" stopColor="#fff6d8" />
+          <stop offset="0.55" stopColor="#ffd77a" />
+          <stop offset="1" stopColor="#f0a33c" />
+        </radialGradient>
+        <radialGradient id={`${p}halo`}>
+          <stop offset="0" stopColor="#ffcf6b" stopOpacity="0.55" />
+          <stop offset="1" stopColor="#ffcf6b" stopOpacity="0" />
+        </radialGradient>
+        <clipPath id={`${p}flag-uk`}><circle cx="40" cy="210" r="24" /></clipPath>
+        <clipPath id={`${p}flag-in`}><circle cx="960" cy="210" r="24" /></clipPath>
+        <clipPath id={`${p}sky`}><rect x="0" y="0" width="1000" height="234" /></clipPath>
+        <filter id={`${p}glow`} x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="4" />
+        </filter>
+      </defs>
+
+      {/* dawn: the sky warms and the sun rises behind the bridge */}
+      <rect className="bridge-dawn" x="0" y="0" width="1000" height="234" fill={`url(#${p}dawn)`} />
+      <g clipPath={`url(#${p}sky)`}>
+        <g className="bridge-sun">
+          <circle cx="500" cy="150" r="150" fill={`url(#${p}halo)`} />
+          <g opacity="0.35">
+            {Array.from({ length: 12 }, (_, i) => (
+              <rect key={i} x="497" y="20" width="6" height="40" rx="3" fill="#ffd77a" transform={`rotate(${i * 30} 500 150)`} />
+            ))}
+            <animateTransform attributeName="transform" type="rotate" from="0 500 150" to="360 500 150" dur="60s" repeatCount="indefinite" />
+          </g>
+          <circle cx="500" cy="150" r="62" fill={`url(#${p}sun)`} />
+        </g>
+      </g>
+
+      {/* water */}
+      <rect x="0" y="232" width="1000" height="68" fill={`url(#${p}water)`} />
+      <g className="bridge-dawn">
+        {[240, 252, 266, 282].map((y, i) => (
+          <rect key={y} x={500 - (70 - i * 14)} y={y} width={(70 - i * 14) * 2} height="3" rx="1.5" fill="#ffd77a" opacity={0.5 - i * 0.1} />
+        ))}
+      </g>
+      {[248, 262, 278].map((y, i) => (
+        <path key={y} d={`M${40 + i * 30} ${y} H${960 - i * 30}`} stroke="#9fd3f5" strokeOpacity={0.12 - i * 0.03} strokeWidth="2" strokeDasharray="18 14" />
+      ))}
+
+      {/* towers */}
+      {[250, 750].map((x) => (
+        <g key={x}>
+          <rect x={x - 9} y="48" width="18" height="190" rx="3" fill="#0f2e57" stroke="#e5b84a" strokeOpacity="0.55" />
+          <rect x={x - 14} y="44" width="28" height="10" rx="2" fill="#e5b84a" />
+          <rect x={x - 9} y="110" width="18" height="4" fill="#e5b84a" fillOpacity="0.5" />
+          <rect x={x - 9} y="160" width="18" height="4" fill="#e5b84a" fillOpacity="0.5" />
+        </g>
+      ))}
+
+      {/* hangers */}
+      {hangers.map((x) => (
+        <line key={x} x1={x} x2={x} y1={cableY(x)} y2="206" stroke="#e5b84a" strokeOpacity="0.35" strokeWidth="1.5" />
+      ))}
+      {sideHangers.map((x) => (
+        <line key={x} x1={x} x2={x} y1={sideCable(x)} y2="206" stroke="#e5b84a" strokeOpacity="0.3" strokeWidth="1.5" />
+      ))}
+
+      {/* main cables */}
+      <path d="M60 196 L250 60 Q500 250 750 60 L940 196" fill="none" stroke={`url(#${p}gold)`} strokeWidth="3.5" strokeLinecap="round" />
+
+      {/* deck */}
+      <rect x="40" y="204" width="920" height="12" rx="3" fill="#123866" stroke="#e5b84a" strokeOpacity="0.5" />
+      <path d="M40 222 H960" stroke="#e5b84a" strokeOpacity="0.25" strokeWidth="2" />
+
+      {/* work flowing UK -> India (gold) and India -> UK (blue) */}
+      <g className="bridge-flow">
+        {[0, 1.3, 2.6].map((d) => (
+          <circle key={`g${d}`} r="5" cy="210" fill="#fff4cf" stroke="#e5b84a" strokeWidth="3">
+            <animate attributeName="cx" from="70" to="930" dur="4s" begin={`${d}s`} repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0;1;1;0" dur="4s" begin={`${d}s`} repeatCount="indefinite" />
+          </circle>
+        ))}
+        {[0.65, 1.95, 3.25].map((d) => (
+          <circle key={`b${d}`} r="4" cy="210" fill="#e8f6ff" stroke="#7cc4f0" strokeWidth="3">
+            <animate attributeName="cx" from="930" to="70" dur="4s" begin={`${d}s`} repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0;1;1;0" dur="4s" begin={`${d}s`} repeatCount="indefinite" />
+          </circle>
+        ))}
+      </g>
+
+      {/* ends: Union flag and Indian tricolour */}
+      <g>
+        <g transform={compact ? "translate(160 0)" : undefined}>
+        <g clipPath={`url(#${p}flag-uk)`}>
+          <rect x="10" y="180" width="60" height="60" fill="#012169" />
+          <path d="M10 180 L70 240 M70 180 L10 240" stroke="#ffffff" strokeWidth="12" />
+          <path d="M10 180 L70 240 M70 180 L10 240" stroke="#c8102e" strokeWidth="4" />
+          <path d="M40 180 V240 M10 210 H70" stroke="#ffffff" strokeWidth="16" />
+          <path d="M40 180 V240 M10 210 H70" stroke="#c8102e" strokeWidth="9" />
+        </g>
+        <circle cx="40" cy="210" r="25" fill="none" stroke="#e5b84a" strokeWidth="3" />
+        <text x="40" y={compact ? 268 : 258} textAnchor="middle" fontSize={compact ? 22 : 13} fontWeight="700" fill="#f3d27a" fontFamily="system-ui, sans-serif">UK</text>
+        </g>
+        <g transform={compact ? "translate(-160 0)" : undefined}>
+        <g clipPath={`url(#${p}flag-in)`}>
+          <rect x="930" y="180" width="60" height="20" fill="#ff9933" />
+          <rect x="930" y="200" width="60" height="20" fill="#ffffff" />
+          <rect x="930" y="220" width="60" height="20" fill="#138808" />
+          <circle cx="960" cy="210" r="6.5" fill="none" stroke="#000080" strokeWidth="1.4" />
+          {Array.from({ length: 12 }, (_, i) => (
+            <line key={i} x1="960" y1="210" x2="960" y2="203.5" stroke="#000080" strokeWidth="0.8" transform={`rotate(${i * 30} 960 210)`} />
+          ))}
+        </g>
+        <circle cx="960" cy="210" r="25" fill="none" stroke="#e5b84a" strokeWidth="3" />
+        <text x="960" y={compact ? 268 : 258} textAnchor="middle" fontSize={compact ? 22 : 13} fontWeight="700" fill="#f3d27a" fontFamily="system-ui, sans-serif">INDIA</text>
+        </g>
+      </g>
+
+      {/* Nexus hub at mid-span */}
+      <g transform={compact ? "translate(500 188) scale(1.45) translate(-500 -188)" : undefined}>
+        <circle cx="500" cy="186" r="46" fill="#e5b84a" opacity="0.18" filter={`url(#${p}glow)`}>
+          <animate attributeName="r" values="40;52;40" dur="3s" repeatCount="indefinite" />
+        </circle>
+        <rect x="446" y="160" width="108" height="56" rx="14" fill="#0a2243" stroke="#e5b84a" strokeWidth="2" />
+        <path d="M470 176 l10 -4 l10 4 v7 c0 6 -4 10 -10 12 c-6 -2 -10 -6 -10 -12 z" fill="#e5b84a" />
+        <path d="M475 183 l4 4 l7 -8" fill="none" stroke="#0a2243" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <text x="498" y="184" fontSize="13" fontWeight="700" fill="#ffffff" fontFamily="system-ui, sans-serif">ZAH</text>
+        <text x="498" y="200" fontSize="13" fontWeight="700" fill="#f3d27a" fontFamily="system-ui, sans-serif">Nexus</text>
+      </g>
+    </svg>
+  );
+}
+
 /** UK <-> ZAH Nexus <-> India, drawn as a suspension bridge with work flowing both ways. */
 export function NexusBridge() {
   return (
@@ -48,149 +201,8 @@ export function NexusBridge() {
           Our day in India starts while the UK is still asleep - so your jobs have moved on before you open your inbox.
         </figcaption>
       </figure>
-      <svg
-        viewBox="0 0 1000 300"
-        role="img"
-        aria-labelledby="bridge-title"
-        className="relative mx-auto block h-auto w-full max-w-5xl"
-      >
-        <title id="bridge-title">A bridge from your UK practice to the ZAH delivery team in India, with ZAH Nexus at its centre</title>
-        <defs>
-          <linearGradient id="br-water" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0" stopColor="#0d3566" stopOpacity="0.9" />
-            <stop offset="1" stopColor="#061c3a" stopOpacity="0" />
-          </linearGradient>
-          <linearGradient id="br-gold" x1="0" x2="1">
-            <stop offset="0" stopColor="#c99a2e" />
-            <stop offset="0.5" stopColor="#f3d27a" />
-            <stop offset="1" stopColor="#c99a2e" />
-          </linearGradient>
-          <linearGradient id="br-dawn" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0" stopColor="#061c3a" stopOpacity="0" />
-            <stop offset="0.55" stopColor="#c8743a" stopOpacity="0.18" />
-            <stop offset="1" stopColor="#f3b25a" stopOpacity="0.55" />
-          </linearGradient>
-          <radialGradient id="br-sun">
-            <stop offset="0" stopColor="#fff6d8" />
-            <stop offset="0.55" stopColor="#ffd77a" />
-            <stop offset="1" stopColor="#f0a33c" />
-          </radialGradient>
-          <radialGradient id="br-halo">
-            <stop offset="0" stopColor="#ffcf6b" stopOpacity="0.55" />
-            <stop offset="1" stopColor="#ffcf6b" stopOpacity="0" />
-          </radialGradient>
-          <clipPath id="br-flag-uk"><circle cx="40" cy="210" r="24" /></clipPath>
-          <clipPath id="br-flag-in"><circle cx="960" cy="210" r="24" /></clipPath>
-          <clipPath id="br-sky"><rect x="0" y="0" width="1000" height="234" /></clipPath>
-          <filter id="br-glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="4" />
-          </filter>
-        </defs>
-
-        {/* dawn: the sky warms and the sun rises behind the bridge */}
-        <rect className="bridge-dawn" x="0" y="0" width="1000" height="234" fill="url(#br-dawn)" />
-        <g clipPath="url(#br-sky)">
-          <g className="bridge-sun">
-            <circle cx="500" cy="150" r="150" fill="url(#br-halo)" />
-            <g opacity="0.35">
-              {Array.from({ length: 12 }, (_, i) => (
-                <rect key={i} x="497" y="20" width="6" height="40" rx="3" fill="#ffd77a" transform={`rotate(${i * 30} 500 150)`} />
-              ))}
-              <animateTransform attributeName="transform" type="rotate" from="0 500 150" to="360 500 150" dur="60s" repeatCount="indefinite" />
-            </g>
-            <circle cx="500" cy="150" r="62" fill="url(#br-sun)" />
-          </g>
-        </g>
-
-        {/* water */}
-        <rect x="0" y="232" width="1000" height="68" fill="url(#br-water)" />
-        <g className="bridge-dawn">
-          {[240, 252, 266, 282].map((y, i) => (
-            <rect key={y} x={500 - (70 - i * 14)} y={y} width={(70 - i * 14) * 2} height="3" rx="1.5" fill="#ffd77a" opacity={0.5 - i * 0.1} />
-          ))}
-        </g>
-        {[248, 262, 278].map((y, i) => (
-          <path key={y} d={`M${40 + i * 30} ${y} H${960 - i * 30}`} stroke="#9fd3f5" strokeOpacity={0.12 - i * 0.03} strokeWidth="2" strokeDasharray="18 14" />
-        ))}
-
-        {/* towers */}
-        {[250, 750].map((x) => (
-          <g key={x}>
-            <rect x={x - 9} y="48" width="18" height="190" rx="3" fill="#0f2e57" stroke="#e5b84a" strokeOpacity="0.55" />
-            <rect x={x - 14} y="44" width="28" height="10" rx="2" fill="#e5b84a" />
-            <rect x={x - 9} y="110" width="18" height="4" fill="#e5b84a" fillOpacity="0.5" />
-            <rect x={x - 9} y="160" width="18" height="4" fill="#e5b84a" fillOpacity="0.5" />
-          </g>
-        ))}
-
-        {/* hangers */}
-        {hangers.map((x) => (
-          <line key={x} x1={x} x2={x} y1={cableY(x)} y2="206" stroke="#e5b84a" strokeOpacity="0.35" strokeWidth="1.5" />
-        ))}
-        {sideHangers.map((x) => (
-          <line key={x} x1={x} x2={x} y1={sideCable(x)} y2="206" stroke="#e5b84a" strokeOpacity="0.3" strokeWidth="1.5" />
-        ))}
-
-        {/* main cables */}
-        <path d="M60 196 L250 60 Q500 250 750 60 L940 196" fill="none" stroke="url(#br-gold)" strokeWidth="3.5" strokeLinecap="round" />
-
-        {/* deck */}
-        <rect x="40" y="204" width="920" height="12" rx="3" fill="#123866" stroke="#e5b84a" strokeOpacity="0.5" />
-        <path d="M40 222 H960" stroke="#e5b84a" strokeOpacity="0.25" strokeWidth="2" />
-
-        {/* work flowing UK -> India (gold) and India -> UK (blue) */}
-        <g className="bridge-flow">
-          {[0, 1.3, 2.6].map((d) => (
-            <circle key={`g${d}`} r="5" cy="210" fill="#fff4cf" stroke="#e5b84a" strokeWidth="3">
-              <animate attributeName="cx" from="70" to="930" dur="4s" begin={`${d}s`} repeatCount="indefinite" />
-              <animate attributeName="opacity" values="0;1;1;0" dur="4s" begin={`${d}s`} repeatCount="indefinite" />
-            </circle>
-          ))}
-          {[0.65, 1.95, 3.25].map((d) => (
-            <circle key={`b${d}`} r="4" cy="210" fill="#e8f6ff" stroke="#7cc4f0" strokeWidth="3">
-              <animate attributeName="cx" from="930" to="70" dur="4s" begin={`${d}s`} repeatCount="indefinite" />
-              <animate attributeName="opacity" values="0;1;1;0" dur="4s" begin={`${d}s`} repeatCount="indefinite" />
-            </circle>
-          ))}
-        </g>
-
-        {/* ends: Union flag and Indian tricolour */}
-        <g>
-          <g clipPath="url(#br-flag-uk)">
-            <rect x="10" y="180" width="60" height="60" fill="#012169" />
-            <path d="M10 180 L70 240 M70 180 L10 240" stroke="#ffffff" strokeWidth="12" />
-            <path d="M10 180 L70 240 M70 180 L10 240" stroke="#c8102e" strokeWidth="4" />
-            <path d="M40 180 V240 M10 210 H70" stroke="#ffffff" strokeWidth="16" />
-            <path d="M40 180 V240 M10 210 H70" stroke="#c8102e" strokeWidth="9" />
-          </g>
-          <circle cx="40" cy="210" r="25" fill="none" stroke="#e5b84a" strokeWidth="3" />
-          <text x="40" y="258" textAnchor="middle" fontSize="13" fontWeight="700" fill="#f3d27a" fontFamily="system-ui, sans-serif">UK</text>
-
-          <g clipPath="url(#br-flag-in)">
-            <rect x="930" y="180" width="60" height="20" fill="#ff9933" />
-            <rect x="930" y="200" width="60" height="20" fill="#ffffff" />
-            <rect x="930" y="220" width="60" height="20" fill="#138808" />
-            <circle cx="960" cy="210" r="6.5" fill="none" stroke="#000080" strokeWidth="1.4" />
-            {Array.from({ length: 12 }, (_, i) => (
-              <line key={i} x1="960" y1="210" x2="960" y2="203.5" stroke="#000080" strokeWidth="0.8" transform={`rotate(${i * 30} 960 210)`} />
-            ))}
-          </g>
-          <circle cx="960" cy="210" r="25" fill="none" stroke="#e5b84a" strokeWidth="3" />
-          <text x="960" y="258" textAnchor="middle" fontSize="13" fontWeight="700" fill="#f3d27a" fontFamily="system-ui, sans-serif">INDIA</text>
-        </g>
-
-        {/* Nexus hub at mid-span */}
-        <g>
-          <circle cx="500" cy="186" r="46" fill="#e5b84a" opacity="0.18" filter="url(#br-glow)">
-            <animate attributeName="r" values="40;52;40" dur="3s" repeatCount="indefinite" />
-          </circle>
-          <rect x="446" y="160" width="108" height="56" rx="14" fill="#0a2243" stroke="#e5b84a" strokeWidth="2" />
-          <path d="M470 176 l10 -4 l10 4 v7 c0 6 -4 10 -10 12 c-6 -2 -10 -6 -10 -12 z" fill="#e5b84a" />
-          <path d="M475 183 l4 4 l7 -8" fill="none" stroke="#0a2243" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          <text x="498" y="184" fontSize="13" fontWeight="700" fill="#ffffff" fontFamily="system-ui, sans-serif">ZAH</text>
-          <text x="498" y="200" fontSize="13" fontWeight="700" fill="#f3d27a" fontFamily="system-ui, sans-serif">Nexus</text>
-        </g>
-      </svg>
+      <BridgeArt className="relative mx-auto hidden h-auto w-full max-w-5xl sm:block" />
+      <BridgeArt compact className="relative -mx-2 block h-auto w-[calc(100%+1rem)] max-w-none sm:hidden" />
 
       <div className="relative mt-6 grid gap-4 text-center sm:grid-cols-3">
         <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-5">
