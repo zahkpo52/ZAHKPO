@@ -27,13 +27,17 @@ export const metadata: Metadata = buildMetadata({
   title: "ZAH KPO | Accounting Outsourcing for UK Accountancy Firms",
   absoluteTitle: true,
   description:
-    "Outsourced bookkeeping, year-end accounts, VAT, payroll and tax support for UK accountancy firms. Reviewed work, delivered on time by ZAH KPO.",
+    "Outsourced bookkeeping, year-end, VAT, payroll and tax for UK accountancy firms - an extension of your team, tracked in ZAH Nexus, covered by UK GDPR.",
   path: "/",
   keywords: [
     "accounting outsourcing UK",
     "accountancy firm outsourcing",
     "bookkeeping outsourcing",
     "white label accounting",
+    "outsourced accounting team",
+    "offshore accounting team for UK firms",
+    "accounting outsourcing India UK GDPR",
+    "ZAH Nexus",
   ],
 });
 
