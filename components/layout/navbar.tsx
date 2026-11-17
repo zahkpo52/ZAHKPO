@@ -123,6 +123,14 @@ export function Navbar() {
 
             <NavigationMenu.Item>
               <NavigationMenu.Link asChild>
+                <Link href="/nexus" className={navLinkClass(pathname === "/nexus")}>
+                  ZAH Nexus
+                </Link>
+              </NavigationMenu.Link>
+            </NavigationMenu.Item>
+
+            <NavigationMenu.Item>
+              <NavigationMenu.Link asChild>
                 <Link
                   href="/why-zah-kpo"
                   className={navLinkClass(pathname === "/why-zah-kpo")}
@@ -260,6 +268,12 @@ export function Navbar() {
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
+                <Link
+                  href="/nexus"
+                  className="block border-b border-white/10 py-3.5 text-base font-medium text-foreground"
+                >
+                  ZAH Nexus
+                </Link>
                 <Link
                   href="/why-zah-kpo"
                   className="block border-b border-white/10 py-3.5 text-base font-medium text-foreground"
