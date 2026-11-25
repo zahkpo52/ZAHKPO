@@ -13,6 +13,8 @@ import CompaniesHouseIdv, { meta as idvMeta } from "./companies-house-identity-v
 import ReverseCharge, { meta as reverseChargeMeta } from "./construction-vat-domestic-reverse-charge-guide";
 import VatThreshold, { meta as vatThresholdMeta } from "./vat-registration-threshold-tests-explained";
 import SaJanuary, { meta as saJanuaryMeta } from "./self-assessment-31-january-practice-checklist";
+import CtDeadlines, { meta as ctDeadlinesMeta } from "./corporation-tax-deadlines-pay-file-penalties";
+import VatPenalties, { meta as vatPenaltiesMeta } from "./vat-penalties-late-returns-and-late-payment";
 
 export interface BlogPost {
   meta: BlogMeta;
@@ -32,6 +34,8 @@ export const posts: BlogPost[] = [
   { meta: reverseChargeMeta, Body: ReverseCharge },
   { meta: vatThresholdMeta, Body: VatThreshold },
   { meta: saJanuaryMeta, Body: SaJanuary },
+  { meta: ctDeadlinesMeta, Body: CtDeadlines },
+  { meta: vatPenaltiesMeta, Body: VatPenalties },
 ].sort((a, b) => b.meta.date.localeCompare(a.meta.date));
 
 export function getPost(slug: string): BlogPost | undefined {
