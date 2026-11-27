@@ -8,8 +8,10 @@ export const siteConfig = {
   logo: "/logo-mark.png",
   founded: 2025,
   tagline: "Growth Beyond Limit",
+  positioning: "Your Extended Practice Operations Team",
+  promise: "Helping UK Accounting Practices Grow Beyond Capacity",
   description:
-    "ZAH KPO is the outsourcing partner for UK accountancy firms: bookkeeping, year-end accounts, VAT, payroll, tax and audit support, reviewed and on time.",
+    "ZAH KPO is the extended practice operations team for UK accounting practices: bookkeeping, year-end, VAT, payroll and tax, reviewed twice and on time.",
   contact: {
     phoneAlt: "+91 79999 83500",
     phoneAltHref: "+917999983500",

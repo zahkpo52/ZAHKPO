@@ -7,11 +7,11 @@
 export const SITE_CONTENT_DATE = "2026-11-13";
 
 export const pageDates: Record<string, string> = {
-  "/": "2026-11-17",
+  "/": "2026-11-27",
   "/nexus": "2026-11-17",
   "/uk-tax-deadlines": "2026-11-16",
   "/free-tools": "2026-11-16",
-  "/about": SITE_CONTENT_DATE,
+  "/about": "2026-11-27",
   "/services": SITE_CONTENT_DATE,
   "/why-zah-kpo": SITE_CONTENT_DATE,
   "/blog": SITE_CONTENT_DATE,

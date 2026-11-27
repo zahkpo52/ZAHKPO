@@ -77,7 +77,7 @@ function Banner({ post, featured }: { post: BlogMeta; featured: boolean }) {
         <Image src="/logo-mark-80.webp" alt="" width={18} height={18} className="size-[18px]" />
         <div className="leading-tight">
           <p className="text-[10px] font-bold tracking-[0.08em] text-white">ZAH KPO</p>
-          <p className="text-[7px] font-medium tracking-[0.04em] text-[#e5b84a]">Outsourced accounting for UK practices</p>
+          <p className="text-[7px] font-medium tracking-[0.04em] text-[#e5b84a]">Your Extended Practice Operations Team</p>
         </div>
       </div>
 

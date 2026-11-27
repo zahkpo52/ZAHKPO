@@ -31,7 +31,7 @@ const serif = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | Accounting Outsourcing for UK Accountancy Firms`,
+    default: `${siteConfig.name} | Extended Practice Operations Team for UK Accountants`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -40,6 +40,7 @@ export const metadata: Metadata = {
   creator: siteConfig.name,
   keywords: [
     "accounting outsourcing",
+    "practice operations team",
     "accountancy firm outsourcing",
     "bookkeeping outsourcing",
     "payroll outsourcing",
@@ -51,13 +52,13 @@ export const metadata: Metadata = {
     locale: "en_GB",
     url: "/",
     siteName: siteConfig.name,
-    title: `${siteConfig.name} | Accounting Outsourcing for UK Accountancy Firms`,
+    title: `${siteConfig.name} | Extended Practice Operations Team for UK Accountants`,
     description: siteConfig.description,
     images: [defaultOgImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} | Accounting Outsourcing for UK Accountancy Firms`,
+    title: `${siteConfig.name} | Extended Practice Operations Team for UK Accountants`,
     description: siteConfig.description,
     images: [defaultOgImage.url],
   },

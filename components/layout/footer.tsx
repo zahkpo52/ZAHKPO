@@ -24,8 +24,8 @@ export function Footer() {
           <div className="flex flex-col gap-6">
             <Logo />
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-              The outsourcing partner for UK accountancy firms. Skilled people, SOP-driven processes
-              and modern technology - work delivered accurately and on time.
+              Your extended practice operations team. Helping UK accounting practices grow beyond
+              capacity - with skilled people, SOP-driven processes and ZAH Nexus.
             </p>
             <NewsletterForm />
             <SocialLinks />

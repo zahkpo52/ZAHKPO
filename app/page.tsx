@@ -24,10 +24,10 @@ import { clientTestimonials } from "@/content/testimonials";
 import { gdprHeadlines } from "@/content/trust";
 
 export const metadata: Metadata = buildMetadata({
-  title: "ZAH KPO | Accounting Outsourcing for UK Accountancy Firms",
+  title: "ZAH KPO | Extended Practice Operations Team for UK Accountants",
   absoluteTitle: true,
   description:
-    "Outsourced bookkeeping, year-end, VAT, payroll and tax for UK accountancy firms - an extension of your team, tracked in ZAH Nexus, covered by UK GDPR.",
+    "Your extended practice operations team: bookkeeping, year-end, VAT, payroll and tax for UK accounting practices, tracked in ZAH Nexus, UK GDPR covered.",
   path: "/",
   keywords: [
     "accounting outsourcing UK",
@@ -38,6 +38,8 @@ export const metadata: Metadata = buildMetadata({
     "offshore accounting team for UK firms",
     "accounting outsourcing India UK GDPR",
     "ZAH Nexus",
+    "practice operations team",
+    "extended practice team UK accountants",
   ],
 });
 
@@ -147,6 +149,36 @@ const extensionReasons = [
   },
 ];
 
+const operationsCompare: [string, string][] = [
+  ["Send work, wait, hope it comes back", "We run your compliance workflow end to end"],
+  ["A black box - no idea where a job is", "Every job, review point and deadline live in ZAH Nexus"],
+  ["Sold on being cheap", "Built for capacity - take on more clients"],
+  ["You are one account among hundreds", "Founder-led, with a qualified review on every job"],
+  ["An offshore vendor", "Your practice's own operations team"],
+];
+
+const pillars = [
+  {
+    n: "01",
+    title: "Run",
+    line: "We run your compliance engine.",
+    text: "Bookkeeping, year-end, VAT, payroll, CIS and tax prepared in your software, to your templates, then reviewed by a second accountant.",
+  },
+  {
+    n: "02",
+    title: "See",
+    line: "Nothing disappears into a black box.",
+    text: "Your team logs in to ZAH Nexus and sees every job, query, review point and deadline - live.",
+    featured: true,
+  },
+  {
+    n: "03",
+    title: "Grow",
+    line: "Grow beyond capacity.",
+    text: "Take on new clients and busy seasons without new hires, desks or recruitment fees.",
+  },
+];
+
 const engagementModels = [
   {
     title: "Pay per hour",
@@ -195,6 +227,71 @@ export default function HomePage() {
         </Container>
       </Section>
 
+      {/* Positioning: practice operations, not outsourcing */}
+      <Section>
+        <Container>
+          <Reveal>
+            <SectionHeading
+              align="left"
+              eyebrow="Why we are different"
+              title="Not outsourcing. Practice operations."
+              description="Most providers take tasks off your desk and send them back. ZAH runs the operations behind your practice - the preparation, the review, the deadlines and the visibility - so your UK team can focus on clients and growth."
+            />
+          </Reveal>
+          <Reveal delay={0.05} className="mt-12 grid overflow-hidden rounded-2xl border border-border md:grid-cols-2">
+            <div className="bg-surface p-7 md:p-8">
+              <h3 className="text-sm font-semibold uppercase tracking-[0.08em] text-muted-foreground">Typical outsourcing</h3>
+              <ul className="mt-4">
+                {operationsCompare.map(([old]) => (
+                  <li key={old} className="flex gap-3 border-t border-border py-3.5 text-muted-foreground">
+                    <span aria-hidden="true" className="text-muted-foreground/60">✕</span>
+                    {old}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="theme-navy bg-[#031833] p-7 md:p-8">
+              <h3 className="text-sm font-semibold uppercase tracking-[0.08em] text-[#e5b84a]">ZAH practice operations</h3>
+              <ul className="mt-4">
+                {operationsCompare.map(([, zah]) => (
+                  <li key={zah} className="flex gap-3 border-t border-white/15 py-3.5 text-foreground">
+                    <Check className="mt-1 size-4 shrink-0 text-[#e5b84a]" aria-hidden="true" />
+                    {zah}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        </Container>
+      </Section>
+
+      {/* Run. See. Grow. */}
+      <Section className="bg-surface">
+        <Container>
+          <Reveal>
+            <SectionHeading align="left" eyebrow="How we work for you" title="Run. See. Grow." />
+          </Reveal>
+          <Stagger className="mt-12 grid gap-6 md:grid-cols-3">
+            {pillars.map((p) => (
+              <StaggerItem key={p.title} className="h-full">
+                <div
+                  className={
+                    p.featured
+                      ? "theme-navy h-full rounded-2xl border border-[#031833] bg-[#031833] p-8"
+                      : "h-full rounded-2xl border border-border bg-background p-8 shadow-[0_10px_30px_rgba(3,24,51,0.06)]"
+                  }
+                >
+                  <p className="font-serif text-5xl leading-none text-[#e5b84a]">{p.n}</p>
+                  <h3 className="mt-4 text-2xl font-semibold text-foreground">{p.title}</h3>
+                  <p className={p.featured ? "mt-1 font-semibold text-[#e5b84a]" : "mt-1 font-semibold text-[color:var(--primary-ink)]"}>{p.line}</p>
+                  <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{p.text}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </Container>
+      </Section>
+
       <section className="border-b border-border bg-background py-12">
         <Container>
           <LogoCloud label="We work in the software your clients already use" marquee />
@@ -206,13 +303,13 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Why it works like your own team */}
+      {/* Why practices run on ZAH */}
       <Section className="bg-surface">
         <Container>
           <Reveal>
             <SectionHeading
-              eyebrow="Why it works like your own team"
-              title="Six reasons UK practices treat ZAH as part of their team"
+              eyebrow="Why practices run on ZAH"
+              title="Six reasons UK practices make ZAH their operations team"
             />
           </Reveal>
           <Stagger className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -259,7 +356,7 @@ export default function HomePage() {
             </Reveal>
             <Reveal delay={0.05}>
               <p className="text-lg leading-relaxed text-muted-foreground">
-                The usual worry with an offshore team is not knowing what is happening. ZAH Nexus is the
+                The usual worry with any outside team is not knowing what is happening. ZAH Nexus is the
                 workflow platform we built and use every day. Your UK team logs in to the same workspace
                 we do.
               </p>
@@ -420,7 +517,7 @@ export default function HomePage() {
           <Reveal>
             <SectionHeading
               align="left"
-              eyebrow="Why outsource"
+              eyebrow="Capacity without hiring"
               title="Hiring another accountant, or working with ZAH"
               description="Both add capacity. Here is how they compare for a UK practice that needs reliable help through the year."
             />
@@ -613,7 +710,7 @@ export default function HomePage() {
         data={{
           "@context": "https://schema.org",
           "@type": "VideoObject",
-          name: "Meet ZAH KPO - outsourced accounting for UK accountancy firms",
+          name: "Meet ZAH KPO - the extended practice operations team for UK accountancy firms",
           description:
             "A one-minute introduction to ZAH KPO: how we help UK practices save time, reduce cost and grow with confidence, with clear SOPs, multi-level review and GDPR-aligned practices.",
           thumbnailUrl: [`${siteConfig.url}/videos/zah-kpo-intro-poster.webp`],
@@ -784,7 +881,10 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <CTASection />
+      <CTASection
+        title="Grow beyond capacity."
+        description="Your extended practice operations team is one call away. Your first 3 jobs are free."
+      />
     </>
   );
 }
