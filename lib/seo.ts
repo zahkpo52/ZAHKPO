@@ -10,7 +10,7 @@ export const defaultOgImage = {
   url: "/og/zah-kpo-share.png",
   width: 1200,
   height: 630,
-  alt: "ZAH KPO – accounting outsourcing for UK accountancy firms",
+  alt: "ZAH KPO – your extended practice operations team for UK accounting practices",
 };
 
 interface BuildMetaArgs {

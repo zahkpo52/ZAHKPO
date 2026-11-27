@@ -18,15 +18,20 @@ export function HomeHero() {
     <section className="theme-navy bg-[#031833]">
       <Container className="grid items-center gap-12 pt-16 pb-10 md:pt-20 md:pb-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pt-24 lg:pb-12">
         <div>
-          <p className="text-sm font-medium text-[#e5b84a]">Outsourcing for UK accountancy firms</p>
+          <p className="text-sm font-medium text-[#e5b84a]">ZAH KPO – Your Extended Practice Operations Team</p>
 
           <h1 className="mt-5 text-balance font-serif text-[2.6rem] font-medium leading-[1.05] tracking-[-0.015em] text-foreground sm:text-6xl lg:text-[4.25rem]">
-            Outsourced accounting that works like <em className="font-normal text-[#e5b84a]">your own team.</em>
+            We run the operations. <em className="font-normal text-[#e5b84a]">You grow the practice.</em>
           </h1>
 
           <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-foreground/75">
-            Bookkeeping, year-end accounts, VAT, payroll and tax - prepared by qualified accountants in
-            your software, reviewed twice before it reaches you, and tracked job by job in ZAH Nexus.
+            Bookkeeping, year-end accounts, VAT, payroll and tax - prepared inside your software, reviewed
+            twice, and visible job by job in ZAH Nexus. Not another outsourcing vendor: the operations team
+            behind your practice.
+          </p>
+
+          <p className="mt-5 border-l-[3px] border-[#e5b84a] pl-3 text-[15px] font-medium text-white">
+            Helping UK accounting practices grow beyond capacity.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
@@ -90,7 +95,7 @@ export function HomeHero() {
             <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#031833]/85 to-transparent" />
             <LiveClocks className="absolute inset-x-4 bottom-4 rounded-xl border border-white/15 bg-[#031833]/75 p-4 backdrop-blur-md sm:inset-x-6 sm:bottom-6 sm:p-5" />
           </div>
-          <figcaption className="mt-3 text-xs text-foreground/50">Our delivery centre in Khargone, India</figcaption>
+          <figcaption className="mt-3 text-xs text-foreground/50">Our practice operations centre in Khargone, India</figcaption>
         </figure>
       </Container>
     </section>

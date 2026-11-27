@@ -27,11 +27,11 @@ import { founders } from "@/content/team";
 // import { stats } from "@/content/stats";
 
 export const metadata: Metadata = buildMetadata({
-  title: "About Us – Outsourcing Partner for UK Firms",
+  title: "About Us – Your Extended Practice Operations Team",
   description:
-    "Meet ZAH KPO's founders and team. We help UK accountancy firms add capacity with skilled staff, SOP-led processes and UK GDPR-aligned security.",
+    "Meet ZAH KPO's founders and team: the extended practice operations team helping UK accounting practices grow beyond capacity, securely and on time.",
   path: "/about",
-  keywords: ["about ZAH KPO", "accounting outsourcing partner UK", "KPO for accountants"],
+  keywords: ["about ZAH KPO", "practice operations team UK", "accounting outsourcing partner UK", "KPO for accountants"],
 });
 
 const crumbs = [{ label: "Home", href: "/" }, { label: "About" }];

@@ -47,10 +47,10 @@ export const securityFeatures: IconItem[] = [
 ];
 
 export const whoWeAre =
-  "ZAH is a trusted outsourcing partner for UK accounting firms, delivering accurate, scalable and high-quality accounting support. Acting as an extension of our clients' teams, we combine skilled professionals, efficient processes and modern technology to improve turnaround times, maintain quality and support sustainable growth.";
+  "ZAH KPO is the extended practice operations team for UK accounting practices, helping them grow beyond capacity. We run the operations behind the practice - preparation, review, deadlines and visibility - combining skilled professionals, efficient processes and modern technology to improve turnaround times, maintain quality and support sustainable growth.";
 
 export const vision =
-  "To become the most trusted outsourcing partner for accounting firms by combining skilled professionals, structured processes, modern technology and AI-driven efficiencies - delivering exceptional value while creating a positive impact on businesses, people and the environment.";
+  "To become the most trusted practice operations partner for accounting firms by combining skilled professionals, structured processes, modern technology and AI-driven efficiencies - delivering exceptional value while creating a positive impact on businesses, people and the environment.";
 
 export const mission =
   "To help accounting firms scale efficiently through accurate delivery, SOP-driven operations, continuous process improvement and responsible use of technology and AI. We are committed to reliable support, meaningful business insights, sustainable growth, and contributing to society through initiatives that promote environmental and community well-being.";
